@@ -8,41 +8,56 @@ const screenshots = [
     title: 'Supplier Dashboard',
     description: 'Manage all your products, codes, and analytics in one place.',
     image: '/product screenshots/supplier-dashboard.png',
+    objectFit: 'contain' as const,
   },
   {
     id: 'consumer-page',
     title: 'Consumer Product Page',
     description: 'AI-native product pages your customers see when scanning.',
     image: '/product screenshots/consumer-product-page-view.png',
+    objectFit: 'contain' as const,
   },
-  // {
-  //   id: 'ai-chat',
-  //   title: 'AI Chat Interface',
-  //   description: 'Product-specific AI assistant answering customer questions.',
-  //   image: '/product screenshots/ai-chat-interface.png',
-  // },
+  {
+    id: 'ai-chat',
+    title: 'AI Chat Interface',
+    description: 'Product-specific AI assistant answering customer questions.',
+    image: '/product screenshots/ai-chat-interface.png',
+    objectFit: 'contain' as const,
+  },
   {
     id: 'add-product',
-    title: 'Add Product Wizard',
+    title: 'Add Product',
     description: 'Easily add products and generate codes in seconds.',
     image: '/product screenshots/add-product-wizard-UI.png',
+    objectFit: 'contain' as const,
+  },
+  {
+    id: 'analytics-dashboard',
+    title: 'Analytics Dashboard',
+    description: 'Comprehensive analytics for your products.',
+    image: '/product screenshots/analytics-dashboard.png',
+    objectFit: 'contain' as const,
   },
   {
     id: 'product-analytics',
     title: 'Product Analytics',
     description: 'Deep dive into individual product performance.',
     image: '/product screenshots/individual-product-analytics.png',
+    objectFit: 'contain' as const,
   },
 ];
 
 export default function ProductPreview() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
 
   const goToPrev = () => {
+    setDirection(-1);
     setActiveIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
   };
 
   const goToNext = () => {
+    setDirection(1);
     setActiveIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
   };
 
@@ -71,30 +86,38 @@ export default function ProductPreview() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 50 * direction }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                exit={{ opacity: 0, x: -50 * direction }}
                 transition={{ duration: 0.3 }}
                 className="aspect-video relative"
               >
                 <img
                   src={screenshots[activeIndex].image}
                   alt={screenshots[activeIndex].title}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full ${screenshots[activeIndex].objectFit === 'contain' ? 'object-contain bg-gray-100' : 'object-cover'}`}
                 />
               </motion.div>
             </AnimatePresence>
 
             {/* Navigation arrows */}
             <button
-              onClick={goToPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                goToPrev();
+              }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition z-10"
             >
               <ChevronLeft className="w-6 h-6 text-gray-700" />
             </button>
             <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                goToNext();
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition z-10"
             >
               <ChevronRight className="w-6 h-6 text-gray-700" />
             </button>
@@ -118,8 +141,8 @@ export default function ProductPreview() {
                 key={screenshot.id}
                 onClick={() => setActiveIndex(index)}
                 className={`w-20 h-14 rounded-lg overflow-hidden border-2 transition ${index === activeIndex
-                    ? 'border-indigo-600 shadow-md'
-                    : 'border-transparent opacity-60 hover:opacity-100'
+                  ? 'border-indigo-600 shadow-md'
+                  : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
               >
                 <img
