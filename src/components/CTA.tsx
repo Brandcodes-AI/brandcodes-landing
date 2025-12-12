@@ -59,14 +59,14 @@ export default function CTA() {
             className="text-white"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Start Generating GS1-Ready Product URLs and QR/2D Codes in Minutes
+              Start Generating GS1-Ready Product URLs and QR/2D Codes
             </h2>
             <p className="text-lg text-indigo-100 mb-8">
               Join brands already using BrandCodes to turn packaging into intelligent digital
-              experiences. Get started for free or request a personalized demo.
+              experiences. Request a personalized demo to learn more.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a
                 href="http://localhost:3000/"
                 className="inline-flex items-center justify-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 shadow-lg transition group"
@@ -97,7 +97,7 @@ export default function CTA() {
                 </svg>
                 Free tier available
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right: Contact Form */}

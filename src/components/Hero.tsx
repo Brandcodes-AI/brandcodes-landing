@@ -42,16 +42,16 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
+              {/* <a
                 href="http://localhost:3000/"
                 className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 transition group"
               >
                 Get Started
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </a> */}
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition"
+                className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 transition"
               >
                 <Play size={20} className="mr-2" />
                 Book a Demo
