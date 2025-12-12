@@ -11,6 +11,13 @@ const screenshots = [
     objectFit: 'contain' as const,
   },
   {
+    id: 'qr',
+    title: 'QR Code Preview',
+    description: 'View & download auto-generated GS1 Digital Link QR Code at your fingertips.',
+    image: '/product screenshots/qr-code-preview.png',
+    objectFit: 'contain' as const,
+  },
+  {
     id: 'consumer-page',
     title: 'Consumer Product Page',
     description: 'AI-native product pages your customers see when scanning.',
