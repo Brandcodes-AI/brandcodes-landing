@@ -104,7 +104,7 @@ export default function SolutionOverview() {
           <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
             <h4 className="text-lg font-semibold text-gray-900 mb-4">GS1 2D Barcodes</h4>
             <img
-              src="/QR Examples/gs1 2D barcodes.jpg"
+              src="/QR Examples/GS1 Digital Link QR Code.png"
               alt="GS1 2D Barcode example with GTIN encoding"
               className="w-full rounded-lg"
             />
