@@ -1,56 +1,5 @@
 import { motion } from 'framer-motion';
-import { Database, ShoppingBag, Barcode, Palette, Printer, Code } from 'lucide-react';
-
-const integrations = [
-  {
-    name: 'Adobe Creative Suite',
-    description: 'Illustrator, InDesign plugins',
-    logo: '/partner logos/Adobe-logo.png',
-    hasLogo: true,
-  },
-  {
-    name: 'Figma',
-    description: 'Design system integration',
-    logo: '/partner logos/figma.png',
-    hasLogo: true,
-  },
-  {
-    name: 'Zebra Printers',
-    description: 'Label printer support',
-    icon: Printer,
-    hasLogo: false,
-  },
-  {
-    name: 'Shopify',
-    description: 'E-commerce sync',
-    icon: ShoppingBag,
-    hasLogo: false,
-  },
-  {
-    name: 'GS1 Digital Link',
-    description: 'Compliance validators',
-    icon: Barcode,
-    hasLogo: false,
-  },
-  {
-    name: 'PIM/ERP Systems',
-    description: 'Akeneo, PIMcore, SAP',
-    icon: Database,
-    hasLogo: false,
-  },
-  {
-    name: 'WooCommerce',
-    description: 'WordPress integration',
-    icon: ShoppingBag,
-    hasLogo: false,
-  },
-  {
-    name: 'REST API',
-    description: 'Custom integrations',
-    icon: Code,
-    hasLogo: false,
-  },
-];
+import { Database, Barcode, Palette } from 'lucide-react';
 
 const workflowSteps = [
   {

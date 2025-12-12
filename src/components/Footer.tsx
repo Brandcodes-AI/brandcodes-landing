@@ -1,30 +1,34 @@
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Github, Linkedin, Twitter, MapPin } from 'lucide-react';
 
 export default function Footer() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   const footerLinks = {
     Product: [
-      { name: 'Features', href: '#features' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'Use Cases', href: '#use-cases' },
-    ],
-    Resources: [
-      { name: 'Documentation', href: '#' },
-      { name: 'API Reference', href: '#' },
-      { name: 'GS1 Compliance', href: '#' },
-      { name: 'Blog', href: '#' },
+      { name: 'Features', href: isHomePage ? '#features' : '/#features', isRoute: false },
+      { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works', isRoute: false },
+      { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases', isRoute: false },
+      { name: 'Preview', href: isHomePage ? '#preview' : '/#preview', isRoute: false },
     ],
     Company: [
-      { name: 'About', href: '#' },
-      { name: 'Contact', href: '#contact' },
-      // { name: 'Careers', href: '#' },
-      { name: 'Partners', href: '#' },
+      { name: 'About', href: '/about', isRoute: true },
+      { name: 'Team', href: '/team', isRoute: true },
+      { name: 'Contact', href: '/contact', isRoute: true },
     ],
-    Legal: [
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Cookie Policy', href: '#' },
+    Resources: [
+      { name: 'FAQ', href: '/faq', isRoute: true },
+      { name: 'Support', href: '/contact', isRoute: true },
+      // { name: 'Documentation', href: '#', isRoute: false },
+      // { name: 'API Reference', href: '#', isRoute: false },
+      // { name: 'GS1 Compliance', href: '#', isRoute: false },
     ],
+    // Legal: [
+    //   { name: 'Privacy Policy', href: '#', isRoute: false },
+    //   { name: 'Terms of Service', href: '#', isRoute: false },
+    //   { name: 'Cookie Policy', href: '#', isRoute: false },
+    // ],
   };
 
   return (
@@ -33,14 +37,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <a href="#" className="flex items-center space-x-2 mb-4">
+            <Link to="/" className="flex items-center space-x-2 mb-4">
               <img
                 src="/logo/bc-mock-logo-background-removed.png"
                 alt="BrandCodes"
                 className="h-8 w-auto brightness-0 invert"
               />
               <span className="text-xl font-bold">BrandCodes</span>
-            </a>
+            </Link>
             <p className="text-slate-400 text-sm mb-4">
               Turn every product into an intelligent digital experience with one scan.
             </p>
@@ -77,12 +81,21 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-slate-400 hover:text-white text-sm transition"
-                    >
-                      {link.name}
-                    </a>
+                    {link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="text-slate-400 hover:text-white text-sm transition"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-slate-400 hover:text-white text-sm transition"
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -96,9 +109,15 @@ export default function Footer() {
             <p className="text-slate-400 text-sm">
               &copy; {new Date().getFullYear()} BrandCodes. All rights reserved.
             </p>
-            <p className="text-slate-400 text-sm">
-              GS1 Digital Link Compliant
-            </p>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 text-slate-400 text-sm">
+                <MapPin size={16} />
+                <span>Singapore</span>
+              </div>
+              <p className="text-slate-400 text-sm">
+                GS1 Digital Link Compliant
+              </p>
+            </div>
           </div>
         </div>
       </div>
