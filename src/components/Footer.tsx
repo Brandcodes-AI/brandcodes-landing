@@ -25,7 +25,7 @@ export default function Footer() {
       // { name: 'GS1 Compliance', href: '#', isRoute: false },
     ],
     Legal: [
-      { name: 'Privacy Policy', href: '/privacy.html', isRoute: false },
+      { name: 'Privacy Policy', href: '/privacy', isRoute: true },
       // { name: 'Terms of Service', href: '#', isRoute: false },
       // { name: 'Cookie Policy', href: '#', isRoute: false },
     ],
