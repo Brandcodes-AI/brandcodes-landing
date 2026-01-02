@@ -249,7 +249,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Onboarding Section */}
+      {/* Onboarding Section - Commented out for now
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -287,6 +287,7 @@ export default function PricingPage() {
           </motion.div>
         </div>
       </section>
+      */}
 
       {/* Feature Comparison Table */}
       <section className="py-16 lg:py-24 bg-white">
