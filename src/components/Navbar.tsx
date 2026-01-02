@@ -9,10 +9,11 @@ export default function Navbar() {
   const isHomePage = location.pathname === '/';
 
   const navLinks = [
-    { name: 'Features', href: isHomePage ? '#features' : '/#features' },
-    { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works' },
-    { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases' },
-    { name: 'Preview', href: isHomePage ? '#preview' : '/#preview' },
+    { name: 'Features', href: isHomePage ? '#features' : '/#features', isRoute: false },
+    { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works', isRoute: false },
+    { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases', isRoute: false },
+    { name: 'Preview', href: isHomePage ? '#preview' : '/#preview', isRoute: false },
+    { name: 'Pricing', href: '/pricing', isRoute: true },
   ];
 
   const companyLinks = [
@@ -36,15 +37,25 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-600 hover:text-indigo-600 font-medium transition"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-gray-600 hover:text-indigo-600 font-medium transition"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-600 hover:text-indigo-600 font-medium transition"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
 
             {/* Company Dropdown */}
             <div
@@ -105,16 +116,27 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-b border-gray-200">
           <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block text-gray-600 hover:text-indigo-600 font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block text-gray-600 hover:text-indigo-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-gray-600 hover:text-indigo-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
+            )}
 
             {/* Company Section - Mobile */}
             <div className="border-t border-gray-200 pt-3">

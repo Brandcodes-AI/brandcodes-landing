@@ -11,6 +11,7 @@ export default function Footer() {
       { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works', isRoute: false },
       { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases', isRoute: false },
       { name: 'Preview', href: isHomePage ? '#preview' : '/#preview', isRoute: false },
+      { name: 'Pricing', href: '/pricing', isRoute: true },
     ],
     Company: [
       { name: 'About', href: '/about', isRoute: true },
