@@ -58,13 +58,17 @@ export default function Footer() {
                 <Github size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/110915539"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-slate-400 hover:text-white transition"
               >
                 <Linkedin size={20} />
               </a>
               <a
-                href="#"
+                href="https://x.com/brandcodes_io"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-slate-400 hover:text-white transition"
               >
                 <Twitter size={20} />
