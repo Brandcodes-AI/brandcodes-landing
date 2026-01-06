@@ -33,7 +33,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-navy-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Column */}
@@ -46,7 +46,7 @@ export default function Footer() {
               />
               <span className="text-xl font-bold">BrandCodes</span>
             </Link>
-            <p className="text-slate-400 text-sm mb-4">
+            <p className="text-navy-300 text-sm mb-4">
               Turn every product into an intelligent digital experience with one scan.
             </p>
             <div className="flex space-x-4">
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://github.com/Brandcodes-web"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition"
+                className="text-navy-300 hover:text-white transition"
               >
                 <Github size={20} />
               </a>
@@ -62,7 +62,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/110915539"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition"
+                className="text-navy-300 hover:text-white transition"
               >
                 <Linkedin size={20} />
               </a>
@@ -70,7 +70,7 @@ export default function Footer() {
                 href="https://x.com/brandcodes_io"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition"
+                className="text-navy-300 hover:text-white transition"
               >
                 <Twitter size={20} />
               </a>
@@ -89,14 +89,14 @@ export default function Footer() {
                     {link.isRoute ? (
                       <Link
                         to={link.href}
-                        className="text-slate-400 hover:text-white text-sm transition"
+                        className="text-navy-300 hover:text-white text-sm transition"
                       >
                         {link.name}
                       </Link>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-slate-400 hover:text-white text-sm transition"
+                        className="text-navy-300 hover:text-white text-sm transition"
                       >
                         {link.name}
                       </a>
@@ -109,17 +109,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800">
+        <div className="mt-12 pt-8 border-t border-navy-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-slate-400 text-sm">
+            <p className="text-navy-300 text-sm">
               &copy; {new Date().getFullYear()} BrandCodes. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 text-slate-400 text-sm">
+              <div className="flex items-center gap-2 text-navy-300 text-sm">
                 <MapPin size={16} />
                 <span>Singapore</span>
               </div>
-              <p className="text-slate-400 text-sm">
+              <p className="text-navy-300 text-sm">
                 GS1 Digital Link Compliant
               </p>
             </div>

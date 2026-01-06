@@ -103,7 +103,7 @@ export default function UseCases() {
   const activeUseCase = useCases.find((uc) => uc.id === activeCase)!;
 
   return (
-    <section id="use-cases" className="py-16 lg:py-24 bg-gray-50">
+    <section id="use-cases" className="py-16 lg:py-24 bg-cool-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,10 +112,10 @@ export default function UseCases() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
             Built for Every Stakeholder
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-cool-600 max-w-3xl mx-auto">
             BrandCodes delivers value across your entire ecosystem — from product managers to consumers.
           </p>
         </motion.div>
@@ -123,25 +123,25 @@ export default function UseCases() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Left: Tabs */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl border border-gray-200 p-2 space-y-1">
+            <div className="bg-white rounded-xl border border-cool-200 p-2 space-y-1">
               {useCases.map((useCase) => (
                 <button
                   key={useCase.id}
                   onClick={() => setActiveCase(useCase.id)}
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition ${
                     activeCase === useCase.id
-                      ? 'bg-indigo-50 text-indigo-700'
-                      : 'hover:bg-gray-50 text-gray-700'
+                      ? 'bg-brand-50 text-brand-600'
+                      : 'hover:bg-cool-50 text-cool-700'
                   }`}
                 >
                   <useCase.icon
                     className={`w-5 h-5 flex-shrink-0 ${
-                      activeCase === useCase.id ? 'text-indigo-600' : 'text-gray-400'
+                      activeCase === useCase.id ? 'text-brand-500' : 'text-cool-400'
                     }`}
                   />
                   <div>
                     <div className="font-medium text-sm">{useCase.title}</div>
-                    <div className="text-xs text-gray-500">{useCase.subtitle}</div>
+                    <div className="text-xs text-cool-500">{useCase.subtitle}</div>
                   </div>
                 </button>
               ))}
@@ -157,15 +157,15 @@ export default function UseCases() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-2xl border border-gray-200 p-8 h-full"
+                className="bg-white rounded-2xl border border-cool-200 p-8 h-full"
               >
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center">
-                    <activeUseCase.icon className="w-7 h-7 text-indigo-600" />
+                  <div className="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center">
+                    <activeUseCase.icon className="w-7 h-7 text-brand-500" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">{activeUseCase.title}</h3>
-                    <p className="text-gray-500">{activeUseCase.subtitle}</p>
+                    <h3 className="text-2xl font-bold text-navy-900">{activeUseCase.title}</h3>
+                    <p className="text-cool-500">{activeUseCase.subtitle}</p>
                   </div>
                 </div>
 
@@ -193,7 +193,7 @@ export default function UseCases() {
                           />
                         </svg>
                       </div>
-                      <p className="text-gray-700">{benefit}</p>
+                      <p className="text-cool-700">{benefit}</p>
                     </motion.div>
                   ))}
                 </div>

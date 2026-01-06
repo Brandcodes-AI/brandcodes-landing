@@ -66,10 +66,10 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
             Simple, Scalable Pricing
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-cool-600 max-w-3xl mx-auto">
             Start small and grow with your needs. All plans include GS1 Digital Link compliance.
           </p>
         </motion.div>
@@ -84,8 +84,8 @@ export default function Pricing() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`relative rounded-2xl p-8 ${
                 plan.highlighted
-                  ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-xl scale-105'
-                  : 'bg-white border border-gray-200'
+                  ? 'bg-gradient-to-br from-brand-500 to-accent-500 text-white shadow-xl scale-105'
+                  : 'bg-white border border-cool-200'
               }`}
             >
               {plan.highlighted && (
@@ -100,7 +100,7 @@ export default function Pricing() {
               <div className="mb-6">
                 <h3
                   className={`text-xl font-bold mb-2 ${
-                    plan.highlighted ? 'text-white' : 'text-gray-900'
+                    plan.highlighted ? 'text-white' : 'text-navy-900'
                   }`}
                 >
                   {plan.name}
@@ -108,20 +108,20 @@ export default function Pricing() {
                 <div className="flex items-baseline">
                   <span
                     className={`text-4xl font-bold ${
-                      plan.highlighted ? 'text-white' : 'text-gray-900'
+                      plan.highlighted ? 'text-white' : 'text-navy-900'
                     }`}
                   >
                     {plan.price}
                   </span>
                   <span
-                    className={`ml-1 ${plan.highlighted ? 'text-indigo-200' : 'text-gray-500'}`}
+                    className={`ml-1 ${plan.highlighted ? 'text-brand-200' : 'text-cool-500'}`}
                   >
                     {plan.period}
                   </span>
                 </div>
                 <p
                   className={`mt-3 text-sm ${
-                    plan.highlighted ? 'text-indigo-100' : 'text-gray-600'
+                    plan.highlighted ? 'text-brand-100' : 'text-cool-600'
                   }`}
                 >
                   {plan.description}
@@ -133,11 +133,11 @@ export default function Pricing() {
                   <li key={feature} className="flex items-start">
                     <Check
                       className={`w-5 h-5 mr-3 flex-shrink-0 ${
-                        plan.highlighted ? 'text-indigo-200' : 'text-indigo-600'
+                        plan.highlighted ? 'text-brand-200' : 'text-brand-500'
                       }`}
                     />
                     <span
-                      className={`text-sm ${plan.highlighted ? 'text-white' : 'text-gray-700'}`}
+                      className={`text-sm ${plan.highlighted ? 'text-white' : 'text-cool-700'}`}
                     >
                       {feature}
                     </span>
@@ -149,8 +149,8 @@ export default function Pricing() {
                 href={plan.name === 'Enterprise' ? '#contact' : 'http://localhost:3000/'}
                 className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition ${
                   plan.highlighted
-                    ? 'bg-white text-indigo-600 hover:bg-gray-100'
-                    : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                    ? 'bg-white text-brand-500 hover:bg-cool-100'
+                    : 'bg-brand-500 text-white hover:bg-brand-600'
                 }`}
               >
                 {plan.cta}
@@ -167,9 +167,9 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <p className="text-gray-600">
+          <p className="text-cool-600">
             <span className="font-medium">Packaging converters & GS1 partners:</span>{' '}
-            <a href="#contact" className="text-indigo-600 hover:underline">
+            <a href="#contact" className="text-brand-500 hover:underline">
               Contact us for volume pricing and white-label options
             </a>
           </p>

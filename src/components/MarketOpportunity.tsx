@@ -33,7 +33,7 @@ const timeline = [
 
 export default function MarketOpportunity() {
   return (
-    <section className="py-16 lg:py-24 bg-slate-900 text-white">
+    <section className="py-16 lg:py-24 bg-navy-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function MarketOpportunity() {
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             The industry is shifting — permanently — to{' '}
-            <span className="text-indigo-400">product-specific 2D codes</span>.
+            <span className="text-brand-400">product-specific 2D codes</span>.
           </h2>
           <p className="text-lg text-slate-400 max-w-3xl mx-auto">
             This creates a massive, time-bound opportunity. Brands must adopt product-specific URLs
@@ -65,9 +65,9 @@ export default function MarketOpportunity() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-slate-700"
+              className="bg-navy-900/50 backdrop-blur rounded-xl p-6 border border-slate-700"
             >
-              <stat.icon className="w-8 h-8 text-indigo-400 mb-4" />
+              <stat.icon className="w-8 h-8 text-brand-400 mb-4" />
               <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{stat.value}</div>
               <p className="text-sm text-slate-400">{stat.label}</p>
             </motion.div>
@@ -80,13 +80,13 @@ export default function MarketOpportunity() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-slate-800/50 backdrop-blur rounded-2xl p-8 border border-slate-700"
+          className="bg-navy-900/50 backdrop-blur rounded-2xl p-8 border border-slate-700"
         >
           <h3 className="text-xl font-semibold mb-8 text-center">GS1 Sunrise 2027 Timeline</h3>
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute top-5 left-0 right-0 h-1 bg-slate-700 hidden sm:block" />
-            <div className="absolute top-5 left-0 w-3/4 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 hidden sm:block" />
+            <div className="absolute top-5 left-0 w-3/4 h-1 bg-gradient-to-r from-brand-500 to-accent-500 hidden sm:block" />
 
             <div className="grid sm:grid-cols-4 gap-6">
               {timeline.map((item, index) => (
@@ -101,7 +101,7 @@ export default function MarketOpportunity() {
                   <div
                     className={`w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center z-10 relative ${
                       item.active
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600'
+                        ? 'bg-gradient-to-r from-brand-500 to-accent-500'
                         : 'bg-slate-700'
                     }`}
                   >

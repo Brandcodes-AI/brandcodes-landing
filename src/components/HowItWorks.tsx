@@ -36,10 +36,10 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-cool-600 max-w-3xl mx-auto">
             Get started in minutes with a simple 3-step process. No complex setup required.
           </p>
         </motion.div>
@@ -47,7 +47,7 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connection line - desktop only */}
-          <div className="hidden lg:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-indigo-200 via-purple-200 to-indigo-200" />
+          <div className="hidden lg:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-brand-200 via-accent-400 to-brand-200" />
 
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {steps.map((step, index) => (
@@ -60,23 +60,23 @@ export default function HowItWorks() {
                 className="relative"
               >
                 {/* Step card */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-lg transition h-full">
+                <div className="bg-white rounded-2xl p-8 border border-cool-200 shadow-sm hover:shadow-lg transition h-full">
                   {/* Step number */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg">
                       <step.icon className="w-8 h-8 text-white" />
                     </div>
                     <span className="text-5xl font-bold text-gray-100">{step.number}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 mb-6">{step.description}</p>
+                  <h3 className="text-xl font-bold text-navy-900 mb-3">{step.title}</h3>
+                  <p className="text-cool-600 mb-6">{step.description}</p>
 
                   {/* Details list */}
                   <ul className="space-y-2">
                     {step.details.map((detail) => (
-                      <li key={detail} className="flex items-center text-sm text-gray-500">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mr-2" />
+                      <li key={detail} className="flex items-center text-sm text-cool-500">
+                        <div className="w-1.5 h-1.5 bg-brand-500 rounded-full mr-2" />
                         {detail}
                       </li>
                     ))}
@@ -104,7 +104,7 @@ export default function HowItWorks() {
         >
           {/* <a
             href="http://localhost:3000/"
-            className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 transition group"
+            className="inline-flex items-center px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition group"
           >
             Start in 60 Seconds
             <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />

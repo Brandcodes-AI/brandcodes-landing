@@ -51,7 +51,7 @@ export default function ContactPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-indigo-50 to-white">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-brand-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,13 +59,13 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
               Get in{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">
                 Touch
               </span>
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-cool-600">
               We're open to any queries, partnerships, or just a friendly chat. Drop us a message and we'll get back to you as soon as possible.
             </p>
           </motion.div>
@@ -82,11 +82,11 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-6 h-6 text-indigo-600" />
+              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-brand-500" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
-              <p className="text-gray-600 text-sm">77jack0105@gmail.com</p>
+              <h3 className="font-semibold text-navy-900 mb-1">Email Us</h3>
+              <p className="text-cool-600 text-sm">77jack0105@gmail.com</p>
             </motion.div>
 
             <motion.div
@@ -95,11 +95,11 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-6 h-6 text-indigo-600" />
+              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <MessageSquare className="w-6 h-6 text-brand-500" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-1">Quick Response</h3>
-              <p className="text-gray-600 text-sm">Usually within 24 hours</p>
+              <h3 className="font-semibold text-navy-900 mb-1">Quick Response</h3>
+              <p className="text-cool-600 text-sm">Usually within 24 hours</p>
             </motion.div>
 
             <motion.div
@@ -108,14 +108,14 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-1">Location</h3>
-              <p className="text-gray-600 text-sm">Singapore (NUS)</p>
+              <h3 className="font-semibold text-navy-900 mb-1">Location</h3>
+              <p className="text-cool-600 text-sm">Singapore (NUS)</p>
             </motion.div>
           </div>
 
@@ -123,7 +123,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="bg-gray-50 rounded-2xl p-8 border border-gray-200"
+            className="bg-cool-50 rounded-2xl p-8 border border-cool-200"
           >
             {submitted ? (
               <div className="text-center py-12">
@@ -132,44 +132,44 @@ export default function ContactPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-                <p className="text-gray-600">Thank you for reaching out. We'll get back to you soon.</p>
+                <h3 className="text-2xl font-bold text-navy-900 mb-2">Message Sent!</h3>
+                <p className="text-cool-600">Thank you for reaching out. We'll get back to you soon.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <label className="block text-sm font-medium text-cool-700 mb-2">Name</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                      className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label className="block text-sm font-medium text-cool-700 mb-2">Email</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                      className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition"
                       placeholder="you@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                  <label className="block text-sm font-medium text-cool-700 mb-2">Message</label>
                   <textarea
                     rows={6}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition resize-none"
+                    className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition resize-none"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-4 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 transition flex items-center justify-center disabled:opacity-50"
+                  className="w-full px-6 py-4 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition flex items-center justify-center disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>

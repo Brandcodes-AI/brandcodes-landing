@@ -38,7 +38,7 @@ const metrics = [
 
 export default function Analytics() {
   return (
-    <section className="py-16 lg:py-24 bg-slate-900 text-white">
+    <section className="py-16 lg:py-24 bg-navy-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
@@ -50,7 +50,7 @@ export default function Analytics() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Understand What Consumers{' '}
-              <span className="text-indigo-400">Really</span> Scan, Search, and Struggle With
+              <span className="text-brand-400">Really</span> Scan, Search, and Struggle With
             </h2>
             <p className="text-lg text-slate-400 mb-8">
               BrandCodes gives you product-level and portfolio-level insights into how your codes and
@@ -66,10 +66,10 @@ export default function Analytics() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-slate-800/50 backdrop-blur rounded-xl p-5 border border-slate-700"
+                  className="bg-navy-900/50 backdrop-blur rounded-xl p-5 border border-slate-700"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <metric.icon className="w-5 h-5 text-indigo-400" />
+                    <metric.icon className="w-5 h-5 text-brand-400" />
                     <span
                       className={`text-xs font-medium px-2 py-1 rounded-full ${
                         metric.positive ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'
@@ -96,7 +96,7 @@ export default function Analytics() {
           >
             <div className="relative">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur-2xl opacity-20 scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-500 to-accent-500 rounded-2xl blur-2xl opacity-20 scale-105" />
 
               {/* Dashboard image */}
               <img
@@ -108,11 +108,11 @@ export default function Analytics() {
               {/* Overlay badge */}
               <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <TrendingDown className="w-5 h-5 text-indigo-600" />
+                  <div className="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center">
+                    <TrendingDown className="w-5 h-5 text-brand-500" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Support Tickets</p>
+                    <p className="text-sm font-semibold text-navy-900">Support Tickets</p>
                     <p className="text-xs text-green-600">-35% this month</p>
                   </div>
                 </div>
