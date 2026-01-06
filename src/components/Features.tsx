@@ -86,7 +86,7 @@ export default function Features() {
   const features = activeTab === 'consumer' ? consumerFeatures : supplierFeatures;
 
   return (
-    <section id="features" className="py-16 lg:py-24 bg-gray-50">
+    <section id="features" className="py-16 lg:py-24 bg-cool-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,26 +95,26 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
             Powerful Features for{' '}
-            <span className="text-indigo-600">Both Sides</span>
+            <span className="text-brand-500">Both Sides</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-cool-600 max-w-3xl mx-auto">
             BrandCodes delivers value to consumers scanning your products and suppliers managing them.
           </p>
         </motion.div>
 
         {/* Tab Switcher */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white rounded-lg p-1 shadow-sm border border-gray-200">
+          <div className="inline-flex bg-white rounded-lg p-1 shadow-sm border border-cool-200">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-6 py-2.5 rounded-md font-medium text-sm transition ${
                   activeTab === tab.id
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-brand-500 text-white shadow-sm'
+                    : 'text-cool-600 hover:text-navy-900'
                 }`}
               >
                 {tab.label}
@@ -139,13 +139,13 @@ export default function Features() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-indigo-300 hover:shadow-md transition group"
+                className="bg-white rounded-xl p-6 border border-cool-200 hover:border-brand-300 hover:shadow-md transition group"
               >
-                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition">
-                  <feature.icon className="w-6 h-6 text-indigo-600 group-hover:text-white transition" />
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-500 transition">
+                  <feature.icon className="w-6 h-6 text-brand-500 group-hover:text-white transition" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-navy-900 mb-2">{feature.title}</h3>
+                <p className="text-cool-600 text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>

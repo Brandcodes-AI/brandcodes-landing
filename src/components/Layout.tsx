@@ -13,7 +13,7 @@ export default function Layout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-cool-50">
       <Navbar />
       <main>
         <AnimatePresence mode="wait">

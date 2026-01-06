@@ -1,6 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  /* Brand Blue Scale - Primary: #0055CC */
+  --color-brand-50: #E6F0FF;
+  --color-brand-100: #CCE0FF;
+  --color-brand-200: #99C2FF;
+  --color-brand-300: #66A3FF;
+  --color-brand-400: #3385FF;
+  --color-brand-500: #0055CC;
+  --color-brand-600: #0044A3;
+  --color-brand-700: #00337A;
+  --color-brand-800: #002252;
+  --color-brand-900: #001129;
+
+  /* Deep Navy Scale - Dark backgrounds */
+  --color-navy-50: #E8EAF0;
+  --color-navy-100: #C5CAD9;
+  --color-navy-200: #9BA4BD;
+  --color-navy-300: #717EA1;
+  --color-navy-400: #52618C;
+  --color-navy-500: #334477;
+  --color-navy-600: #2E3D6F;
+  --color-navy-700: #273364;
+  --color-navy-800: #202A5A;
+  --color-navy-900: #0F1A3D;
+  --color-navy-950: #080D1F;
+
+  /* Cool Gray Scale - Light backgrounds & text */
+  --color-cool-50: #F8FAFC;
+  --color-cool-100: #F1F5F9;
+  --color-cool-200: #E2E8F0;
+  --color-cool-300: #CBD5E1;
+  --color-cool-400: #94A3B8;
+  --color-cool-500: #64748B;
+  --color-cool-600: #475569;
+  --color-cool-700: #334155;
+  --color-cool-800: #1E293B;
+  --color-cool-900: #0F172A;
+
+  /* Accent Blue (lighter, for gradients) */
+  --color-accent-400: #38BDF8;
+  --color-accent-500: #0EA5E9;
+  --color-accent-600: #0284C7;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   overscroll-behavior-y: contain;

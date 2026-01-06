@@ -40,11 +40,11 @@ export default function Problem() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
             Brands are being pushed into a 2D barcode world —{' '}
-            <span className="text-indigo-600">but lack the infrastructure</span> to keep up.
+            <span className="text-brand-500">but lack the infrastructure</span> to keep up.
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-cool-600 max-w-3xl mx-auto">
             Product packaging is becoming the entry point to mandatory digital information,
             but most brands struggle with these challenges:
           </p>
@@ -58,13 +58,13 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-red-200 hover:bg-red-50/30 transition group"
+              className="bg-cool-50 rounded-xl p-6 border border-gray-100 hover:border-red-200 hover:bg-red-50/30 transition group"
             >
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition">
                 <problem.icon className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{problem.title}</h3>
-              <p className="text-gray-600">{problem.description}</p>
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">{problem.title}</h3>
+              <p className="text-cool-600">{problem.description}</p>
             </motion.div>
           ))}
 
@@ -74,13 +74,13 @@ export default function Problem() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-6 text-white"
+            className="bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl p-6 text-white"
           >
             <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
               <span className="text-2xl font-bold">+</span>
             </div>
             <h3 className="text-lg font-semibold mb-2">BrandCodes solves all of this</h3>
-            <p className="text-indigo-100">
+            <p className="text-brand-100">
               Automating compliant, product-specific URLs and QR/GS1 2D barcodes with AI and analytics on top.
             </p>
           </motion.div>

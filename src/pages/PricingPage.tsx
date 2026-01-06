@@ -150,7 +150,7 @@ export default function PricingPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-indigo-50 to-white">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-brand-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -158,20 +158,20 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
               Simple,{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">
                 Predictable
               </span>{' '}
               Pricing
             </h1>
-            <p className="text-xl text-gray-600 mb-4">
+            <p className="text-xl text-cool-600 mb-4">
               GS1 Digital Link infrastructure that scales with your products
             </p>
-            <p className="text-lg text-gray-500">
+            <p className="text-lg text-cool-500">
               Priced by SKUs (GTINs) — not scans. Unlimited scans on all paid plans.
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-cool-500">
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full">
                 Save 15–20% with annual billing
               </span>
@@ -196,39 +196,39 @@ export default function PricingPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative bg-white rounded-2xl border-2 p-6 flex flex-col ${
                   plan.popular
-                    ? 'border-indigo-600 shadow-xl'
-                    : 'border-gray-200 hover:border-indigo-300'
+                    ? 'border-brand-500 shadow-xl'
+                    : 'border-cool-200 hover:border-brand-300'
                 } transition`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-indigo-600 text-white text-sm font-medium px-4 py-1 rounded-full">
+                    <span className="bg-brand-500 text-white text-sm font-medium px-4 py-1 rounded-full">
                       Most Popular
                     </span>
                   </div>
                 )}
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900">{plan.name}</h3>
-                  <p className="text-gray-500 text-sm mt-1">{plan.description}</p>
+                  <h3 className="text-xl font-bold text-navy-900">{plan.name}</h3>
+                  <p className="text-cool-500 text-sm mt-1">{plan.description}</p>
                 </div>
 
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-500">{plan.period}</span>
+                  <span className="text-4xl font-bold text-navy-900">{plan.price}</span>
+                  <span className="text-cool-500">{plan.period}</span>
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                      <span className="text-cool-600 text-sm">{feature}</span>
                     </li>
                   ))}
                   {plan.notIncluded.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <X className="w-5 h-5 text-gray-300 mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-400 text-sm">{feature}</span>
+                      <span className="text-cool-400 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -237,8 +237,8 @@ export default function PricingPage() {
                   to={plan.ctaLink}
                   className={`w-full py-3 px-4 rounded-lg font-medium text-center transition ${
                     plan.popular
-                      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'bg-brand-500 text-white hover:bg-brand-600'
+                      : 'bg-cool-100 text-navy-900 hover:bg-cool-200'
                   }`}
                 >
                   {plan.cta}
@@ -250,20 +250,20 @@ export default function PricingPage() {
       </section>
 
       {/* Onboarding Section - Commented out for now
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-cool-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 lg:p-12 text-white"
+            className="bg-gradient-to-br from-brand-500 to-accent-500 rounded-2xl p-8 lg:p-12 text-white"
           >
             <h2 className="text-2xl lg:text-3xl font-bold mb-4">
               One-Time GS1 Enablement & Onboarding
             </h2>
-            <p className="text-indigo-100 mb-6 text-lg">$500 – $3,000 (scope-based)</p>
-            <p className="text-indigo-100 mb-6">
+            <p className="text-brand-100 mb-6 text-lg">$500 – $3,000 (scope-based)</p>
+            <p className="text-brand-100 mb-6">
               Designed to accelerate GS1 Digital Link adoption:
             </p>
             <ul className="grid md:grid-cols-2 gap-3 mb-8">
@@ -280,7 +280,7 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
-            <div className="text-sm text-indigo-200 space-y-1">
+            <div className="text-sm text-brand-200 space-y-1">
               <p>• Required for most Enterprise plans</p>
               <p>• Waived or discounted for early partners</p>
             </div>
@@ -299,10 +299,10 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Feature Comparison
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-cool-600">
               See what's included in each plan
             </p>
           </motion.div>
@@ -316,20 +316,20 @@ export default function PricingPage() {
           >
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-4 font-semibold text-gray-900">Feature</th>
-                  <th className="text-center py-4 px-4 font-semibold text-gray-900">Free</th>
-                  <th className="text-center py-4 px-4 font-semibold text-gray-900">Starter</th>
-                  <th className="text-center py-4 px-4 font-semibold text-indigo-600 bg-indigo-50 rounded-t-lg">
+                <tr className="border-b-2 border-cool-200">
+                  <th className="text-left py-4 px-4 font-semibold text-navy-900">Feature</th>
+                  <th className="text-center py-4 px-4 font-semibold text-navy-900">Free</th>
+                  <th className="text-center py-4 px-4 font-semibold text-navy-900">Starter</th>
+                  <th className="text-center py-4 px-4 font-semibold text-brand-500 bg-brand-50 rounded-t-lg">
                     Growth
                   </th>
-                  <th className="text-center py-4 px-4 font-semibold text-gray-900">Enterprise</th>
+                  <th className="text-center py-4 px-4 font-semibold text-navy-900">Enterprise</th>
                 </tr>
               </thead>
               <tbody>
                 {featureComparison.map((row, index) => (
-                  <tr key={row.feature} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-                    <td className="py-3 px-4 text-gray-700">{row.feature}</td>
+                  <tr key={row.feature} className={index % 2 === 0 ? 'bg-cool-50' : ''}>
+                    <td className="py-3 px-4 text-cool-700">{row.feature}</td>
                     <td className="py-3 px-4 text-center">
                       {typeof row.free === 'boolean' ? (
                         row.free ? (
@@ -338,7 +338,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-gray-600">{row.free}</span>
+                        <span className="text-cool-600">{row.free}</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-center">
@@ -349,10 +349,10 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-gray-600">{row.starter}</span>
+                        <span className="text-cool-600">{row.starter}</span>
                       )}
                     </td>
-                    <td className="py-3 px-4 text-center bg-indigo-50">
+                    <td className="py-3 px-4 text-center bg-brand-50">
                       {typeof row.growth === 'boolean' ? (
                         row.growth ? (
                           <Check className="w-5 h-5 text-green-500 mx-auto" />
@@ -360,7 +360,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-gray-600">{row.growth}</span>
+                        <span className="text-cool-600">{row.growth}</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-center">
@@ -371,7 +371,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-gray-600">{row.enterprise}</span>
+                        <span className="text-cool-600">{row.enterprise}</span>
                       )}
                     </td>
                   </tr>
@@ -383,7 +383,7 @@ export default function PricingPage() {
       </section>
 
       {/* Why Different Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-cool-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -392,7 +392,7 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Why BrandCodes Pricing Is Different
             </h2>
           </motion.div>
@@ -405,13 +405,13 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 text-center"
+                className="bg-white rounded-xl p-6 border border-cool-200 text-center"
               >
-                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-indigo-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-6 h-6 text-brand-500" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+                <h3 className="font-semibold text-navy-900 mb-2">{item.title}</h3>
+                <p className="text-cool-600 text-sm">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -428,7 +428,7 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -441,10 +441,10 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-6"
+                className="bg-cool-50 rounded-xl p-6"
               >
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
+                <h3 className="font-semibold text-navy-900 mb-2">{faq.question}</h3>
+                <p className="text-cool-600">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
@@ -452,7 +452,7 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-indigo-600 to-purple-600">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -466,7 +466,7 @@ export default function PricingPage() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/contact"
-                className="px-8 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 transition"
+                className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 Get started free
               </Link>

@@ -47,7 +47,7 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700">
+    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-brand-500 via-accent-500 to-brand-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: CTA Content */}
@@ -61,7 +61,7 @@ export default function CTA() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Start Generating GS1-Ready Product URLs and QR/2D Codes
             </h2>
-            <p className="text-lg text-indigo-100 mb-8">
+            <p className="text-lg text-brand-100 mb-8">
               Join brands already using BrandCodes to turn packaging into intelligent digital
               experiences. Request a personalized demo to learn more.
             </p>
@@ -69,14 +69,14 @@ export default function CTA() {
             {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a
                 href="http://localhost:3000/"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 shadow-lg transition group"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 shadow-lg transition group"
               >
                 Get Started Free
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
-            <div className="flex items-center space-x-6 text-indigo-200 text-sm">
+            <div className="flex items-center space-x-6 text-brand-200 text-sm">
               <div className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path
@@ -108,8 +108,8 @@ export default function CTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Request a Demo</h3>
-              <p className="text-gray-600 text-sm mb-6">
+              <h3 className="text-xl font-bold text-navy-900 mb-2">Request a Demo</h3>
+              <p className="text-cool-600 text-sm mb-6">
                 Fill out the form and we'll get back to you within 24 hours.
               </p>
 
@@ -120,57 +120,57 @@ export default function CTA() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Thank you!</h4>
-                  <p className="text-gray-600">We'll be in touch soon.</p>
+                  <h4 className="text-lg font-semibold text-navy-900 mb-2">Thank you!</h4>
+                  <p className="text-cool-600">We'll be in touch soon.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                      <label className="block text-sm font-medium text-cool-700 mb-1">Name</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <label className="block text-sm font-medium text-cool-700 mb-1">Email</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                         placeholder="john@company.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                    <label className="block text-sm font-medium text-cool-700 mb-1">Company</label>
                     <input
                       type="text"
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                       placeholder="Acme Inc."
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-cool-700 mb-1">
                       How can we help?
                     </label>
                     <textarea
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+                      className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none"
                       placeholder="Tell us about your use case..."
                     />
                   </div>
@@ -178,7 +178,7 @@ export default function CTA() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 shadow-sm transition flex items-center justify-center disabled:opacity-50"
+                    className="w-full px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-sm transition flex items-center justify-center disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>
