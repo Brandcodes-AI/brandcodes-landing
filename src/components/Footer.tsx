@@ -27,7 +27,7 @@ export default function Footer() {
     ],
     Legal: [
       { name: 'Privacy Policy', href: '/privacy', isRoute: true },
-      // { name: 'Terms of Service', href: '#', isRoute: false },
+      { name: 'Terms of Service', href: '/terms', isRoute: true },
       // { name: 'Cookie Policy', href: '#', isRoute: false },
     ],
   };
