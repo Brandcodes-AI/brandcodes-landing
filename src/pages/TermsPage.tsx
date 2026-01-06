@@ -10,7 +10,7 @@ export default function TermsPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-8 lg:pt-40 lg:pb-12 bg-gradient-to-b from-indigo-50 to-white">
+      <section className="pt-32 pb-4 lg:pt-40 lg:pb-6 bg-gradient-to-b from-indigo-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function TermsPage() {
       </section>
 
       {/* Terms Content Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section className="py-4 lg:py-6 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
