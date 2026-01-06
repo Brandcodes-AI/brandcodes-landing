@@ -6,6 +6,7 @@ import TeamPage from './pages/TeamPage';
 import ContactPage from './pages/ContactPage';
 import FAQPage from './pages/FAQPage';
 import PrivacyPage from './pages/PrivacyPage';
+import PricingPage from './pages/PricingPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
