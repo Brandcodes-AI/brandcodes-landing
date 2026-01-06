@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, ArrowRight } from 'lucide-react';
+import { ScanLineContainer } from './ui/ScanLine';
+import { duration, easing, viewportOptions } from '../lib/motion';
+
+/**
+ * CTA - Scan glow, disciplined
+ *
+ * Design Rules:
+ * - Primary CTA: "Talk to us"
+ * - Single neon scan line sweep on hover (no pulsing, no looping)
+ * - Preserve form functionality (Formspree)
+ */
 
 export default function CTA() {
   const [formData, setFormData] = useState({
@@ -47,151 +58,141 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700">
+    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-electric-blue via-electric-blue-600 to-electric-blue-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: CTA Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={viewportOptions}
+            transition={{ duration: duration.normal, ease: easing.default }}
             className="text-white"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Start Generating GS1-Ready Product URLs and QR/2D Codes
+              Ready to transform your packaging?
             </h2>
-            <p className="text-lg text-indigo-100 mb-8">
-              Join brands already using BrandCodes to turn packaging into intelligent digital
-              experiences. Request a personalized demo to learn more.
+            <p className="text-lg text-electric-blue-100 mb-8">
+              Join brands already using BrandCodes to create intelligent digital experiences
+              from every product scan.
             </p>
 
-            {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a
-                href="http://localhost:3000/"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 shadow-lg transition group"
-              >
-                Get Started Free
-                <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+            {/* Visual QR element */}
+            <div className="hidden lg:block">
+              <div className="inline-flex items-center gap-4 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-white">
+                  <rect x="4" y="4" width="12" height="12" fill="currentColor" />
+                  <rect x="32" y="4" width="12" height="12" fill="currentColor" />
+                  <rect x="4" y="32" width="12" height="12" fill="currentColor" />
+                  <rect x="8" y="8" width="4" height="4" fill="#0055CC" />
+                  <rect x="36" y="8" width="4" height="4" fill="#0055CC" />
+                  <rect x="8" y="36" width="4" height="4" fill="#0055CC" />
+                  <rect x="18" y="18" width="12" height="12" fill="currentColor" opacity="0.6" />
+                </svg>
+                <div>
+                  <p className="font-semibold">One code, endless possibilities</p>
+                  <p className="text-sm text-electric-blue-100">GS1 Digital Link compliant</p>
+                </div>
+              </div>
             </div>
-
-            <div className="flex items-center space-x-6 text-indigo-200 text-sm">
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                No credit card required
-              </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Free tier available
-              </div>
-            </div> */}
           </motion.div>
 
           {/* Right: Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={viewportOptions}
+            transition={{ duration: duration.normal, delay: 0.1, ease: easing.default }}
           >
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Request a Demo</h3>
-              <p className="text-gray-600 text-sm mb-6">
+              <h3 className="text-xl font-bold text-deep-navy mb-2">Talk to us</h3>
+              <p className="text-deep-navy-300 text-sm mb-6">
                 Fill out the form and we'll get back to you within 24 hours.
               </p>
 
               {submitted ? (
                 <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-16 h-16 bg-neon-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-neon-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Thank you!</h4>
-                  <p className="text-gray-600">We'll be in touch soon.</p>
+                  <h4 className="text-lg font-semibold text-deep-navy mb-2">Thank you!</h4>
+                  <p className="text-deep-navy-300">We'll be in touch soon.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                      <label className="block text-sm font-medium text-deep-navy mb-1">Name</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="w-full px-3 py-2 text-sm border border-deep-navy-100 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-electric-blue transition-colors"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <label className="block text-sm font-medium text-deep-navy mb-1">Email</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="w-full px-3 py-2 text-sm border border-deep-navy-100 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-electric-blue transition-colors"
                         placeholder="john@company.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                    <label className="block text-sm font-medium text-deep-navy mb-1">Company</label>
                     <input
                       type="text"
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      className="w-full px-3 py-2 text-sm border border-deep-navy-100 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-electric-blue transition-colors"
                       placeholder="Acme Inc."
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-deep-navy mb-1">
                       How can we help?
                     </label>
                     <textarea
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+                      className="w-full px-3 py-2 text-sm border border-deep-navy-100 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-electric-blue resize-none transition-colors"
                       placeholder="Tell us about your use case..."
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 shadow-sm transition flex items-center justify-center disabled:opacity-50"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 size={20} className="mr-2 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={20} className="mr-2" />
-                        Request Demo
-                      </>
-                    )}
-                  </button>
+                  {/* Submit button with scan line effect */}
+                  <ScanLineContainer className="rounded-lg">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full px-6 py-3 bg-electric-blue text-white font-semibold rounded-lg hover:bg-electric-blue-600 shadow-sm transition-colors flex items-center justify-center disabled:opacity-50 group"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={20} className="mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send size={20} className="mr-2" />
+                          Talk to us
+                          <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                        </>
+                      )}
+                    </button>
+                  </ScanLineContainer>
                 </form>
               )}
             </div>

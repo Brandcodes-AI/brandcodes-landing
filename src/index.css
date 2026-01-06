@@ -1,6 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* BrandCodes Theme Configuration */
+@theme {
+  /* Primary System - Electric Blue */
+  --color-electric-blue-50: #E6F0FF;
+  --color-electric-blue-100: #CCE0FF;
+  --color-electric-blue-200: #99C2FF;
+  --color-electric-blue-300: #66A3FF;
+  --color-electric-blue-400: #3385FF;
+  --color-electric-blue-500: #0055CC;
+  --color-electric-blue-600: #0044AA;
+  --color-electric-blue-700: #003388;
+  --color-electric-blue: #0055CC;
+
+  /* Primary System - Deep Navy */
+  --color-deep-navy-50: #E8EBF0;
+  --color-deep-navy-100: #C5CCD9;
+  --color-deep-navy-200: #8B9BB3;
+  --color-deep-navy-300: #516A8D;
+  --color-deep-navy-400: #1F3A5C;
+  --color-deep-navy-500: #0A1628;
+  --color-deep-navy-600: #080F1C;
+  --color-deep-navy: #0A1628;
+
+  /* Primary System - Off White */
+  --color-off-white: #FAFBFC;
+  --color-off-white-warm: #F8F9FA;
+
+  /* Accent System - Neon Green (Scanner effects only) */
+  --color-neon-green: #00FF88;
+  --color-neon-green-50: #E6FFF5;
+  --color-neon-green-glow: rgba(0, 255, 136, 0.3);
+
+  /* Industry System - Amber/Orange (Use cases only) */
+  --color-amber-50: #FFFBEB;
+  --color-amber-100: #FEF3C7;
+  --color-amber-200: #FDE68A;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #D97706;
+  --color-amber: #F59E0B;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   overscroll-behavior-y: contain;

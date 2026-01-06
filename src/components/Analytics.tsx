@@ -1,125 +1,167 @@
 import { motion } from 'framer-motion';
-import { BarChart3, MessageSquare, Globe, TrendingDown } from 'lucide-react';
+import { useState } from 'react';
+import { Globe, Shield, GitBranch, HelpCircle } from 'lucide-react';
+import QRFramedCard from './ui/QRFramedCard';
+import AnimatedCounter from './ui/AnimatedCounter';
+import { duration, easing, viewportOptions } from '../lib/motion';
+
+/**
+ * Analytics - Metrics & trust (restrained, real)
+ *
+ * Design Rules:
+ * - Animated counters in QR-framed cards (trigger once on scroll)
+ * - Metrics: Countries supported, Standards compliant, Routing contexts supported
+ * - GS1/2D badges with tooltip
+ * - Background: deep-navy
+ */
 
 const metrics = [
   {
-    icon: BarChart3,
-    title: 'Scan Volume',
-    value: '24.5K',
-    change: '+12%',
-    positive: true,
-    description: 'By region, time, device type, packaging variant',
-  },
-  {
-    icon: MessageSquare,
-    title: 'Top Questions',
-    value: '1,234',
-    change: 'This month',
-    positive: true,
-    description: 'Grouped by setup, defects, confusion, comparisons',
-  },
-  {
     icon: Globe,
-    title: 'Language Breakdown',
-    value: '18',
-    change: 'Languages',
-    positive: true,
-    description: 'Auto-detected locale distribution',
+    value: 45,
+    suffix: '+',
+    label: 'Countries Supported',
+    description: 'Global GS1 Digital Link coverage',
   },
   {
-    icon: TrendingDown,
-    title: 'Support Deflection',
-    value: '67%',
-    change: '+8%',
-    positive: true,
-    description: 'Questions resolved by AI assistant',
+    icon: Shield,
+    value: 100,
+    suffix: '%',
+    label: 'Standards Compliant',
+    description: 'Full GS1 Digital Link compliance',
+  },
+  {
+    icon: GitBranch,
+    value: 12,
+    suffix: '',
+    label: 'Routing Contexts',
+    description: 'Consumer, retail, service, and more',
   },
 ];
 
 export default function Analytics() {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
-    <section className="py-16 lg:py-24 bg-slate-900 text-white">
+    <section className="py-16 lg:py-24 bg-deep-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Understand What Consumers{' '}
-              <span className="text-indigo-400">Really</span> Scan, Search, and Struggle With
-            </h2>
-            <p className="text-lg text-slate-400 mb-8">
-              BrandCodes gives you product-level and portfolio-level insights into how your codes and
-              pages are used. Turn scan data into actionable product improvements.
-            </p>
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOptions}
+          transition={{ duration: duration.normal, ease: easing.default }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Built for scale and compliance
+          </h2>
+          <p className="text-lg text-deep-navy-200 max-w-2xl mx-auto">
+            Enterprise-ready infrastructure that meets the highest standards.
+          </p>
+        </motion.div>
 
-            {/* Metrics grid */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-slate-800/50 backdrop-blur rounded-xl p-5 border border-slate-700"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <metric.icon className="w-5 h-5 text-indigo-400" />
-                    <span
-                      className={`text-xs font-medium px-2 py-1 rounded-full ${
-                        metric.positive ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'
-                      }`}
-                    >
-                      {metric.change}
-                    </span>
+        {/* Metrics grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={viewportOptions}
+          transition={{ duration: duration.slow, ease: easing.default }}
+          className="grid sm:grid-cols-3 gap-6 mb-16"
+        >
+          {metrics.map((metric, index) => {
+            const Icon = metric.icon;
+            return (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewportOptions}
+                transition={{ delay: index * 0.05, duration: duration.normal, ease: easing.default }}
+              >
+                <QRFramedCard variant="dark" cornerSize={20}>
+                  <div className="text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-12 h-12 bg-electric-blue/20 rounded-xl flex items-center justify-center">
+                        <Icon size={24} className="text-electric-blue" />
+                      </div>
+                    </div>
+                    <div className="text-4xl font-bold text-white mb-2">
+                      <AnimatedCounter
+                        value={metric.value}
+                        suffix={metric.suffix}
+                      />
+                    </div>
+                    <div className="text-white font-medium mb-1">{metric.label}</div>
+                    <div className="text-deep-navy-300 text-sm">{metric.description}</div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
-                  <div className="text-sm font-medium text-slate-300 mb-1">{metric.title}</div>
-                  <div className="text-xs text-slate-500">{metric.description}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                </QRFramedCard>
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-          {/* Right: Dashboard preview */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative">
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur-2xl opacity-20 scale-105" />
+        {/* Trust badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOptions}
+          transition={{ duration: duration.normal, ease: easing.default }}
+          className="flex flex-wrap justify-center gap-4"
+        >
+          {/* GS1 Badge */}
+          <div className="relative">
+            <button
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              className="flex items-center gap-3 px-5 py-3 bg-deep-navy-500 rounded-xl border border-deep-navy-400 hover:border-electric-blue transition-colors"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-neon-green">
+                <rect x="3" y="3" width="6" height="6" fill="currentColor" />
+                <rect x="15" y="3" width="6" height="6" fill="currentColor" />
+                <rect x="3" y="15" width="6" height="6" fill="currentColor" />
+                <rect x="9" y="9" width="6" height="6" fill="currentColor" opacity="0.6" />
+              </svg>
+              <span className="text-white font-medium">GS1 Digital Link</span>
+              <HelpCircle size={16} className="text-deep-navy-300" />
+            </button>
 
-              {/* Dashboard image */}
-              <img
-                src="/product screenshots/analytics-dashboard.png"
-                alt="BrandCodes Analytics Dashboard"
-                className="relative rounded-2xl shadow-2xl w-full border border-slate-700"
-              />
+            {/* Tooltip */}
+            {showTooltip && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: duration.fast, ease: easing.default }}
+                className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-4 bg-white rounded-xl shadow-xl z-10"
+              >
+                <h4 className="text-deep-navy font-semibold mb-2">What is GS1 2D?</h4>
+                <p className="text-deep-navy-400 text-sm">
+                  BrandCodes follows GS1 Digital Link standards and best practices and is building toward official GS1 solution partnership.
+                </p>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rotate-45 w-3 h-3 bg-white" />
+              </motion.div>
+            )}
+          </div>
 
-              {/* Overlay badge */}
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <TrendingDown className="w-5 h-5 text-indigo-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">Support Tickets</p>
-                    <p className="text-xs text-green-600">-35% this month</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+          {/* 2D Barcode Badge */}
+          <div className="flex items-center gap-3 px-5 py-3 bg-deep-navy-500 rounded-xl border border-deep-navy-400">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-electric-blue">
+              <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
+              <rect x="6" y="6" width="4" height="4" fill="currentColor" />
+              <rect x="14" y="6" width="4" height="4" fill="currentColor" />
+              <rect x="6" y="14" width="4" height="4" fill="currentColor" />
+              <rect x="10" y="10" width="4" height="4" fill="currentColor" opacity="0.5" />
+            </svg>
+            <span className="text-white font-medium">2D Barcode Ready</span>
+          </div>
+
+          {/* SOC2 Badge */}
+          <div className="flex items-center gap-3 px-5 py-3 bg-deep-navy-500 rounded-xl border border-deep-navy-400">
+            <Shield size={20} className="text-electric-blue" />
+            <span className="text-white font-medium">Enterprise Security</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

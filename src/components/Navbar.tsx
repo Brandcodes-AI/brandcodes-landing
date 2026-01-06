@@ -9,7 +9,7 @@ export default function Navbar() {
   const isHomePage = location.pathname === '/';
 
   const navLinks = [
-    { name: 'Features', href: isHomePage ? '#features' : '/#features' },
+    { name: 'Platform', href: isHomePage ? '#platform' : '/#platform' },
     { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works' },
     { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases' },
     { name: 'Preview', href: isHomePage ? '#preview' : '/#preview' },
@@ -22,7 +22,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-off-white/80 backdrop-blur-md border-b border-deep-navy-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -40,7 +40,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-600 hover:text-indigo-600 font-medium transition"
+                className="text-deep-navy-400 hover:text-electric-blue font-medium transition"
               >
                 {link.name}
               </a>
@@ -52,19 +52,19 @@ export default function Navbar() {
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
             >
-              <button className="flex items-center text-gray-600 hover:text-indigo-600 font-medium transition py-2">
+              <button className="flex items-center text-deep-navy-400 hover:text-electric-blue font-medium transition py-2">
                 Company
                 <ChevronDown size={16} className="ml-1" />
               </button>
 
               {isCompanyOpen && (
                 <div className="absolute top-full left-0 pt-2 w-48">
-                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                  <div className="bg-white rounded-lg shadow-lg border border-deep-navy-100 py-2">
                     {companyLinks.map((link) => (
                       <Link
                         key={link.name}
                         to={link.href}
-                        className="block px-4 py-2 text-gray-600 hover:text-indigo-600 hover:bg-gray-50 transition"
+                        className="block px-4 py-2 text-deep-navy-400 hover:text-electric-blue hover:bg-electric-blue-50 transition"
                       >
                         {link.name}
                       </Link>
@@ -79,21 +79,15 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <a
               href={isHomePage ? '#contact' : '/#contact'}
-              className="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition"
+              className="px-4 py-2 bg-electric-blue text-white font-medium rounded-lg hover:bg-electric-blue-600 shadow-sm transition"
             >
-              Book Demo
+              Talk to us
             </a>
-            {/* <a
-              href="http://localhost:3000/"
-              className="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition"
-            >
-              Get Started
-            </a> */}
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+            className="md:hidden p-2 text-deep-navy-400 hover:text-deep-navy"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -103,13 +97,13 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200">
+        <div className="md:hidden bg-white border-b border-deep-navy-100">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block text-gray-600 hover:text-indigo-600 font-medium py-2"
+                className="block text-deep-navy-400 hover:text-electric-blue font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
@@ -117,13 +111,13 @@ export default function Navbar() {
             ))}
 
             {/* Company Section - Mobile */}
-            <div className="border-t border-gray-200 pt-3">
-              <div className="text-sm font-semibold text-gray-400 mb-2 px-2">Company</div>
+            <div className="border-t border-deep-navy-100 pt-3">
+              <div className="text-sm font-semibold text-deep-navy-300 mb-2 px-2">Company</div>
               {companyLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="block text-gray-600 hover:text-indigo-600 font-medium py-2 pl-4"
+                  className="block text-deep-navy-400 hover:text-electric-blue font-medium py-2 pl-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -131,20 +125,14 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="pt-4 space-y-3 border-t border-gray-200">
+            <div className="pt-4 space-y-3 border-t border-deep-navy-100">
               <a
                 href={isHomePage ? '#contact' : '/#contact'}
-                className="block px-4 py-2 text-center bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition"
+                className="block px-4 py-2 text-center bg-electric-blue text-white font-medium rounded-lg hover:bg-electric-blue-600 shadow-sm transition"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Book Demo
+                Talk to us
               </a>
-              {/* <a
-                href="http://localhost:3000/"
-                className="block px-4 py-2 text-center bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition"
-              >
-                Get Started
-              </a> */}
             </div>
           </div>
         </div>

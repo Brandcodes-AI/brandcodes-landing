@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { duration, easing, viewportOptions } from '../lib/motion';
 
 const faqs = [
   {
@@ -52,11 +53,6 @@ const faqs = [
         answer:
           'Most customers are up and running within minutes. Simply upload your product data, and BrandCodes handles the rest automatically.',
       },
-      // {
-      //   question: 'What platforms does BrandCodes integrate with?',
-      //   answer:
-      //     'BrandCodes integrates with major e-commerce platforms (Shopify, WooCommerce), PIM/ERP systems (Akeneo, SAP), and design tools (Adobe Creative Suite, Figma). We also provide a REST API for custom integrations.',
-      // },
       {
         question: 'Do I need technical knowledge to use BrandCodes?',
         answer:
@@ -108,24 +104,24 @@ export default function FAQPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: duration.slow, ease: easing.default }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-indigo-50 to-white">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-electric-blue-50 to-off-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: duration.normal, ease: easing.default }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-navy mb-6">
               Frequently Asked{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              <span className="text-electric-blue">
                 Questions
               </span>
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-deep-navy-400">
               Find answers to common questions about BrandCodes and how we can help transform your product packaging.
             </p>
           </motion.div>
@@ -133,37 +129,37 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Sections */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-off-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqs.map((section, sectionIndex) => (
             <motion.div
               key={section.category}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: sectionIndex * 0.1 }}
+              transition={{ duration: duration.normal, delay: sectionIndex * 0.05, ease: easing.default }}
               className="mb-12 last:mb-0"
             >
               {/* Category Header */}
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">{section.category}</h2>
+              <h2 className="text-2xl font-bold text-deep-navy mb-6">{section.category}</h2>
 
               {/* Questions */}
-              <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+              <div className="bg-white rounded-xl border border-deep-navy-100 overflow-hidden">
                 {section.questions.map((faq, questionIndex) => {
                   const id = `${sectionIndex}-${questionIndex}`;
                   const isOpen = openIndex === id;
 
                   return (
-                    <div key={id} className="border-b border-gray-200 last:border-b-0">
+                    <div key={id} className="border-b border-deep-navy-100 last:border-b-0">
                       <button
                         onClick={() => toggleAccordion(id)}
-                        className="w-full flex justify-between items-center px-6 py-5 text-left hover:bg-white transition group"
+                        className="w-full flex justify-between items-center px-6 py-5 text-left hover:bg-off-white transition group"
                       >
-                        <span className="text-lg font-semibold text-gray-900 pr-8 group-hover:text-indigo-600 transition">
+                        <span className="text-lg font-semibold text-deep-navy pr-8 group-hover:text-electric-blue transition">
                           {faq.question}
                         </span>
                         <ChevronDown
                           size={20}
-                          className={`flex-shrink-0 text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-indigo-600' : ''
+                          className={`flex-shrink-0 text-deep-navy-300 transition-transform duration-300 ${isOpen ? 'rotate-180 text-electric-blue' : ''
                             }`}
                         />
                       </button>
@@ -174,10 +170,10 @@ export default function FAQPage() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: duration.slow, ease: easing.default }}
                             className="overflow-hidden"
                           >
-                            <div className="px-6 pb-5 text-gray-600 leading-relaxed">
+                            <div className="px-6 pb-5 text-deep-navy-400 leading-relaxed">
                               {faq.answer}
                             </div>
                           </motion.div>
@@ -193,22 +189,22 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-12 text-white"
+            viewport={viewportOptions}
+            transition={{ duration: duration.normal, ease: easing.default }}
+            className="text-center bg-gradient-to-br from-electric-blue to-electric-blue-600 rounded-2xl p-12 text-white"
           >
             <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
-            <p className="text-lg text-indigo-100 mb-8">
+            <p className="text-lg text-electric-blue-100 mb-8">
               Can't find the answer you're looking for? Our team is here to help.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 shadow-lg transition"
+              className="inline-flex items-center px-6 py-3 bg-white text-electric-blue font-semibold rounded-lg hover:bg-off-white shadow-lg transition"
             >
               Contact Us
             </Link>

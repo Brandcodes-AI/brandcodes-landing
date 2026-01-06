@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Globe } from 'lucide-react';
+import { duration, easing, viewportOptions } from '../lib/motion';
 
 const team = [
   {
@@ -30,24 +31,24 @@ export default function TeamPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: duration.slow, ease: easing.default }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-8 lg:pt-40 lg:pb-12 bg-gradient-to-b from-indigo-50 to-white">
+      <section className="pt-32 pb-8 lg:pt-40 lg:pb-12 bg-gradient-to-b from-electric-blue-50 to-off-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: duration.normal, ease: easing.default }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-navy mb-6">
               Meet Our{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              <span className="text-electric-blue">
                 Team
               </span>
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-deep-navy-400">
               The people behind BrandCodes, building the future of product-digital connections.
             </p>
           </motion.div>
@@ -55,7 +56,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Members */}
-      <section className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-white">
+      <section className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-off-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 justify-center">
             {team.map((member, index) => (
@@ -63,12 +64,12 @@ export default function TeamPage() {
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.2 }}
-                className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition text-center"
+                transition={{ duration: duration.normal, delay: 0.1 + index * 0.1, ease: easing.default }}
+                className="bg-white rounded-2xl p-8 border border-deep-navy-100 hover:border-electric-blue hover:shadow-lg transition text-center"
               >
                 {/* Profile Photo */}
                 <div className="relative w-40 h-40 mx-auto mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-lg opacity-30" />
+                  <div className="absolute inset-0 bg-electric-blue rounded-full blur-lg opacity-30" />
                   <img
                     src={member.image}
                     alt={member.name}
@@ -77,9 +78,9 @@ export default function TeamPage() {
                 </div>
 
                 {/* Info */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-indigo-600 font-medium mb-2">{member.role}</p>
-                <p className="text-gray-600 mb-6">{member.education}</p>
+                <h3 className="text-2xl font-bold text-deep-navy mb-1">{member.name}</h3>
+                <p className="text-electric-blue font-medium mb-2">{member.role}</p>
+                <p className="text-deep-navy-400 mb-6">{member.education}</p>
 
                 {/* Social Links */}
                 <div className="flex justify-center gap-4">
@@ -88,7 +89,7 @@ export default function TeamPage() {
                       href={member.links.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-indigo-600 hover:border-indigo-300 transition"
+                      className="w-10 h-10 bg-off-white rounded-full border border-deep-navy-100 flex items-center justify-center text-deep-navy-400 hover:text-electric-blue hover:border-electric-blue transition"
                     >
                       <Globe size={20} />
                     </a>
@@ -98,7 +99,7 @@ export default function TeamPage() {
                       href={member.links.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-indigo-600 hover:border-indigo-300 transition"
+                      className="w-10 h-10 bg-off-white rounded-full border border-deep-navy-100 flex items-center justify-center text-deep-navy-400 hover:text-electric-blue hover:border-electric-blue transition"
                     >
                       <Linkedin size={20} />
                     </a>
@@ -108,7 +109,7 @@ export default function TeamPage() {
                       href={member.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-indigo-600 hover:border-indigo-300 transition"
+                      className="w-10 h-10 bg-off-white rounded-full border border-deep-navy-100 flex items-center justify-center text-deep-navy-400 hover:text-electric-blue hover:border-electric-blue transition"
                     >
                       <Github size={20} />
                     </a>
@@ -121,19 +122,19 @@ export default function TeamPage() {
       </section>
 
       {/* Join Us Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={viewportOptions}
+            transition={{ duration: duration.normal, ease: easing.default }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-deep-navy mb-4">
               Built at NUS
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-deep-navy-400">
               BrandCodes is being built by Computer Science students at the National University of Singapore,
               combining academic rigor with entrepreneurial drive to solve real-world problems in the
               product digitization space.

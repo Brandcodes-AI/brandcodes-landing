@@ -1,165 +1,185 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { FileText, HelpCircle, Shield, BarChart3, Bot } from 'lucide-react';
+import QRCore from './ui/QRCore';
+import { duration, easing, viewportOptions } from '../lib/motion';
 
-const screenshots = [
-  {
-    id: 'dashboard',
-    title: 'Supplier Dashboard',
-    description: 'Manage all your products, codes, and analytics in one place.',
-    image: '/product screenshots/supplier-dashboard.png',
-    objectFit: 'contain' as const,
-  },
-  {
-    id: 'qr',
-    title: 'QR Code Preview',
-    description: 'View & download auto-generated GS1 Digital Link QR Code at your fingertips.',
-    image: '/product screenshots/qr-code-preview.png',
-    objectFit: 'contain' as const,
-  },
-  {
-    id: 'consumer-page',
-    title: 'Consumer Product Page',
-    description: 'AI-native product pages your customers see when scanning.',
-    image: '/product screenshots/consumer-product-page-view.png',
-    objectFit: 'contain' as const,
-  },
-  {
-    id: 'ai-chat',
-    title: 'AI Chat Interface',
-    description: 'Product-specific AI assistant answering customer questions.',
-    image: '/product screenshots/ai-chat-interface.png',
-    objectFit: 'contain' as const,
-  },
-  {
-    id: 'add-product',
-    title: 'Add Product',
-    description: 'Easily add products and generate codes in seconds.',
-    image: '/product screenshots/add-product-wizard-UI.png',
-    objectFit: 'contain' as const,
-  },
-  {
-    id: 'analytics-dashboard',
-    title: 'Analytics Dashboard',
-    description: 'Comprehensive analytics for your products.',
-    image: '/product screenshots/analytics-dashboard.png',
-    objectFit: 'contain' as const,
-  },
-  {
-    id: 'product-analytics',
-    title: 'Product Analytics',
-    description: 'Deep dive into individual product performance.',
-    image: '/product screenshots/individual-product-analytics.png',
-    objectFit: 'contain' as const,
-  },
+/**
+ * ProductPreview - Before/After comparison
+ *
+ * Design Rules:
+ * - Left: Gray static QR, Generic homepage, Minimal icons
+ * - Right: Branded QR, Product-specific AI page, Icons (Manuals, Warranty, FAQs, Analytics)
+ * - Caption (right): "Powered by dynamic GS1 Digital Links"
+ */
+
+const beforeFeatures = [
+  'Generic homepage URL',
+  'No product context',
+  'Same page for all scans',
+];
+
+const afterFeatures = [
+  { icon: FileText, label: 'Manuals & guides' },
+  { icon: Shield, label: 'Warranty registration' },
+  { icon: HelpCircle, label: 'Product FAQs' },
+  { icon: BarChart3, label: 'Scan analytics' },
+  { icon: Bot, label: 'AI assistant' },
 ];
 
 export default function ProductPreview() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
-
-  const goToPrev = () => {
-    setDirection(-1);
-    setActiveIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
-  };
-
-  const goToNext = () => {
-    setDirection(1);
-    setActiveIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
-  };
-
   return (
-    <section id="preview" className="py-16 lg:py-24 bg-gray-50">
+    <section id="preview" className="py-16 lg:py-24 bg-electric-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={viewportOptions}
+          transition={{ duration: duration.normal, ease: easing.default }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-            See BrandCodes in Action
+          <h2 className="text-3xl sm:text-4xl font-bold text-deep-navy mb-4">
+            What your code does today vs. what it could do
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            From supplier dashboard to consumer experience — explore what you can build with BrandCodes.
+          <p className="text-lg text-deep-navy-300 max-w-3xl mx-auto">
+            Transform static QR codes into dynamic, product-specific experiences.
           </p>
         </motion.div>
 
-        {/* Carousel */}
-        <div className="relative">
-          {/* Main image */}
-          <div className="relative overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-200">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: 50 * direction }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 * direction }}
-                transition={{ duration: 0.3 }}
-                className="aspect-video relative"
-              >
-                <img
-                  src={screenshots[activeIndex].image}
-                  alt={screenshots[activeIndex].title}
-                  className={`w-full h-full ${screenshots[activeIndex].objectFit === 'contain' ? 'object-contain bg-gray-100' : 'object-cover'}`}
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation arrows */}
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                goToPrev();
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition z-10"
-            >
-              <ChevronLeft className="w-6 h-6 text-gray-700" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                goToNext();
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition z-10"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-700" />
-            </button>
-          </div>
-
-          {/* Caption */}
+        {/* Before/After comparison */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Before */}
           <motion.div
-            key={`caption-${activeIndex}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mt-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={viewportOptions}
+            transition={{ duration: duration.normal, ease: easing.default }}
+            className="relative"
           >
-            <h3 className="text-xl font-semibold text-gray-900">{screenshots[activeIndex].title}</h3>
-            <p className="text-gray-600 mt-1">{screenshots[activeIndex].description}</p>
+            <div className="bg-white rounded-2xl p-8 border-2 border-deep-navy-100 h-full">
+              {/* Label */}
+              <div className="inline-flex items-center px-3 py-1 bg-deep-navy-100 text-deep-navy-400 rounded-full text-sm font-medium mb-6">
+                Today
+              </div>
+
+              <div className="flex flex-col items-center">
+                {/* Static gray QR */}
+                <div className="bg-deep-navy-50 rounded-xl p-6 mb-6">
+                  <div className="w-40 h-40 relative">
+                    {/* Simple gray QR representation */}
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <rect width="100" height="100" fill="#E8EBF0" rx="4" />
+                      <rect x="10" y="10" width="25" height="25" fill="#8B9BB3" />
+                      <rect x="65" y="10" width="25" height="25" fill="#8B9BB3" />
+                      <rect x="10" y="65" width="25" height="25" fill="#8B9BB3" />
+                      <rect x="15" y="15" width="15" height="15" fill="#E8EBF0" />
+                      <rect x="70" y="15" width="15" height="15" fill="#E8EBF0" />
+                      <rect x="15" y="70" width="15" height="15" fill="#E8EBF0" />
+                      <rect x="20" y="20" width="5" height="5" fill="#8B9BB3" />
+                      <rect x="75" y="20" width="5" height="5" fill="#8B9BB3" />
+                      <rect x="20" y="75" width="5" height="5" fill="#8B9BB3" />
+                      <rect x="40" y="40" width="20" height="20" fill="#8B9BB3" opacity="0.5" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Generic page mockup */}
+                <div className="w-full bg-deep-navy-50 rounded-lg p-4 mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-deep-navy-200" />
+                    <div className="w-2 h-2 rounded-full bg-deep-navy-200" />
+                    <div className="w-2 h-2 rounded-full bg-deep-navy-200" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-3 bg-deep-navy-200 rounded w-3/4" />
+                    <div className="h-3 bg-deep-navy-200 rounded w-1/2" />
+                    <div className="h-8 bg-deep-navy-200 rounded w-full mt-4" />
+                  </div>
+                </div>
+
+                {/* Features list */}
+                <ul className="space-y-2 w-full">
+                  {beforeFeatures.map((feature) => (
+                    <li key={feature} className="flex items-center text-deep-navy-400 text-sm">
+                      <div className="w-4 h-4 rounded-full border-2 border-deep-navy-200 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Thumbnail navigation */}
-          <div className="flex justify-center gap-3 mt-8">
-            {screenshots.map((screenshot, index) => (
-              <button
-                key={screenshot.id}
-                onClick={() => setActiveIndex(index)}
-                className={`w-20 h-14 rounded-lg overflow-hidden border-2 transition ${index === activeIndex
-                  ? 'border-indigo-600 shadow-md'
-                  : 'border-transparent opacity-60 hover:opacity-100'
-                  }`}
-              >
-                <img
-                  src={screenshot.image}
-                  alt={screenshot.title}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
+          {/* After */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={viewportOptions}
+            transition={{ duration: duration.normal, delay: 0.1, ease: easing.default }}
+            className="relative"
+          >
+            <div className="bg-white rounded-2xl p-8 border-2 border-electric-blue shadow-lg shadow-electric-blue/10 h-full">
+              {/* Label */}
+              <div className="inline-flex items-center px-3 py-1 bg-electric-blue text-white rounded-full text-sm font-medium mb-6">
+                With BrandCodes
+              </div>
+
+              <div className="flex flex-col items-center">
+                {/* Branded QR */}
+                <div className="mb-6">
+                  <QRCore
+                    variant="branded"
+                    size={160}
+                    showPulse={true}
+                    interactive={true}
+                  />
+                </div>
+
+                {/* AI-powered page mockup */}
+                <div className="w-full bg-electric-blue-50 rounded-lg p-4 mb-6 border border-electric-blue-100">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-electric-blue" />
+                    <div className="w-2 h-2 rounded-full bg-electric-blue-300" />
+                    <div className="w-2 h-2 rounded-full bg-electric-blue-200" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-3 bg-electric-blue-200 rounded w-3/4" />
+                    <div className="h-3 bg-electric-blue-100 rounded w-1/2" />
+                    <div className="flex gap-2 mt-4">
+                      <div className="h-8 bg-electric-blue rounded flex-1" />
+                      <div className="h-8 bg-neon-green/30 rounded flex-1" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features grid */}
+                <div className="grid grid-cols-2 gap-3 w-full">
+                  {afterFeatures.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <motion.div
+                        key={feature.label}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={viewportOptions}
+                        transition={{ delay: index * 0.05, duration: duration.fast, ease: easing.default }}
+                        className="flex items-center gap-2 text-deep-navy text-sm"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-electric-blue-50 flex items-center justify-center">
+                          <Icon size={16} className="text-electric-blue" />
+                        </div>
+                        {feature.label}
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* Caption */}
+                <p className="text-center text-electric-blue text-sm font-medium mt-6">
+                  Powered by dynamic GS1 Digital Links
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
