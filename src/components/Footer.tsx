@@ -38,13 +38,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
+            <Link to="/" className="mb-4 block">
               <img
                 src="/logo/bc-mock-logo-background-removed.png"
                 alt="BrandCodes"
                 className="h-8 w-auto brightness-0 invert"
               />
-              <span className="text-xl font-bold">BrandCodes</span>
             </Link>
             <p className="text-navy-300 text-sm mb-4">
               Turn every product into an intelligent digital experience with one scan.
