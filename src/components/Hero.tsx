@@ -1,7 +1,8 @@
 import { Play } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-b from-brand-50 to-white">
       {/* Background decorations */}
@@ -14,9 +15,9 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeOut' }}
             className="text-center lg:text-left"
           >
             {/* Badge */}
@@ -51,7 +52,7 @@ export default function Hero() {
               </a> */}
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition"
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
               >
                 <Play size={20} className="mr-2" />
                 Book a Demo
@@ -62,18 +63,18 @@ export default function Hero() {
             <div className="mt-10 pt-8 border-t border-cool-200">
               <p className="text-sm text-cool-500 mb-4">Trusted by forward-thinking brands</p>
               <div className="flex items-center justify-center lg:justify-start gap-8 opacity-60">
-                <span className="text-cool-400 font-medium">GS1 Compliant</span>
-                <span className="text-cool-400 font-medium">SOC 2</span>
-                <span className="text-cool-400 font-medium">GDPR Ready</span>
+                <span className="text-cool-600 font-medium">GS1 Compliant</span>
+                <span className="text-cool-600 font-medium">SOC 2</span>
+                <span className="text-cool-600 font-medium">GDPR Ready</span>
               </div>
             </div>
           </motion.div>
 
           {/* Right Content - Hero Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2, ease: 'easeOut' }}
             className="relative lg:ml-12"
           >
             <div className="relative">
@@ -85,14 +86,16 @@ export default function Hero() {
                 src="/hero-mockup-image.png"
                 alt="BrandCodes - Product package with QR code scanning to mobile phone showing AI product page"
                 className="relative rounded-2xl shadow-2xl w-full scale-125"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
 
             {/* Floating badges */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.5, ease: 'easeOut' }}
               className="absolute -left-8 top-1/2 bg-white rounded-lg shadow-xl p-4 hidden lg:block"
             >
               <div className="flex items-center space-x-3">
@@ -107,9 +110,9 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.7, ease: 'easeOut' }}
               className="absolute -right-0 bottom-1/2 bg-white rounded-lg shadow-xl p-4 hidden lg:block"
             >
               <div className="flex items-center space-x-3">

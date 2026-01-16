@@ -71,8 +71,9 @@ export default function TeamPage() {
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full blur-lg opacity-30" />
                   <img
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name}, ${member.role}`}
                     className="relative w-40 h-40 rounded-full object-cover border-4 border-white shadow-lg"
+                    loading="lazy"
                   />
                 </div>
 

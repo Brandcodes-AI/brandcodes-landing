@@ -46,7 +46,7 @@ export default function Analytics() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Understand What Consumers{' '}
@@ -65,7 +65,7 @@ export default function Analytics() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeOut' }}
                   className="bg-navy-900/50 backdrop-blur rounded-xl p-5 border border-slate-700"
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -91,7 +91,7 @@ export default function Analytics() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="relative"
           >
             <div className="relative">
@@ -101,8 +101,9 @@ export default function Analytics() {
               {/* Dashboard image */}
               <img
                 src="/product screenshots/analytics-dashboard.png"
-                alt="BrandCodes Analytics Dashboard"
+                alt="BrandCodes Analytics Dashboard showing product performance metrics and insights"
                 className="relative rounded-2xl shadow-2xl w-full border border-slate-700"
+                loading="lazy"
               />
 
               {/* Overlay badge */}

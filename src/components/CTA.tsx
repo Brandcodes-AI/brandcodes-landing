@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Send, Loader2 } from 'lucide-react';
 
 export default function CTA() {
+  const shouldReduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,10 +53,10 @@ export default function CTA() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: CTA Content */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeOut' }}
             className="text-white"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -102,10 +103,10 @@ export default function CTA() {
 
           {/* Right: Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2, ease: 'easeOut' }}
           >
             <div className="bg-white rounded-2xl p-8 shadow-xl">
               <h3 className="text-xl font-bold text-navy-900 mb-2">Request a Demo</h3>
@@ -127,50 +128,70 @@ export default function CTA() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-cool-700 mb-1">Name</label>
+                      <label htmlFor="cta-name" className="block text-sm font-medium text-cool-700 mb-1">
+                        Name
+                      </label>
                       <input
+                        id="cta-name"
                         type="text"
+                        name="name"
+                        autoComplete="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                        className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200"
                         placeholder="John Doe"
+                        aria-required="true"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-cool-700 mb-1">Email</label>
+                      <label htmlFor="cta-email" className="block text-sm font-medium text-cool-700 mb-1">
+                        Email
+                      </label>
                       <input
+                        id="cta-email"
                         type="email"
+                        name="email"
+                        autoComplete="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                        className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200"
                         placeholder="john@company.com"
+                        aria-required="true"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-cool-700 mb-1">Company</label>
+                    <label htmlFor="cta-company" className="block text-sm font-medium text-cool-700 mb-1">
+                      Company
+                    </label>
                     <input
+                      id="cta-company"
                       type="text"
+                      name="organization"
+                      autoComplete="organization"
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                      className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200"
                       placeholder="Acme Inc."
+                      aria-required="true"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-cool-700 mb-1">
+                    <label htmlFor="cta-message" className="block text-sm font-medium text-cool-700 mb-1">
                       How can we help?
                     </label>
                     <textarea
+                      id="cta-message"
+                      name="message"
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none"
+                      className="w-full px-3 py-2 text-sm border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200 resize-none"
                       placeholder="Tell us about your use case..."
                     />
                   </div>
@@ -178,7 +199,8 @@ export default function CTA() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-sm transition flex items-center justify-center disabled:opacity-50"
+                    className="w-full px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-sm transition-colors duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
+                    aria-busy={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>

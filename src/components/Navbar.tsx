@@ -23,8 +23,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-cool-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-cool-200 rounded-2xl shadow-lg max-w-7xl mx-auto">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
@@ -32,6 +32,8 @@ export default function Navbar() {
               src="/logo/bc-mock-logo-background-removed.png"
               alt="BrandCodes"
               className="h-10 w-auto"
+              loading="eager"
+              fetchPriority="high"
             />
           </Link>
 
@@ -42,7 +44,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-cool-600 hover:text-brand-500 font-medium transition"
+                  className="text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                 >
                   {link.name}
                 </Link>
@@ -50,7 +52,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-cool-600 hover:text-brand-500 font-medium transition"
+                  className="text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                 >
                   {link.name}
                 </a>
@@ -63,7 +65,11 @@ export default function Navbar() {
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
             >
-              <button className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition py-2">
+              <button 
+                className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
+                aria-expanded={isCompanyOpen}
+                aria-haspopup="true"
+              >
                 Company
                 <ChevronDown size={16} className="ml-1" />
               </button>
@@ -75,7 +81,7 @@ export default function Navbar() {
                       <Link
                         key={link.name}
                         to={link.href}
-                        className="block px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition"
+                        className="block px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                       >
                         {link.name}
                       </Link>
@@ -90,7 +96,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <a
               href={isHomePage ? '#contact' : '/#contact'}
-              className="px-4 py-2 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 shadow-sm transition"
+              className="px-4 py-2 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
             >
               Book Demo
             </a>
@@ -104,8 +110,10 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-cool-600 hover:text-navy-900"
+            className="md:hidden p-2 text-cool-600 hover:text-navy-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -114,14 +122,14 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-cool-200">
+        <div className="md:hidden bg-white border-t border-cool-200 rounded-b-2xl mt-2">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) =>
               link.isRoute ? (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="block text-cool-600 hover:text-brand-500 font-medium py-2"
+                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -130,7 +138,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-cool-600 hover:text-brand-500 font-medium py-2"
+                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -140,7 +148,7 @@ export default function Navbar() {
 
             {/* Company Section - Mobile */}
             <div className="border-t border-cool-200 pt-3">
-              <div className="text-sm font-semibold text-cool-400 mb-2 px-2">Company</div>
+              <div className="text-sm font-semibold text-cool-600 mb-2 px-2">Company</div>
               {companyLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -156,7 +164,7 @@ export default function Navbar() {
             <div className="pt-4 space-y-3 border-t border-cool-200">
               <a
                 href={isHomePage ? '#contact' : '/#contact'}
-                className="block px-4 py-2 text-center bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 shadow-sm transition"
+                className="block px-4 py-2 text-center bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Book Demo

@@ -39,11 +39,12 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="mb-4 block">
-              <img
-                src="/logo/bc-mock-logo-background-removed.png"
-                alt="BrandCodes"
-                className="h-8 w-auto brightness-0 invert"
-              />
+            <img
+              src="/logo/bc-mock-logo-background-removed.png"
+              alt="BrandCodes"
+              className="h-8 w-auto brightness-0 invert"
+              loading="lazy"
+            />
             </Link>
             <p className="text-navy-300 text-sm mb-4">
               Turn every product into an intelligent digital experience with one scan.
@@ -53,7 +54,8 @@ export default function Footer() {
                 href="https://github.com/Brandcodes-web"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy-300 hover:text-white transition"
+                className="text-navy-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
+                aria-label="BrandCodes on GitHub"
               >
                 <Github size={20} />
               </a>
@@ -61,7 +63,8 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/110915539"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy-300 hover:text-white transition"
+                className="text-navy-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
+                aria-label="BrandCodes on LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
@@ -69,7 +72,8 @@ export default function Footer() {
                 href="https://x.com/brandcodes_io"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy-300 hover:text-white transition"
+                className="text-navy-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
+                aria-label="BrandCodes on X (Twitter)"
               >
                 <Twitter size={20} />
               </a>
@@ -88,14 +92,14 @@ export default function Footer() {
                     {link.isRoute ? (
                       <Link
                         to={link.href}
-                        className="text-navy-300 hover:text-white text-sm transition"
+                        className="text-navy-300 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
                       >
                         {link.name}
                       </Link>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-navy-300 hover:text-white text-sm transition"
+                        className="text-navy-300 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
                       >
                         {link.name}
                       </a>

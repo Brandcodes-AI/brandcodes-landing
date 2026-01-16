@@ -39,7 +39,7 @@ export default function MarketOpportunity() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium mb-6">
@@ -64,7 +64,7 @@ export default function MarketOpportunity() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
               className="bg-navy-900/50 backdrop-blur rounded-xl p-6 border border-slate-700"
             >
               <stat.icon className="w-8 h-8 text-brand-400 mb-4" />
@@ -79,7 +79,7 @@ export default function MarketOpportunity() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="bg-navy-900/50 backdrop-blur rounded-2xl p-8 border border-slate-700"
         >
           <h3 className="text-xl font-semibold mb-8 text-center">GS1 Sunrise 2027 Timeline</h3>
@@ -95,7 +95,7 @@ export default function MarketOpportunity() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
                   className="text-center relative"
                 >
                   <div
