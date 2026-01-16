@@ -52,7 +52,7 @@ export default function Analytics() {
               Understand What Consumers{' '}
               <span className="text-brand-400">Really</span> Scan, Search, and Struggle With
             </h2>
-            <p className="text-lg text-slate-400 mb-8">
+            <p className="text-lg text-slate-300 mb-8">
               BrandCodes gives you product-level and portfolio-level insights into how your codes and
               pages are used. Turn scan data into actionable product improvements.
             </p>

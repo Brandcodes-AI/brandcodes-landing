@@ -228,7 +228,7 @@ export default function PricingPage() {
                   {plan.notIncluded.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <X className="w-5 h-5 text-gray-300 mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-cool-400 text-sm">{feature}</span>
+                      <span className="text-cool-500 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>

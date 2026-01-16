@@ -101,7 +101,7 @@ export default function SolutionOverview() {
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="mt-16 grid md:grid-cols-2 gap-8"
         >
-          <div className="bg-cool-50 rounded-2xl p-8 border border-gray-100">
+          <div className="bg-cool-50 rounded-2xl p-8 border border-cool-200">
             <h4 className="text-lg font-semibold text-navy-900 mb-4">GS1 2D Barcodes</h4>
             <img
               src="/QR Examples/GS1 Digital Link QR Code.png"
@@ -114,7 +114,7 @@ export default function SolutionOverview() {
             </p>
           </div>
 
-          <div className="bg-cool-50 rounded-2xl p-8 border border-gray-100">
+          <div className="bg-cool-50 rounded-2xl p-8 border border-cool-200">
             <h4 className="text-lg font-semibold text-navy-900 mb-4">Branded QR Codes</h4>
             <img
               src="/QR Examples/brand-qr-codes.jpeg"

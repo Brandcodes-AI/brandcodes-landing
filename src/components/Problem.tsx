@@ -58,7 +58,7 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-              className="bg-cool-50 rounded-xl p-6 border border-gray-100 hover:border-red-200 hover:bg-red-50/30 transition-all duration-200 ease-out group cursor-pointer"
+              className="bg-cool-50 rounded-xl p-6 border border-cool-200 hover:border-red-300 hover:bg-red-50/40 transition-all duration-200 ease-out group cursor-pointer"
             >
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition-colors duration-200 ease-out">
                 <problem.icon className="w-6 h-6 text-red-600" />
