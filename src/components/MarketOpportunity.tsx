@@ -33,7 +33,7 @@ const timeline = [
 
 export default function MarketOpportunity() {
   return (
-    <section className="py-16 lg:py-24 bg-navy-950 text-white">
+    <section id="market-opportunity" className="py-16 lg:py-24 bg-navy-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
