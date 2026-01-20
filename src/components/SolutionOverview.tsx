@@ -30,7 +30,7 @@ export default function SolutionOverview() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -53,10 +53,10 @@ export default function SolutionOverview() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
               className="relative group"
             >
-              <div className="bg-white rounded-2xl p-8 border border-cool-200 h-full hover:border-brand-300 hover:shadow-xl transition-all duration-300">
+              <div className="bg-white rounded-2xl p-8 border border-cool-200 h-full hover:border-brand-300 hover:shadow-xl transition-all duration-200 ease-out cursor-pointer">
                 {/* Step number */}
                 <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-brand-500 to-accent-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
                   {index + 1}
@@ -98,27 +98,29 @@ export default function SolutionOverview() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="mt-16 grid md:grid-cols-2 gap-8"
         >
-          <div className="bg-cool-50 rounded-2xl p-8 border border-gray-100">
+          <div className="bg-cool-50 rounded-2xl p-8 border border-cool-200">
             <h4 className="text-lg font-semibold text-navy-900 mb-4">GS1 2D Barcodes</h4>
             <img
               src="/QR Examples/GS1 Digital Link QR Code.png"
               alt="GS1 2D Barcode example with GTIN encoding"
               className="w-full rounded-lg"
+              loading="lazy"
             />
             <p className="text-sm text-cool-500 mt-4">
               GS1 Digital Link compliant barcodes encoding GTIN, batch, expiry, and serial data.
             </p>
           </div>
 
-          <div className="bg-cool-50 rounded-2xl p-8 border border-gray-100">
+          <div className="bg-cool-50 rounded-2xl p-8 border border-cool-200">
             <h4 className="text-lg font-semibold text-navy-900 mb-4">Branded QR Codes</h4>
             <img
               src="/QR Examples/brand-qr-codes.jpeg"
               alt="AI-generated branded QR codes"
               className="w-full rounded-lg"
+              loading="lazy"
             />
             <p className="text-sm text-cool-500 mt-4">
               AI-assisted aesthetic QR codes balancing scannability with on-brand visual design.

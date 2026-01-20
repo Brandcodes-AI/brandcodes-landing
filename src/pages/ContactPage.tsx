@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Send, Loader2, Mail, MessageSquare } from 'lucide-react';
 
 export default function ContactPage() {
+  const shouldReduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,15 +49,15 @@ export default function ContactPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
     >
       {/* Hero Section */}
       <section className="pt-32 pb-6 lg:pt-40 lg:pb-8 bg-gradient-to-b from-indigo-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
@@ -77,10 +78,11 @@ export default function ContactPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.2 }}
               className="text-center"
+              aria-label="Contact information"
             >
               <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-brand-500" />
@@ -90,9 +92,9 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.3 }}
               className="text-center"
             >
               <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -103,9 +105,9 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.4 }}
               className="text-center"
             >
               <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -120,9 +122,9 @@ export default function ContactPage() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.5 }}
             className="bg-cool-50 rounded-2xl p-8 border border-cool-200"
           >
             {submitted ? (
@@ -139,45 +141,63 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-cool-700 mb-2">Name</label>
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-cool-700 mb-2">
+                      Name
+                    </label>
                     <input
+                      id="contact-name"
                       type="text"
+                      name="name"
+                      autoComplete="name"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition"
+                      className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200"
                       placeholder="Your name"
+                      aria-required="true"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-cool-700 mb-2">Email</label>
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-cool-700 mb-2">
+                      Email
+                    </label>
                     <input
+                      id="contact-email"
                       type="email"
+                      name="email"
+                      autoComplete="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition"
+                      className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200"
                       placeholder="you@example.com"
+                      aria-required="true"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-cool-700 mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-cool-700 mb-2">
+                    Message
+                  </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     rows={6}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition resize-none"
+                    className="w-full px-4 py-3 border border-cool-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 focus:outline-none transition-colors duration-200 resize-none"
                     placeholder="How can we help you?"
+                    aria-required="true"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-4 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition flex items-center justify-center disabled:opacity-50"
+                  className="w-full px-6 py-4 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition-colors duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
+                  aria-busy={isSubmitting}
                 >
                   {isSubmitting ? (
                     <>

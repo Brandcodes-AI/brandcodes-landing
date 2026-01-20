@@ -98,7 +98,7 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -117,11 +117,12 @@ export default function Features() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-2.5 rounded-md font-medium text-sm transition ${
+                className={`px-6 py-2.5 rounded-md font-medium text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-brand-500 text-white shadow-sm'
                     : 'text-cool-600 hover:text-navy-900'
                 }`}
+                aria-pressed={activeTab === tab.id}
               >
                 {tab.label}
               </button>
@@ -136,19 +137,19 @@ export default function Features() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-cool-200 hover:border-brand-300 hover:shadow-md transition group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeOut' }}
+                className="bg-white rounded-xl p-6 border border-cool-200 hover:border-brand-300 hover:shadow-md transition-all duration-200 ease-out group cursor-pointer"
               >
-                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-500 transition">
-                  <feature.icon className="w-6 h-6 text-brand-500 group-hover:text-white transition" />
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-500 transition-colors duration-200 ease-out">
+                  <feature.icon className="w-6 h-6 text-brand-500 group-hover:text-white transition-colors duration-200 ease-out" />
                 </div>
                 <h3 className="text-lg font-semibold text-navy-900 mb-2">{feature.title}</h3>
                 <p className="text-cool-600 text-sm">{feature.description}</p>

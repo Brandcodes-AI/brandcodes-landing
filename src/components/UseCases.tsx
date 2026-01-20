@@ -109,7 +109,7 @@ export default function UseCases() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -128,15 +128,16 @@ export default function UseCases() {
                 <button
                   key={useCase.id}
                   onClick={() => setActiveCase(useCase.id)}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition ${
+                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer ${
                     activeCase === useCase.id
                       ? 'bg-brand-50 text-brand-600'
                       : 'hover:bg-cool-50 text-cool-700'
                   }`}
+                  aria-pressed={activeCase === useCase.id}
                 >
                   <useCase.icon
                     className={`w-5 h-5 flex-shrink-0 ${
-                      activeCase === useCase.id ? 'text-brand-500' : 'text-cool-400'
+                      activeCase === useCase.id ? 'text-brand-500' : 'text-cool-600'
                     }`}
                   />
                   <div>
@@ -156,7 +157,7 @@ export default function UseCases() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
                 className="bg-white rounded-2xl border border-cool-200 p-8 h-full"
               >
                 <div className="flex items-center space-x-4 mb-6">
@@ -175,7 +176,7 @@ export default function UseCases() {
                       key={benefit}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.1, ease: 'easeOut' }}
                       className="flex items-start space-x-3"
                     >
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">

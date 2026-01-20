@@ -15,7 +15,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-cool-50">
       <Navbar />
-      <main>
+      <main className="pt-20">
         <AnimatePresence mode="wait">
           <Outlet key={location.pathname} />
         </AnimatePresence>

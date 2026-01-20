@@ -63,7 +63,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -81,7 +81,7 @@ export default function Pricing() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
               className={`relative rounded-2xl p-8 ${
                 plan.highlighted
                   ? 'bg-gradient-to-br from-brand-500 to-accent-500 text-white shadow-xl scale-105'
@@ -147,7 +147,7 @@ export default function Pricing() {
 
               <a
                 href={plan.name === 'Enterprise' ? '#contact' : 'http://localhost:3000/'}
-                className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition ${
+                className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 ease-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 ${
                   plan.highlighted
                     ? 'bg-white text-brand-500 hover:bg-cool-100'
                     : 'bg-brand-500 text-white hover:bg-brand-600'
@@ -164,7 +164,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
           className="text-center mt-12"
         >
           <p className="text-cool-600">

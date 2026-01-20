@@ -75,7 +75,7 @@ export default function ProductPreview() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -96,13 +96,14 @@ export default function ProductPreview() {
                 initial={{ opacity: 0, x: 50 * direction }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 * direction }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
                 className="aspect-video relative"
               >
                 <img
                   src={screenshots[activeIndex].image}
                   alt={screenshots[activeIndex].title}
                   className={`w-full h-full ${screenshots[activeIndex].objectFit === 'contain' ? 'object-contain bg-cool-100' : 'object-cover'}`}
+                  loading={activeIndex === 0 ? "eager" : "lazy"}
                 />
               </motion.div>
             </AnimatePresence>
@@ -114,7 +115,8 @@ export default function ProductPreview() {
                 e.stopPropagation();
                 goToPrev();
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer z-10"
+              aria-label="Previous screenshot"
             >
               <ChevronLeft className="w-6 h-6 text-cool-700" />
             </button>
@@ -124,7 +126,8 @@ export default function ProductPreview() {
                 e.stopPropagation();
                 goToNext();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer z-10"
+              aria-label="Next screenshot"
             >
               <ChevronRight className="w-6 h-6 text-cool-700" />
             </button>
@@ -147,15 +150,18 @@ export default function ProductPreview() {
               <button
                 key={screenshot.id}
                 onClick={() => setActiveIndex(index)}
-                className={`w-20 h-14 rounded-lg overflow-hidden border-2 transition ${index === activeIndex
+                className={`w-20 h-14 rounded-lg overflow-hidden border-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer ${index === activeIndex
                   ? 'border-brand-500 shadow-md'
                   : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
+                aria-label={`View ${screenshot.title}`}
+                aria-pressed={index === activeIndex}
               >
                 <img
                   src={screenshot.image}
                   alt={screenshot.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </button>
             ))}

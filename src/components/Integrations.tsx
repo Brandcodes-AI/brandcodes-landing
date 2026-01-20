@@ -27,7 +27,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -44,7 +44,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-2xl p-8 mb-16"
         >
           <h3 className="text-lg font-semibold text-navy-900 mb-8 text-center">
@@ -98,8 +98,9 @@ export default function Integrations() {
               {integration.hasLogo ? (
                 <img
                   src={integration.logo}
-                  alt={integration.name}
+                  alt={`${integration.name} integration`}
                   className="h-12 w-auto object-contain mb-3"
+                  loading="lazy"
                 />
               ) : (
                 <div className="w-12 h-12 bg-cool-100 rounded-lg flex items-center justify-center mb-3">

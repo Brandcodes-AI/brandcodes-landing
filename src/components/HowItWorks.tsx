@@ -33,7 +33,7 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
@@ -56,11 +56,11 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.2, ease: 'easeOut' }}
                 className="relative"
               >
                 {/* Step card */}
-                <div className="bg-white rounded-2xl p-8 border border-cool-200 shadow-sm hover:shadow-lg transition h-full">
+                <div className="bg-white rounded-2xl p-8 border border-cool-200 shadow-sm hover:shadow-lg transition-shadow duration-200 ease-out h-full cursor-pointer">
                   {/* Step number */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -99,7 +99,7 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
           className="text-center mt-12"
         >
           {/* <a
