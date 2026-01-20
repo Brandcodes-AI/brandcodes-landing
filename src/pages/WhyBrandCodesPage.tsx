@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Brain, Zap, Shield, Users, Check, X, AlertTriangle } from 'lucide-react';
+import { Brain, Zap, Shield, Users, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const differentiators = [
@@ -143,7 +143,8 @@ const isKeyDifferentiator = (dimension: string) => {
   return [
     'AI Product Support Depth',
     'Automated Page Generation',
-    'Consumer Support Experience'
+    'Consumer Support Experience',
+    'Multilingual & Voice AI'
   ].includes(dimension);
 };
 
@@ -367,20 +368,17 @@ export default function WhyBrandCodesPage() {
             {/* Legend */}
             <div className="mt-6 flex flex-wrap gap-6 text-sm">
               <div className="flex items-center">
-                <Check className="w-4 h-4 text-green-600 mr-2" />
-                <span className="text-green-600">✓ = Fully supported</span>
+                <span className="text-green-600 font-semibold">✓ = Fully supported</span>
               </div>
               <div className="flex items-center">
-                <AlertTriangle className="w-4 h-4 text-orange-500 mr-2" />
-                <span className="text-orange-500">△ = Partially supported</span>
+                <span className="text-orange-500 font-semibold">△ = Partially supported</span>
               </div>
               <div className="flex items-center">
-                <X className="w-4 h-4 text-gray-400 mr-2" />
-                <span className="text-gray-400">✗ = Not supported</span>
+                <span className="text-gray-400 font-semibold">✗ = Not supported</span>
               </div>
               <div className="flex items-center">
                 <div className="w-4 h-4 bg-green-50 border border-green-500 rounded mr-2" />
-                <span className="text-cool-700">= BrandCodes key differentiator</span>
+                <span className="text-cool-700">BrandCodes key differentiator</span>
               </div>
             </div>
           </motion.div>
