@@ -277,8 +277,7 @@ export default function PreviewPage() {
                 className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}
               >
                 <div
-                  className={`relative cursor-pointer group ${index % 2 === 0 ? 'lg:-ml-64' : 'lg:-mr-64'
-                    }`}
+                  className="relative cursor-pointer group"
                   onClick={() => openLightbox(index)}
                 >
                   <img
