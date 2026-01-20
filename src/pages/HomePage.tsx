@@ -8,7 +8,6 @@ import HowItWorks from '../components/HowItWorks';
 import UseCases from '../components/UseCases';
 import Integrations from '../components/Integrations';
 import Analytics from '../components/Analytics';
-import ProductPreview from '../components/ProductPreview';
 import CTA from '../components/CTA';
 
 export default function HomePage() {
@@ -29,7 +28,6 @@ export default function HomePage() {
       <UseCases />
       <Integrations />
       <Analytics />
-      <ProductPreview />
       <CTA />
     </motion.div>
   );
