@@ -18,7 +18,6 @@ export default function Navbar() {
     { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases' },
     { name: 'Integrations', href: isHomePage ? '#integrations' : '/#integrations' },
     { name: 'Analytics', href: isHomePage ? '#analytics' : '/#analytics' },
-    { name: 'Preview', href: isHomePage ? '#preview' : '/#preview' },
   ];
 
   const companyLinks = [
@@ -71,6 +70,14 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+
+            {/* Preview Link */}
+            <Link
+              to="/preview"
+              className="text-cool-600 hover:text-brand-500 font-medium transition"
+            >
+              Preview
+            </Link>
 
             {/* Why Us Link */}
             <Link
@@ -167,6 +174,15 @@ export default function Navbar() {
                 </a>
               ))}
             </div>
+
+            {/* Preview Link - Mobile */}
+            <Link
+              to="/preview"
+              className="block text-cool-600 hover:text-brand-500 font-medium py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Preview
+            </Link>
 
             {/* Why Us Link - Mobile */}
             <Link

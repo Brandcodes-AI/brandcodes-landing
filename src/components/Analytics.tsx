@@ -100,7 +100,7 @@ export default function Analytics() {
 
               {/* Dashboard image */}
               <img
-                src="/product screenshots/analytics-dashboard.png"
+                src="/preview/analytics-dashboard.png"
                 alt="BrandCodes Analytics Dashboard showing product performance metrics and insights"
                 className="relative rounded-2xl shadow-2xl w-full border border-slate-700"
                 loading="lazy"
