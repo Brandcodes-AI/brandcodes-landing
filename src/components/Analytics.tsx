@@ -91,7 +91,7 @@ export default function Analytics() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="relative lg:-mr-64"
+            className="relative"
           >
             <div className="relative">
               {/* Glow effect */}
