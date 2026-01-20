@@ -75,17 +75,17 @@ export default function Hero() {
             initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2, ease: 'easeOut' }}
-            className="relative lg:ml-12"
+            className="relative lg:ml-12 flex justify-center"
           >
-            <div className="relative">
+            <div className="relative max-w-md mx-auto">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-500 to-accent-500 rounded-2xl blur-2xl opacity-20 scale-125" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-500 to-accent-500 rounded-2xl blur-2xl opacity-20" />
 
               {/* Main image */}
               <img
-                src="/hero-mockup-image.png"
+                src="/hero2.png"
                 alt="BrandCodes - Product package with QR code scanning to mobile phone showing AI product page"
-                className="relative rounded-2xl shadow-2xl w-full scale-125"
+                className="relative rounded-2xl shadow-2xl w-full"
                 loading="eager"
                 fetchPriority="high"
               />
@@ -96,7 +96,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.5, ease: 'easeOut' }}
-              className="absolute -left-8 top-1/2 bg-white rounded-lg shadow-xl p-4 hidden lg:block"
+              className="absolute -left-16 top-3/11 bg-white rounded-lg shadow-xl p-4 hidden lg:block"
             >
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -113,7 +113,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.7, ease: 'easeOut' }}
-              className="absolute -right-0 bottom-1/2 bg-white rounded-lg shadow-xl p-4 hidden lg:block"
+              className="absolute -right-8 bottom-3/7 bg-white rounded-lg shadow-xl p-4 hidden lg:block"
             >
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center">
