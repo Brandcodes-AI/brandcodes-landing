@@ -4,14 +4,15 @@ import {
   Sparkles,
   MessageCircle,
   Globe,
-  Route,
+  Mic,
   WifiOff,
   Database,
   QrCode,
   Bot,
   BarChart3,
-  Package,
-  Plug,
+  Link,
+  Search,
+  ExternalLink,
 } from 'lucide-react';
 
 const tabs = [
@@ -21,62 +22,67 @@ const tabs = [
 
 const consumerFeatures = [
   {
-    icon: Sparkles,
-    title: 'AI-Native Landing Pages',
-    description: 'Auto-generated product pages from your data — clean, structured, and mobile-optimized for scanning.',
+    icon: MessageCircle,
+    title: 'AI-Powered Product Assistant',
+    description: 'RAG-based AI trained on product manuals, specs, and FAQs with real-time streaming chat responses.',
   },
   {
-    icon: MessageCircle,
-    title: 'Product-Specific AI Assistant',
-    description: 'Every product gets its own AI assistant trained on manuals, specs, and FAQs. Setup, troubleshooting, and more.',
+    icon: Mic,
+    title: 'Voice AI Capabilities',
+    description: 'Text-to-speech with 10 voice options and speech-to-text for voice queries with multilingual support.',
   },
   {
     icon: Globe,
-    title: 'Multilingual Auto-Translation',
-    description: 'Serve content in 30+ languages with auto-detection and region-specific compliance variants.',
+    title: 'Multilingual Support',
+    description: '7 languages with automatic locale detection, AI-powered real-time translation, and regional content.',
   },
   {
-    icon: Route,
-    title: 'Intelligent QR Routing',
-    description: 'Dynamic routing based on language, region, device type, and user intent signals.',
+    icon: Sparkles,
+    title: 'Smart Product Landing Pages',
+    description: 'Auto-generated from GTIN/SKU with specs, compliance data, documents, and all 37 GS1 link types.',
   },
   {
     icon: WifiOff,
     title: 'Offline-Ready PWA',
-    description: 'Mini knowledge base cached on first scan for low-connectivity environments.',
+    description: 'Translation caching and offline viewing capability for low-connectivity environments.',
+  },
+  {
+    icon: ExternalLink,
+    title: 'Multiple Links in One Scan',
+    description: 'Access brand website, warranty registration, setup videos, manuals, and more from a single QR code.',
   },
 ];
 
 const supplierFeatures = [
   {
     icon: Database,
-    title: 'Auto-Generation from GTIN/SKU',
-    description: 'Import via CSV, API, or PIM. BrandCodes enriches and auto-generates everything per product.',
+    title: 'Product Data Management',
+    description: 'Multi-step wizard, bulk CSV/API import, variants with batch/serial/expiry management.',
   },
   {
     icon: QrCode,
-    title: 'Barcode Asset Exports',
-    description: 'Download print-ready QR and GS1 2D barcodes (SVG/PNG/PDF) for packaging workflows.',
+    title: 'QR Code & Barcode Design',
+    description: 'Custom styling, logo integration, preset themes, AI assistance, multi-format export up to 600 DPI.',
   },
   {
     icon: Bot,
-    title: 'AI Assistant per SKU',
-    description: 'Configure AI behavior, test with sample questions, tune tone and escalation rules.',
+    title: 'AI Assistant Configuration',
+    description: 'Configure AI behavior per SKU, test with sample questions, tune tone and escalation rules.',
   },
   {
     icon: BarChart3,
-    title: 'Analytics Dashboard',
-    description: 'Scan volume, top questions, language breakdown, support deflection rates, and more.',
+    title: 'Analytics & Insights',
+    description: 'Real-time scan tracking, chat sentiment analysis, intent classification, and topic clustering.',
   },
   {
-    icon: Package,
-    title: 'Packaging Workflow Integration',
-    description: 'Plugins for Adobe, Figma, label printers (Zebra), and VDP workflows.',
+    icon: Link,
+    title: 'GS1 Digital Link Resolver',
+    description: 'Cloud-based resolver with dynamic routing and redirection, fully GS1 compliant.',
   },
   {
-    icon: Plug,
-    title: 'PIM/ERP Integration',
-    description: 'Connect Shopify, WooCommerce, Akeneo, and custom feeds via REST API or webhooks.',
+    icon: Search,
+    title: 'Web Enrichment',
+    description: 'Auto-extract data from manufacturer websites with data source consensus algorithms.',
   },
 ];
 

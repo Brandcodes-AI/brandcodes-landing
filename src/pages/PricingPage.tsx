@@ -150,7 +150,7 @@ export default function PricingPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-brand-50 to-white">
+      <section className="pt-32 pb-8 lg:pt-40 lg:pb-4 bg-gradient-to-b from-brand-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -184,7 +184,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map((plan, index) => (
@@ -194,11 +194,10 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl border-2 p-6 flex flex-col ${
-                  plan.popular
-                    ? 'border-brand-500 shadow-xl'
-                    : 'border-cool-200 hover:border-brand-300'
-                } transition`}
+                className={`relative bg-white rounded-2xl border-2 p-6 flex flex-col ${plan.popular
+                  ? 'border-brand-500 shadow-xl'
+                  : 'border-cool-200 hover:border-brand-300'
+                  } transition`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -235,11 +234,10 @@ export default function PricingPage() {
 
                 <Link
                   to={plan.ctaLink}
-                  className={`w-full py-3 px-4 rounded-lg font-medium text-center transition ${
-                    plan.popular
-                      ? 'bg-brand-500 text-white hover:bg-brand-600'
-                      : 'bg-cool-100 text-navy-900 hover:bg-cool-200'
-                  }`}
+                  className={`w-full py-3 px-4 rounded-lg font-medium text-center transition ${plan.popular
+                    ? 'bg-brand-500 text-white hover:bg-brand-600'
+                    : 'bg-cool-100 text-navy-900 hover:bg-cool-200'
+                    }`}
                 >
                   {plan.cta}
                 </Link>

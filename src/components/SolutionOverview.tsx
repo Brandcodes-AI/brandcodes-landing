@@ -24,7 +24,7 @@ const pillars = [
 
 export default function SolutionOverview() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section id="solution" className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -4,16 +4,21 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductOpen, setIsProductOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  const navLinks = [
-    { name: 'Features', href: isHomePage ? '#features' : '/#features', isRoute: false },
-    { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works', isRoute: false },
-    { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases', isRoute: false },
-    { name: 'Preview', href: isHomePage ? '#preview' : '/#preview', isRoute: false },
-    { name: 'Pricing', href: '/pricing', isRoute: true },
+  const productLinks = [
+    { name: 'Problem', href: isHomePage ? '#problem' : '/#problem' },
+    { name: 'Market Opportunity', href: isHomePage ? '#market-opportunity' : '/#market-opportunity' },
+    { name: 'Solution', href: isHomePage ? '#solution' : '/#solution' },
+    { name: 'Features', href: isHomePage ? '#features' : '/#features' },
+    { name: 'How It Works', href: isHomePage ? '#how-it-works' : '/#how-it-works' },
+    { name: 'Use Cases', href: isHomePage ? '#use-cases' : '/#use-cases' },
+    { name: 'Integrations', href: isHomePage ? '#integrations' : '/#integrations' },
+    { name: 'Analytics', href: isHomePage ? '#analytics' : '/#analytics' },
+    { name: 'Preview', href: isHomePage ? '#preview' : '/#preview' },
   ];
 
   const companyLinks = [
@@ -39,25 +44,49 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) =>
-              link.isRoute ? (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
-                >
-                  {link.name}
-                </a>
-              )
-            )}
+            {/* Product Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIsProductOpen(true)}
+              onMouseLeave={() => setIsProductOpen(false)}
+            >
+              <button className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition py-2">
+                Product
+                <ChevronDown size={16} className="ml-1" />
+              </button>
+
+              {isProductOpen && (
+                <div className="absolute top-full left-0 pt-2 w-48">
+                  <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2">
+                    {productLinks.map((link) => (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        className="block px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Why Us Link */}
+            <Link
+              to="/why"
+              className="text-cool-600 hover:text-brand-500 font-medium transition"
+            >
+              Why Us?
+            </Link>
+
+            {/* Pricing Link */}
+            <Link
+              to="/pricing"
+              className="text-cool-600 hover:text-brand-500 font-medium transition"
+            >
+              Pricing
+            </Link>
 
             {/* Company Dropdown */}
             <div
@@ -65,7 +94,7 @@ export default function Navbar() {
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
             >
-              <button 
+              <button
                 className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                 aria-expanded={isCompanyOpen}
                 aria-haspopup="true"
@@ -124,27 +153,38 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-cool-200 rounded-b-2xl mt-2">
           <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) =>
-              link.isRoute ? (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ) : (
+            {/* Product Section - Mobile */}
+            <div className="border-b border-cool-200 pb-3">
+              <div className="text-sm font-semibold text-cool-400 mb-2 px-2">Product</div>
+              {productLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
+                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 pl-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </a>
-              )
-            )}
+              ))}
+            </div>
+
+            {/* Why Us Link - Mobile */}
+            <Link
+              to="/why"
+              className="block text-cool-600 hover:text-brand-500 font-medium py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Why Us?
+            </Link>
+
+            {/* Pricing Link - Mobile */}
+            <Link
+              to="/pricing"
+              className="block text-cool-600 hover:text-brand-500 font-medium py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
+            </Link>
 
             {/* Company Section - Mobile */}
             <div className="border-t border-cool-200 pt-3">
