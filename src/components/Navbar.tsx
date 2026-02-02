@@ -27,7 +27,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-cool-200 rounded-2xl shadow-lg max-w-7xl mx-auto">
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-cool-200 rounded-2xl shadow-lg max-w-7xl mx-auto overflow-hidden">
+      {/* Barcode accent line at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-barcode-lines text-brand-300 opacity-40" />
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -55,14 +57,22 @@ export default function Navbar() {
               </button>
 
               {isProductOpen && (
-                <div className="absolute top-full left-0 pt-2 w-48">
-                  <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2">
-                    {productLinks.map((link) => (
+                <div className="absolute top-full left-0 pt-2 w-52">
+                  <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2 relative overflow-hidden">
+                    {/* Corner bracket accents */}
+                    <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-400/60" />
+                    <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-400/60" />
+                    <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-400/60" />
+                    <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-400/60" />
+                    {productLinks.map((link, index) => (
                       <a
                         key={link.name}
                         href={link.href}
-                        className="block px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition"
+                        className="flex items-center px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition"
                       >
+                        <span className="font-mono text-[9px] text-cool-300 mr-2 w-4">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
                         {link.name}
                       </a>
                     ))}
@@ -111,14 +121,22 @@ export default function Navbar() {
               </button>
 
               {isCompanyOpen && (
-                <div className="absolute top-full left-0 pt-2 w-48">
-                  <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2">
-                    {companyLinks.map((link) => (
+                <div className="absolute top-full left-0 pt-2 w-52">
+                  <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2 relative overflow-hidden">
+                    {/* Corner bracket accents */}
+                    <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-400/60" />
+                    <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-400/60" />
+                    <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-400/60" />
+                    <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-400/60" />
+                    {companyLinks.map((link, index) => (
                       <Link
                         key={link.name}
                         to={link.href}
-                        className="block px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
+                        className="flex items-center px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                       >
+                        <span className="font-mono text-[9px] text-cool-300 mr-2 w-4">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
                         {link.name}
                       </Link>
                     ))}
@@ -162,14 +180,20 @@ export default function Navbar() {
           <div className="px-4 py-4 space-y-3">
             {/* Product Section - Mobile */}
             <div className="border-b border-cool-200 pb-3">
-              <div className="text-sm font-semibold text-cool-400 mb-2 px-2">Product</div>
-              {productLinks.map((link) => (
+              <div className="text-sm font-semibold text-cool-400 mb-2 px-2 flex items-center">
+                <span className="font-mono text-[9px] text-cool-300 mr-2">SEC_01</span>
+                Product
+              </div>
+              {productLinks.map((link, index) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 pl-4"
+                  className="flex items-center text-cool-600 hover:text-brand-500 font-medium py-2 pl-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  <span className="font-mono text-[9px] text-cool-300 mr-2 w-4">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                   {link.name}
                 </a>
               ))}
@@ -204,14 +228,20 @@ export default function Navbar() {
 
             {/* Company Section - Mobile */}
             <div className="border-t border-cool-200 pt-3">
-              <div className="text-sm font-semibold text-cool-600 mb-2 px-2">Company</div>
-              {companyLinks.map((link) => (
+              <div className="text-sm font-semibold text-cool-600 mb-2 px-2 flex items-center">
+                <span className="font-mono text-[9px] text-cool-300 mr-2">SEC_02</span>
+                Company
+              </div>
+              {companyLinks.map((link, index) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="block text-cool-600 hover:text-brand-500 font-medium py-2 pl-4"
+                  className="flex items-center text-cool-600 hover:text-brand-500 font-medium py-2 pl-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  <span className="font-mono text-[9px] text-cool-300 mr-2 w-4">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                   {link.name}
                 </Link>
               ))}

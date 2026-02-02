@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link2Off, Eye, HeadphonesIcon, Package, HelpCircle } from 'lucide-react';
+import { Link2Off, Eye, HeadphonesIcon, Package, HelpCircle, QrCode } from 'lucide-react';
 
 const problems = [
   {
@@ -31,8 +31,11 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section id="problem" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="problem" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,13 +61,26 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-              className="bg-cool-50 rounded-xl p-6 border border-cool-200 hover:border-red-300 hover:bg-red-50/40 transition-all duration-200 ease-out group cursor-pointer"
+              className="relative bg-white rounded-xl p-6 border border-cool-200 hover:border-red-300 hover:shadow-lg transition-all duration-200 ease-out group cursor-pointer overflow-hidden"
             >
-              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition-colors duration-200 ease-out">
-                <problem.icon className="w-6 h-6 text-red-600" />
+              {/* Error indicator strip at top */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-400 via-red-500 to-red-400 opacity-60 group-hover:opacity-100 transition-opacity" />
+
+              {/* Header with icon and error code */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center border border-red-100 group-hover:bg-red-100 group-hover:border-red-200 transition-all duration-200 ease-out">
+                  <problem.icon className="w-6 h-6 text-red-500" />
+                </div>
+                <span className="font-mono text-[10px] text-cool-300 tracking-wider group-hover:text-red-400 transition-colors">
+                  ERR_{String(index + 1).padStart(3, '0')}
+                </span>
               </div>
+
               <h3 className="text-lg font-semibold text-navy-900 mb-2">{problem.title}</h3>
-              <p className="text-cool-600">{problem.description}</p>
+              <p className="text-cool-600 text-sm">{problem.description}</p>
+
+              {/* Barcode accent at bottom on hover */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-red-200 opacity-0 group-hover:opacity-40 transition-opacity" />
             </motion.div>
           ))}
 
@@ -74,15 +90,31 @@ export default function Problem() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
-            className="bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl p-6 text-white"
+            className="relative bg-gradient-to-br from-brand-500 via-brand-600 to-accent-500 rounded-xl p-6 text-white overflow-hidden"
           >
-            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-              <span className="text-2xl font-bold">+</span>
+            {/* QR grid overlay */}
+            <div className="absolute inset-0 bg-qr-grid-white opacity-[0.08]" />
+
+            {/* Success indicator strip */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 via-green-300 to-green-400" />
+
+            <div className="relative">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 border border-white/20">
+                <QrCode className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">BrandCodes solves all of this</h3>
+              <p className="text-brand-100 text-sm">
+                Automating compliant, product-specific URLs and QR/GS1 2D barcodes with AI and analytics on top.
+              </p>
+
+              {/* Data identifier */}
+              <div className="mt-4 pt-3 border-t border-white/20">
+                <span className="font-mono text-[10px] text-white/60 tracking-wider">SOLUTION_READY</span>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold mb-2">BrandCodes solves all of this</h3>
-            <p className="text-brand-100">
-              Automating compliant, product-specific URLs and QR/GS1 2D barcodes with AI and analytics on top.
-            </p>
+
+            {/* Scanline accent */}
+            <div className="absolute bottom-3 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
           </motion.div>
         </div>
       </div>

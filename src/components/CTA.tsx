@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, Check } from 'lucide-react';
 
 export default function CTA() {
   const shouldReduceMotion = useReducedMotion();
@@ -48,8 +48,21 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-brand-500 via-accent-500 to-brand-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 relative overflow-hidden">
+      {/* QR Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-qr-grid-white opacity-[0.05]" />
+
+      {/* Corner frames */}
+      <div className="absolute top-8 left-8 w-16 h-16 border-t-4 border-l-4 border-white/20" />
+      <div className="absolute top-8 right-8 w-16 h-16 border-t-4 border-r-4 border-white/20" />
+      <div className="absolute bottom-8 left-8 w-16 h-16 border-b-4 border-l-4 border-white/20" />
+      <div className="absolute bottom-8 right-8 w-16 h-16 border-b-4 border-r-4 border-white/20" />
+
+      {/* Vertical data stream lines */}
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-white/20 via-transparent to-white/20 hidden lg:block" />
+      <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent hidden lg:block" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: CTA Content */}
           <motion.div
@@ -67,48 +80,31 @@ export default function CTA() {
               experiences. Request a personalized demo to learn more.
             </p>
 
-            {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a
-                href="http://localhost:3000/"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 shadow-lg transition group"
-              >
-                Get Started Free
-                <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+            {/* Data points */}
+            <div className="space-y-3">
+              {['GS1 Digital Link compliant', 'AI-powered product pages', 'Real-time analytics'].map((item, index) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="w-6 h-6 bg-white/20 rounded flex items-center justify-center">
+                    <span className="font-mono text-[10px] text-white">{String(index + 1).padStart(2, '0')}</span>
+                  </div>
+                  <span className="text-brand-100">{item}</span>
+                </div>
+              ))}
             </div>
-
-            <div className="flex items-center space-x-6 text-brand-200 text-sm">
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                No credit card required
-              </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Free tier available
-              </div>
-            </div> */}
           </motion.div>
 
-          {/* Right: Contact Form */}
+          {/* Right: Contact Form with Corner Brackets */}
           <motion.div
             initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2, ease: 'easeOut' }}
           >
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
+            <div className="bg-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
+              {/* Corner brackets */}
+              <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-brand-200" />
+              <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-brand-200" />
+
               <h3 className="text-xl font-bold text-navy-900 mb-2">Request a Demo</h3>
               <p className="text-cool-600 text-sm mb-6">
                 Fill out the form and we'll get back to you within 24 hours.
@@ -116,11 +112,10 @@ export default function CTA() {
 
               {submitted ? (
                 <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                  <div className="w-16 h-16 bg-green-50 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-100">
+                    <Check className="w-8 h-8 text-green-500" />
                   </div>
+                  <p className="font-mono text-[10px] text-cool-400 tracking-wider mb-2">REQUEST_SUBMITTED</p>
                   <h4 className="text-lg font-semibold text-navy-900 mb-2">Thank you!</h4>
                   <p className="text-cool-600">We'll be in touch soon.</p>
                 </div>
@@ -129,6 +124,7 @@ export default function CTA() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="cta-name" className="block text-sm font-medium text-cool-700 mb-1">
+                        <span className="font-mono text-[10px] text-brand-400 mr-1">01</span>
                         Name
                       </label>
                       <input
@@ -146,6 +142,7 @@ export default function CTA() {
                     </div>
                     <div>
                       <label htmlFor="cta-email" className="block text-sm font-medium text-cool-700 mb-1">
+                        <span className="font-mono text-[10px] text-brand-400 mr-1">02</span>
                         Email
                       </label>
                       <input
@@ -165,6 +162,7 @@ export default function CTA() {
 
                   <div>
                     <label htmlFor="cta-company" className="block text-sm font-medium text-cool-700 mb-1">
+                      <span className="font-mono text-[10px] text-brand-400 mr-1">03</span>
                       Company
                     </label>
                     <input
@@ -183,6 +181,7 @@ export default function CTA() {
 
                   <div>
                     <label htmlFor="cta-message" className="block text-sm font-medium text-cool-700 mb-1">
+                      <span className="font-mono text-[10px] text-brand-400 mr-1">04</span>
                       How can we help?
                     </label>
                     <textarea
@@ -216,6 +215,9 @@ export default function CTA() {
                   </button>
                 </form>
               )}
+
+              {/* Bottom barcode accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-30" />
             </div>
           </motion.div>
         </div>

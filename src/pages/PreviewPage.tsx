@@ -174,8 +174,13 @@ export default function PreviewPage() {
       className="min-h-screen"
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-to-b from-brand-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-to-b from-brand-50 to-white relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.03]" />
+        {/* Corner brackets */}
+        <div className="absolute top-28 left-8 w-12 h-12 border-t-2 border-l-2 border-brand-300/40 hidden lg:block" />
+        <div className="absolute top-28 right-8 w-12 h-12 border-t-2 border-r-2 border-brand-300/40 hidden lg:block" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -222,8 +227,10 @@ export default function PreviewPage() {
         initial={{ y: -100 }}
         animate={{ y: showProgress ? 0 : -100 }}
         transition={{ duration: 0.3 }}
-        className="fixed top-20 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-cool-200 shadow-sm"
+        className="fixed top-20 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-cool-200 shadow-sm overflow-hidden"
       >
+        {/* Barcode accent */}
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-barcode-lines text-brand-300 opacity-30" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between gap-4">
             {workflowSteps.map((step, index) => (
@@ -233,7 +240,7 @@ export default function PreviewPage() {
                 className="flex items-center gap-2 flex-1 group"
               >
                 <div
-                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${index <= activeStep
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded flex items-center justify-center font-mono font-bold text-sm transition-all ${index <= activeStep
                     ? 'bg-brand-500 text-white scale-110'
                     : 'border-2 border-cool-300 text-cool-500 group-hover:border-brand-400 group-hover:scale-110'
                     }`}
@@ -241,7 +248,7 @@ export default function PreviewPage() {
                   {index < activeStep ? (
                     <Check className="w-5 h-5" />
                   ) : (
-                    step.stepNumber
+                    String(step.stepNumber).padStart(2, '0')
                   )}
                 </div>
                 <span
@@ -280,6 +287,17 @@ export default function PreviewPage() {
                   className="relative cursor-pointer group"
                   onClick={() => openLightbox(index)}
                 >
+                  {/* Corner bracket scanner frame */}
+                  <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-brand-400 opacity-60 group-hover:opacity-100 transition-opacity z-10" />
+                  <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-brand-400 opacity-60 group-hover:opacity-100 transition-opacity z-10" />
+                  <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-brand-400 opacity-60 group-hover:opacity-100 transition-opacity z-10" />
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-brand-400 opacity-60 group-hover:opacity-100 transition-opacity z-10" />
+
+                  {/* Scanline on hover */}
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                    <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-brand-400 to-transparent animate-scanline-slow" />
+                  </div>
+
                   <img
                     src={step.image.src}
                     alt={step.image.alt}
@@ -304,10 +322,13 @@ export default function PreviewPage() {
               >
                 {/* Step number badge */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-500 rounded-full flex items-center justify-center">
-                    <span className="text-2xl sm:text-3xl font-bold text-white">
-                      {step.stepNumber}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-500 rounded-xl flex flex-col items-center justify-center relative overflow-hidden">
+                    <span className="font-mono text-[10px] text-brand-200 tracking-wider">STEP</span>
+                    <span className="text-2xl sm:text-3xl font-mono font-bold text-white">
+                      {String(step.stepNumber).padStart(2, '0')}
                     </span>
+                    {/* Barcode accent */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-white opacity-20" />
                   </div>
                   <div className="flex-1 h-1 bg-brand-200 rounded-full">
                     <div
@@ -315,6 +336,9 @@ export default function PreviewPage() {
                       style={{ width: `${((step.stepNumber) / workflowSteps.length) * 100}%` }}
                     />
                   </div>
+                  <span className="font-mono text-[10px] text-cool-400 tracking-wider hidden sm:block">
+                    STEP_{String(step.stepNumber).padStart(2, '0')}_OF_{String(workflowSteps.length).padStart(2, '0')}
+                  </span>
                 </div>
 
                 {/* Title and description */}
@@ -332,10 +356,12 @@ export default function PreviewPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: featureIndex * 0.05 }}
-                      className="flex items-start gap-2"
+                      className="flex items-start gap-3"
                     >
-                      <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
-                        <Check className="w-3 h-3 text-green-600" />
+                      <div className="flex-shrink-0 w-7 h-7 bg-green-50 rounded flex items-center justify-center mt-0.5 border border-green-100">
+                        <span className="font-mono text-xs text-green-600 font-medium">
+                          {String(featureIndex + 1).padStart(2, '0')}
+                        </span>
                       </div>
                       <span className="text-base text-cool-700">{feature}</span>
                     </motion.div>
@@ -370,8 +396,15 @@ export default function PreviewPage() {
       ))}
 
       {/* Final CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-white opacity-[0.05]" />
+        {/* Corner brackets */}
+        <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-white/30 hidden lg:block" />
+        <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-white/30 hidden lg:block" />
+        <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-white/30 hidden lg:block" />
+        <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-white/30 hidden lg:block" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
