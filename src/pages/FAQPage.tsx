@@ -111,8 +111,13 @@ export default function FAQPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-brand-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-brand-50 to-white relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.03]" />
+        {/* Corner brackets */}
+        <div className="absolute top-28 left-8 w-12 h-12 border-t-2 border-l-2 border-brand-300/40 hidden lg:block" />
+        <div className="absolute top-28 right-8 w-12 h-12 border-t-2 border-r-2 border-brand-300/40 hidden lg:block" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,10 +149,20 @@ export default function FAQPage() {
               className="mb-12 last:mb-0"
             >
               {/* Category Header */}
-              <h2 className="text-2xl font-bold text-navy-900 mb-6">{section.category}</h2>
+              <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center">
+                <span className="font-mono text-[10px] text-cool-400 mr-3 bg-cool-100 px-2 py-1 rounded border border-cool-200">
+                  CAT_{String(sectionIndex + 1).padStart(2, '0')}
+                </span>
+                {section.category}
+              </h2>
 
               {/* Questions */}
-              <div className="bg-cool-50 rounded-xl border border-cool-200 overflow-hidden">
+              <div className="bg-cool-50 rounded-xl border border-cool-200 overflow-hidden relative">
+                {/* Corner brackets */}
+                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-300/50" />
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-300/50" />
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-300/50" />
+                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-300/50" />
                 {section.questions.map((faq, questionIndex) => {
                   const id = `${sectionIndex}-${questionIndex}`;
                   const isOpen = openIndex === id;
@@ -158,7 +173,10 @@ export default function FAQPage() {
                         onClick={() => toggleAccordion(id)}
                         className="w-full flex justify-between items-center px-6 py-5 text-left hover:bg-white transition group"
                       >
-                        <span className="text-lg font-semibold text-navy-900 pr-8 group-hover:text-brand-500 transition">
+                        <span className="text-lg font-semibold text-navy-900 pr-8 group-hover:text-brand-500 transition flex items-center">
+                          <span className="font-mono text-[10px] text-cool-400 mr-3 flex-shrink-0">
+                            Q_{String(questionIndex + 1).padStart(2, '0')}
+                          </span>
                           {faq.question}
                         </span>
                         <ChevronDown
@@ -177,7 +195,7 @@ export default function FAQPage() {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                           >
-                            <div className="px-6 pb-5 text-cool-600 leading-relaxed">
+                            <div className="px-6 pb-5 text-cool-600 leading-relaxed ml-12">
                               {faq.answer}
                             </div>
                           </motion.div>
@@ -193,25 +211,38 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-cool-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center bg-gradient-to-br from-brand-500 to-accent-500 rounded-2xl p-12 text-white"
+            className="text-center bg-gradient-to-br from-brand-500 to-accent-500 rounded-2xl p-12 text-white relative overflow-hidden"
           >
-            <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
-            <p className="text-lg text-brand-100 mb-8">
-              Can't find the answer you're looking for? Our team is here to help.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 shadow-lg transition"
-            >
-              Contact Us
-            </Link>
+            {/* QR grid overlay on card */}
+            <div className="absolute inset-0 bg-qr-grid-white opacity-[0.05]" />
+            {/* Corner brackets */}
+            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-white/30" />
+            <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-white/30" />
+            <div className="absolute bottom-6 left-6 w-10 h-10 border-b-2 border-l-2 border-white/30" />
+            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-white/30" />
+            {/* Barcode accent */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-white opacity-20" />
+            <div className="relative">
+              <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
+              <p className="text-lg text-brand-100 mb-8">
+                Can't find the answer you're looking for? Our team is here to help.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-6 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 shadow-lg transition"
+              >
+                Contact Us
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

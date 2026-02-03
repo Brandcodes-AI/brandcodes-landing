@@ -27,9 +27,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-cool-200 rounded-2xl shadow-lg max-w-7xl mx-auto overflow-hidden">
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-cool-200 rounded-2xl shadow-lg max-w-7xl mx-auto">
       {/* Barcode accent line at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-barcode-lines text-brand-300 opacity-40" />
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-barcode-lines text-brand-300 opacity-40 overflow-hidden" />
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
