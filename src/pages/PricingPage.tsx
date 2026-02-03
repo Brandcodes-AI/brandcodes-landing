@@ -528,18 +528,12 @@ export default function PricingPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Ready to turn every product into a digital touchpoint?
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex justify-center">
               <Link
                 to="/contact"
                 className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 Get started free
-              </Link>
-              <Link
-                to="/contact"
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition"
-              >
-                Talk to sales
               </Link>
             </div>
           </motion.div>

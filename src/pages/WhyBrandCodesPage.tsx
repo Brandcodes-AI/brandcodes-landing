@@ -501,17 +501,17 @@ export default function WhyBrandCodesPage() {
               Experience the all-in-one platform built for modern smart packaging
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
+              {/* <a
                 href="https://app.brandcodes.io/01/00040000424314"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 See BrandCodes in Action
-              </a>
+              </a> */}
               <Link
                 to="/contact"
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition"
+                className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 Book a Demo
               </Link>
