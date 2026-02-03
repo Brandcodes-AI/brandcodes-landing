@@ -150,8 +150,13 @@ export default function PricingPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-8 lg:pt-40 lg:pb-4 bg-gradient-to-b from-brand-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-8 lg:pt-40 lg:pb-4 bg-gradient-to-b from-brand-50 to-white relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.03]" />
+        {/* Corner brackets */}
+        <div className="absolute top-28 left-8 w-12 h-12 border-t-2 border-l-2 border-brand-300/40 hidden lg:block" />
+        <div className="absolute top-28 right-8 w-12 h-12 border-t-2 border-r-2 border-brand-300/40 hidden lg:block" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -194,11 +199,20 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl border-2 p-6 flex flex-col ${plan.popular
+                className={`relative bg-white rounded-2xl border-2 p-6 flex flex-col group ${plan.popular
                   ? 'border-brand-500 shadow-xl'
                   : 'border-cool-200 hover:border-brand-300'
                   } transition`}
               >
+                {/* Corner bracket accents */}
+                <div className={`absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 ${plan.popular ? 'border-brand-400' : 'border-cool-300 opacity-0 group-hover:opacity-100'} transition-opacity`} />
+                <div className={`absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 ${plan.popular ? 'border-brand-400' : 'border-cool-300 opacity-0 group-hover:opacity-100'} transition-opacity`} />
+                <div className={`absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 ${plan.popular ? 'border-brand-400' : 'border-cool-300 opacity-0 group-hover:opacity-100'} transition-opacity`} />
+                <div className={`absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 ${plan.popular ? 'border-brand-400' : 'border-cool-300 opacity-0 group-hover:opacity-100'} transition-opacity`} />
+
+                {/* Barcode accent at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity rounded-b-2xl overflow-hidden" />
+
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="bg-brand-500 text-white text-sm font-medium px-4 py-1 rounded-full">
@@ -208,19 +222,28 @@ export default function PricingPage() {
                 )}
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-navy-900">{plan.name}</h3>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold text-navy-900">{plan.name}</h3>
+                    <span className="font-mono text-[10px] text-cool-400 tracking-wider">
+                      PLAN_{String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
                   <p className="text-cool-500 text-sm mt-1">{plan.description}</p>
                 </div>
 
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-navy-900">{plan.price}</span>
+                  <span className="text-4xl font-mono font-bold text-navy-900">{plan.price}</span>
                   <span className="text-cool-500">{plan.period}</span>
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-grow">
-                  {plan.features.map((feature) => (
+                  {plan.features.map((feature, featureIndex) => (
                     <li key={feature} className="flex items-start">
-                      <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <div className="flex-shrink-0 w-5 h-5 bg-green-50 rounded flex items-center justify-center mr-2 mt-0.5 border border-green-100">
+                        <span className="font-mono text-[9px] text-green-600">
+                          {String(featureIndex + 1).padStart(2, '0')}
+                        </span>
+                      </div>
                       <span className="text-cool-600 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -310,12 +333,20 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="overflow-x-auto"
+            className="overflow-x-auto relative"
           >
+            {/* Corner bracket frame */}
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-brand-300/50" />
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-300/50" />
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-300/50" />
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-brand-300/50" />
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-cool-200">
-                  <th className="text-left py-4 px-4 font-semibold text-navy-900">Feature</th>
+                  <th className="text-left py-4 px-4 font-semibold text-navy-900">
+                    <span className="font-mono text-[9px] text-cool-400 mr-2">ROW</span>
+                    Feature
+                  </th>
                   <th className="text-center py-4 px-4 font-semibold text-navy-900">Free</th>
                   <th className="text-center py-4 px-4 font-semibold text-navy-900">Starter</th>
                   <th className="text-center py-4 px-4 font-semibold text-brand-500 bg-brand-50 rounded-t-lg">
@@ -327,7 +358,12 @@ export default function PricingPage() {
               <tbody>
                 {featureComparison.map((row, index) => (
                   <tr key={row.feature} className={index % 2 === 0 ? 'bg-cool-50' : ''}>
-                    <td className="py-3 px-4 text-cool-700">{row.feature}</td>
+                    <td className="py-3 px-4 text-cool-700">
+                      <span className="font-mono text-[9px] text-cool-400 mr-2">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      {row.feature}
+                    </td>
                     <td className="py-3 px-4 text-center">
                       {typeof row.free === 'boolean' ? (
                         row.free ? (
@@ -336,7 +372,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-cool-600">{row.free}</span>
+                        <span className="text-cool-600 font-mono text-sm">{row.free}</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-center">
@@ -347,7 +383,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-cool-600">{row.starter}</span>
+                        <span className="text-cool-600 font-mono text-sm">{row.starter}</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-center bg-brand-50">
@@ -358,7 +394,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-cool-600">{row.growth}</span>
+                        <span className="text-cool-600 font-mono text-sm">{row.growth}</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-center">
@@ -369,7 +405,7 @@ export default function PricingPage() {
                           <X className="w-5 h-5 text-gray-300 mx-auto" />
                         )
                       ) : (
-                        <span className="text-cool-600">{row.enterprise}</span>
+                        <span className="text-cool-600 font-mono text-sm">{row.enterprise}</span>
                       )}
                     </td>
                   </tr>
@@ -381,8 +417,10 @@ export default function PricingPage() {
       </section>
 
       {/* Why Different Section */}
-      <section className="py-16 lg:py-24 bg-cool-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -403,9 +441,21 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-cool-200 text-center"
+                className="bg-white rounded-xl p-6 border border-cool-200 text-center relative overflow-hidden group hover:border-brand-300 transition-colors"
               >
-                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                {/* Corner brackets on hover */}
+                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                {/* Barcode accent at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity" />
+
+                <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                  DIFF_{String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4 border border-brand-200">
                   <item.icon className="w-6 h-6 text-brand-500" />
                 </div>
                 <h3 className="font-semibold text-navy-900 mb-2">{item.title}</h3>
@@ -439,10 +489,20 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-cool-50 rounded-xl p-6"
+                className="bg-cool-50 rounded-xl p-6 relative overflow-hidden border border-cool-200"
               >
-                <h3 className="font-semibold text-navy-900 mb-2">{faq.question}</h3>
-                <p className="text-cool-600">{faq.answer}</p>
+                {/* Corner brackets */}
+                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-brand-300/50" />
+                <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-brand-300/50" />
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-xs text-cool-400 bg-white px-2 py-1 rounded border border-cool-200 flex-shrink-0">
+                    Q_{String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-navy-900 mb-2">{faq.question}</h3>
+                    <p className="text-cool-600">{faq.answer}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -450,8 +510,15 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-white opacity-[0.05]" />
+        {/* Corner brackets */}
+        <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-white/30 hidden lg:block" />
+        <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-white/30 hidden lg:block" />
+        <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-white/30 hidden lg:block" />
+        <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-white/30 hidden lg:block" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -461,18 +528,12 @@ export default function PricingPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Ready to turn every product into a digital touchpoint?
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex justify-center">
               <Link
                 to="/contact"
                 className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 Get started free
-              </Link>
-              <Link
-                to="/contact"
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition"
-              >
-                Talk to sales
               </Link>
             </div>
           </motion.div>

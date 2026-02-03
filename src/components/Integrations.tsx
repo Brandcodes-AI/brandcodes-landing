@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Database, Barcode, Palette } from 'lucide-react';
+import { Database, Barcode, Palette, ChevronRight } from 'lucide-react';
 
 const workflowSteps = [
   {
@@ -21,8 +21,11 @@ const workflowSteps = [
 
 export default function Integrations() {
   return (
-    <section id="integrations" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="integrations" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,79 +42,75 @@ export default function Integrations() {
           </p>
         </motion.div>
 
-        {/* Workflow diagram */}
+        {/* Workflow as Data Pipeline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-2xl p-8 mb-16"
+          className="relative bg-gradient-to-r from-brand-50 to-cool-50 rounded-2xl p-8 mb-16 border border-brand-100 overflow-hidden"
         >
-          <h3 className="text-lg font-semibold text-navy-900 mb-8 text-center">
+          {/* QR pattern overlay */}
+          <div className="absolute inset-0 bg-qr-grid opacity-[0.02]" />
+
+          <h3 className="relative text-lg font-semibold text-navy-900 mb-8 text-center">
             Packaging Workflow Integration
           </h3>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+
+          <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
             {workflowSteps.map((step, index) => (
               <div key={step.title} className="flex items-center">
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center mb-3">
-                    <step.icon className="w-8 h-8 text-brand-500" />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
+                  className="relative bg-white rounded-xl p-6 border border-cool-200 shadow-sm min-w-[180px] group hover:border-brand-300 hover:shadow-md transition-all"
+                >
+                  {/* Step number badge */}
+                  <div className="absolute -top-3 -left-3 w-6 h-6 bg-brand-500 rounded flex items-center justify-center shadow-sm">
+                    <span className="text-white font-mono text-xs font-bold">{index + 1}</span>
                   </div>
-                  <div className="text-center">
-                    <div className="font-semibold text-navy-900 text-sm">{step.title}</div>
-                    <div className="text-xs text-cool-500">{step.description}</div>
+
+                  <div className="w-14 h-14 bg-brand-50 rounded-lg flex items-center justify-center mb-4 border border-brand-100 group-hover:bg-brand-100 transition-colors">
+                    <step.icon className="w-7 h-7 text-brand-500" />
                   </div>
-                </div>
+
+                  <div className="font-semibold text-navy-900 text-sm mb-1">{step.title}</div>
+                  <div className="text-xs text-cool-500">{step.description}</div>
+
+                  {/* Data identifier */}
+                  <div className="mt-3 pt-3 border-t border-cool-100">
+                    <span className="font-mono text-[10px] text-cool-400">STEP_{String(index + 1).padStart(2, '0')}</span>
+                  </div>
+                </motion.div>
+
+                {/* Data flow connector */}
                 {index < workflowSteps.length - 1 && (
-                  <div className="hidden md:block mx-4">
-                    <svg
-                      className="w-8 h-8 text-brand-300"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                  <div className="hidden md:flex items-center mx-4">
+                    <div className="w-6 h-px bg-brand-300" />
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-brand-300 flex items-center justify-center">
+                      <ChevronRight className="w-4 h-4 text-brand-400" />
+                    </div>
+                    <div className="w-6 h-px bg-brand-300" />
+                  </div>
+                )}
+
+                {/* Mobile arrow */}
+                {index < workflowSteps.length - 1 && (
+                  <div className="md:hidden flex justify-center my-3">
+                    <div className="w-8 h-8 bg-brand-50 rounded-full flex items-center justify-center border border-brand-200">
+                      <ChevronRight className="w-5 h-5 text-brand-400 rotate-90" />
+                    </div>
                   </div>
                 )}
               </div>
             ))}
           </div>
-        </motion.div>
 
-        {/* Integration logos grid
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {integrations.map((integration, index) => (
-            <motion.div
-              key={integration.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-white rounded-xl border border-cool-200 p-6 hover:border-brand-300 hover:shadow-md transition flex flex-col items-center text-center"
-            >
-              {integration.hasLogo ? (
-                <img
-                  src={integration.logo}
-                  alt={`${integration.name} integration`}
-                  className="h-12 w-auto object-contain mb-3"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-12 h-12 bg-cool-100 rounded-lg flex items-center justify-center mb-3">
-                  {integration.icon && <integration.icon className="w-6 h-6 text-cool-600" />}
-                </div>
-              )}
-              <h4 className="font-semibold text-navy-900 text-sm">{integration.name}</h4>
-              <p className="text-xs text-cool-500 mt-1">{integration.description}</p>
-            </motion.div>
-          ))}
-        </div> */}
+          {/* Bottom barcode accent */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-20" />
+        </motion.div>
       </div>
     </section>
   );

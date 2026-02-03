@@ -119,3 +119,214 @@ button:disabled,
 [aria-disabled="true"] {
   cursor: not-allowed;
 }
+
+/* ========================================
+   QR/Barcode Design System
+   ======================================== */
+
+/* QR Grid Pattern - Subtle dot-matrix background */
+.bg-qr-grid {
+  background-image: radial-gradient(circle at center, var(--color-navy-900) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.bg-qr-grid-light {
+  background-image: radial-gradient(circle at center, var(--color-cool-300) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.bg-qr-grid-white {
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Barcode Lines Pattern - Vertical lines of varying widths */
+.bg-barcode-lines {
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0px,
+    currentColor 1px,
+    transparent 1px,
+    transparent 3px,
+    currentColor 3px,
+    currentColor 5px,
+    transparent 5px,
+    transparent 8px,
+    currentColor 8px,
+    currentColor 9px,
+    transparent 9px,
+    transparent 14px,
+    currentColor 14px,
+    currentColor 16px,
+    transparent 16px,
+    transparent 20px
+  );
+}
+
+/* Scanline Animation - Horizontal sweep effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(500%); opacity: 0; }
+}
+
+@keyframes scanline-slow {
+  0% { transform: translateY(-100%); opacity: 0; }
+  5% { opacity: 0.6; }
+  95% { opacity: 0.6; }
+  100% { transform: translateY(800%); opacity: 0; }
+}
+
+.animate-scanline {
+  animation: scanline 3s ease-in-out infinite;
+}
+
+.animate-scanline-slow {
+  animation: scanline-slow 6s ease-in-out infinite;
+}
+
+/* Data Pulse Animation */
+@keyframes data-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-data-pulse {
+  animation: data-pulse 2s ease-in-out infinite;
+}
+
+/* Live Indicator Pulse */
+@keyframes live-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+.animate-live-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: live-pulse 2s ease-in-out infinite;
+}
+
+/* Corner Bracket Utility Classes */
+.corner-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  pointer-events: none;
+}
+
+.corner-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  pointer-events: none;
+}
+
+.corner-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  pointer-events: none;
+}
+
+.corner-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  pointer-events: none;
+}
+
+/* Data Matrix Finder Pattern (L-shape corner) */
+.finder-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.finder-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--color-brand-500);
+}
+
+.finder-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-brand-500);
+}
+
+/* Data Field Typography */
+.font-data {
+  font-family: 'SF Mono', 'Consolas', 'Monaco', 'Liberation Mono', monospace;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Status Indicator Styles */
+.status-live {
+  position: relative;
+}
+
+.status-live::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+/* Mobile adjustments for patterns */
+@media (max-width: 768px) {
+  .bg-qr-grid,
+  .bg-qr-grid-light,
+  .bg-qr-grid-white {
+    background-size: 12px 12px;
+  }
+
+  .corner-tl,
+  .corner-tr,
+  .corner-bl,
+  .corner-br {
+    width: 12px;
+    height: 12px;
+  }
+
+  .animate-scanline,
+  .animate-scanline-slow {
+    animation: none;
+  }
+}

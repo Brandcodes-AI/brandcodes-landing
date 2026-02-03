@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Upload, Wand2, Printer, ArrowRight } from 'lucide-react';
+import { Upload, Wand2, Printer, ChevronRight } from 'lucide-react';
 
 const steps = [
   {
@@ -8,6 +8,7 @@ const steps = [
     title: 'Import Products',
     description: 'Upload via CSV, connect API, sync with PIM/ERP, or import GTINs and e-commerce feeds.',
     details: ['CSV / Excel upload', 'REST API / Webhooks', 'Shopify, BigCommerce integration', 'GTIN batch import'],
+    progress: 33,
   },
   {
     number: '02',
@@ -15,6 +16,7 @@ const steps = [
     title: 'BrandCodes Auto-Creates Everything',
     description: 'For each product, we automatically generate all the digital assets you need.',
     details: ['Product-specific URLs', 'AI-native landing pages', 'Product AI assistants', 'GS1/QR barcodes'],
+    progress: 66,
   },
   {
     number: '03',
@@ -22,13 +24,17 @@ const steps = [
     title: 'Print the Codes',
     description: 'Plug into your existing label and packaging workflows. Each label gets the right code.',
     details: ['SVG/PNG/PDF exports', 'Adobe Illustrator plugin', 'Label printer support', 'VDP workflow ready'],
+    progress: 100,
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,9 +53,10 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connection line - desktop only */}
-          <div className="hidden lg:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-brand-200 via-accent-400 to-brand-200" />
+          <div className="hidden lg:block absolute top-28 left-[20%] right-[20%] h-0.5 bg-cool-200" />
+          <div className="hidden lg:block absolute top-28 left-[20%] h-0.5 bg-gradient-to-r from-brand-400 to-accent-400" style={{ width: '60%' }} />
 
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-6">
             {steps.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -59,57 +66,70 @@ export default function HowItWorks() {
                 transition={{ duration: 0.5, delay: index * 0.2, ease: 'easeOut' }}
                 className="relative"
               >
-                {/* Step card */}
-                <div className="bg-white rounded-2xl p-8 border border-cool-200 shadow-sm hover:shadow-lg transition-shadow duration-200 ease-out h-full cursor-pointer">
-                  {/* Step number */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg">
-                      <step.icon className="w-8 h-8 text-white" />
+                {/* Data flow connector (desktop) */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:flex absolute top-28 -right-3 z-10 items-center">
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-brand-400 flex items-center justify-center">
+                      <ChevronRight className="w-4 h-4 text-brand-500" />
                     </div>
-                    <span className="text-5xl font-bold text-gray-100">{step.number}</span>
+                  </div>
+                )}
+
+                {/* Step card */}
+                <div className="bg-white rounded-2xl p-8 border border-cool-200 hover:border-brand-300 hover:shadow-lg transition-all duration-200 ease-out h-full cursor-pointer relative overflow-hidden group">
+                  {/* Progress bar at top */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-cool-100">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${step.progress}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: index * 0.3, ease: 'easeOut' }}
+                      className="h-full bg-gradient-to-r from-brand-400 to-accent-400"
+                    />
+                  </div>
+
+                  {/* Step header */}
+                  <div className="flex items-center justify-between mb-6 mt-2">
+                    <div className="w-14 h-14 bg-gradient-to-br from-brand-500 to-brand-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-brand-500/30 transition-shadow">
+                      <step.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="text-right">
+                      <span className="font-mono text-[10px] text-cool-400 tracking-wider block">STEP</span>
+                      <span className="font-mono text-2xl font-bold text-cool-200 group-hover:text-brand-200 transition-colors">{step.number}</span>
+                    </div>
                   </div>
 
                   <h3 className="text-xl font-bold text-navy-900 mb-3">{step.title}</h3>
                   <p className="text-cool-600 mb-6">{step.description}</p>
 
-                  {/* Details list */}
-                  <ul className="space-y-2">
-                    {step.details.map((detail) => (
-                      <li key={detail} className="flex items-center text-sm text-cool-500">
-                        <div className="w-1.5 h-1.5 bg-brand-500 rounded-full mr-2" />
+                  {/* Details list with numbered prefixes */}
+                  <ul className="space-y-2 border-t border-cool-100 pt-4">
+                    {step.details.map((detail, i) => (
+                      <li key={detail} className="flex items-center text-sm text-cool-600">
+                        <span className="font-mono text-[10px] text-brand-400 mr-3 w-4">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
                         {detail}
                       </li>
                     ))}
                   </ul>
+
+                  {/* Bottom barcode accent on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity" />
                 </div>
 
                 {/* Arrow - mobile only between cards */}
                 {index < steps.length - 1 && (
                   <div className="lg:hidden flex justify-center my-4">
-                    <ArrowRight className="w-6 h-6 text-gray-300 rotate-90" />
+                    <div className="w-8 h-8 bg-brand-50 rounded-full flex items-center justify-center border border-brand-200">
+                      <ChevronRight className="w-5 h-5 text-brand-500 rotate-90" />
+                    </div>
                   </div>
                 )}
               </motion.div>
             ))}
           </div>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
-          className="text-center mt-12"
-        >
-          {/* <a
-            href="http://localhost:3000/"
-            className="inline-flex items-center px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 shadow-lg shadow-brand-500/30 transition group"
-          >
-            Start in 60 Seconds
-            <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </a> */}
-        </motion.div>
       </div>
     </section>
   );

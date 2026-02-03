@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Brain, Zap, Shield, Users, Check } from 'lucide-react';
+import { Brain, Zap, Shield, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const differentiators = [
@@ -157,8 +157,13 @@ export default function WhyBrandCodesPage() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-8 lg:pt-40 lg:pb-12 bg-gradient-to-b from-brand-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-8 lg:pt-40 lg:pb-12 bg-gradient-to-b from-brand-50 to-white relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.03]" />
+        {/* Corner brackets */}
+        <div className="absolute top-28 left-8 w-12 h-12 border-t-2 border-l-2 border-brand-300/40 hidden lg:block" />
+        <div className="absolute top-28 right-8 w-12 h-12 border-t-2 border-r-2 border-brand-300/40 hidden lg:block" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,9 +213,20 @@ export default function WhyBrandCodesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-cool-200 hover:border-brand-300 hover:shadow-md transition"
+                className="bg-white rounded-xl p-6 border border-cool-200 hover:border-brand-300 hover:shadow-md transition relative overflow-hidden group"
               >
-                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+                {/* Corner brackets on hover */}
+                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Barcode accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity" />
+
+                <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                  DIFF_{String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4 border border-brand-200">
                   <item.icon className="w-6 h-6 text-brand-500" />
                 </div>
                 <h3 className="text-lg font-semibold text-navy-900 mb-2">{item.title}</h3>
@@ -222,8 +238,10 @@ export default function WhyBrandCodesPage() {
       </section>
 
       {/* Industry Leadership Statement */}
-      <section className="py-16 lg:py-24 bg-cool-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -231,6 +249,9 @@ export default function WhyBrandCodesPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
+              <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                SEC_LEADERSHIP
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-6">
                 Beyond Compliance: Complete Customer Engagement
               </h2>
@@ -252,35 +273,48 @@ export default function WhyBrandCodesPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-500 to-accent-500 rounded-2xl blur-2xl opacity-20 scale-105" />
-              <div className="relative bg-gradient-to-br from-brand-500 to-accent-500 rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">The BrandCodes Advantage</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="w-4 h-4" />
-                    </span>
-                    <span>Automated product pages generated from GTIN and PIM data</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="w-4 h-4" />
-                    </span>
-                    <span>AI assistant trained on your product manuals and technical docs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="w-4 h-4" />
-                    </span>
-                    <span>Real-time analytics with sentiment analysis and intent classification</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="w-4 h-4" />
-                    </span>
-                    <span>Full GS1 Digital Link compliance with all 37 link types</span>
-                  </li>
-                </ul>
+              {/* Corner bracket frame instead of blur */}
+              <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-brand-400/60" />
+              <div className="absolute -top-3 -right-3 w-10 h-10 border-t-2 border-r-2 border-brand-400/60" />
+              <div className="absolute -bottom-3 -left-3 w-10 h-10 border-b-2 border-l-2 border-brand-400/60" />
+              <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-brand-400/60" />
+              <div className="relative bg-gradient-to-br from-brand-500 to-accent-500 rounded-2xl p-8 text-white overflow-hidden">
+                {/* QR grid overlay on card */}
+                <div className="absolute inset-0 bg-qr-grid-white opacity-[0.05]" />
+                <div className="relative">
+                  <span className="font-mono text-[10px] text-brand-200 tracking-wider mb-2 block">
+                    ADV_SUMMARY
+                  </span>
+                  <h3 className="text-2xl font-bold mb-4">The BrandCodes Advantage</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <span className="w-6 h-6 bg-white/20 rounded flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 font-mono text-xs">
+                        01
+                      </span>
+                      <span>Automated product pages generated from GTIN and PIM data</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-6 h-6 bg-white/20 rounded flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 font-mono text-xs">
+                        02
+                      </span>
+                      <span>AI assistant trained on your product manuals and technical docs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-6 h-6 bg-white/20 rounded flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 font-mono text-xs">
+                        03
+                      </span>
+                      <span>Real-time analytics with sentiment analysis and intent classification</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-6 h-6 bg-white/20 rounded flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 font-mono text-xs">
+                        04
+                      </span>
+                      <span>Full GS1 Digital Link compliance with all 37 link types</span>
+                    </li>
+                  </ul>
+                </div>
+                {/* Barcode accent at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-white opacity-20" />
               </div>
             </motion.div>
           </div>
@@ -310,12 +344,18 @@ export default function WhyBrandCodesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="overflow-x-auto"
+            className="overflow-x-auto relative"
           >
+            {/* Corner bracket frame */}
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-brand-300/50 z-20" />
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-300/50" />
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-300/50 z-20" />
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-brand-300/50" />
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b-2 border-cool-200">
                   <th className="text-left py-4 px-4 font-semibold text-navy-900 sticky left-0 bg-white z-10 min-w-[200px]">
+                    <span className="font-mono text-[9px] text-cool-400 mr-2">ROW</span>
                     Feature / Dimension
                   </th>
                   <th className="py-4 px-4 font-semibold text-white bg-brand-500 min-w-[200px]">
@@ -345,6 +385,9 @@ export default function WhyBrandCodesPage() {
                 {comparisonData.map((row, index) => (
                   <tr key={row.dimension} className={index % 2 === 0 ? 'bg-cool-50' : 'bg-white'}>
                     <td className="py-3 px-4 font-medium text-navy-900 sticky left-0 bg-inherit z-10">
+                      <span className="font-mono text-[9px] text-cool-400 mr-2">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
                       {row.dimension}
                     </td>
                     <td className={`py-3 px-4 text-sm ${
@@ -386,8 +429,10 @@ export default function WhyBrandCodesPage() {
       </section>
 
       {/* Use Case Scenarios */}
-      <section className="py-16 lg:py-24 bg-cool-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -411,8 +456,19 @@ export default function WhyBrandCodesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-cool-200 text-center hover:border-brand-300 hover:shadow-md transition"
+                className="bg-white rounded-xl p-6 border border-cool-200 text-center hover:border-brand-300 hover:shadow-md transition relative overflow-hidden group"
               >
+                {/* Corner brackets on hover */}
+                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Barcode accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity" />
+
+                <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                  USE_{String(index + 1).padStart(2, '0')}
+                </span>
                 <div className="text-5xl mb-4">{useCase.icon}</div>
                 <h3 className="text-xl font-semibold text-navy-900 mb-3">{useCase.title}</h3>
                 <p className="text-cool-600">{useCase.description}</p>
@@ -423,8 +479,15 @@ export default function WhyBrandCodesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-brand-500 to-accent-500 relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-white opacity-[0.05]" />
+        {/* Corner brackets */}
+        <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-white/30 hidden lg:block" />
+        <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-white/30 hidden lg:block" />
+        <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-white/30 hidden lg:block" />
+        <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-white/30 hidden lg:block" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -438,17 +501,17 @@ export default function WhyBrandCodesPage() {
               Experience the all-in-one platform built for modern smart packaging
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
+              {/* <a
                 href="https://app.brandcodes.io/01/00040000424314"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 See BrandCodes in Action
-              </a>
+              </a> */}
               <Link
                 to="/contact"
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition"
+                className="px-8 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-cool-100 transition"
               >
                 Book a Demo
               </Link>

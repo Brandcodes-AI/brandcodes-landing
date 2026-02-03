@@ -52,8 +52,13 @@ export default function ContactPage() {
       transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
     >
       {/* Hero Section */}
-      <section className="pt-32 pb-6 lg:pt-40 lg:pb-8 bg-gradient-to-b from-indigo-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-6 lg:pt-40 lg:pb-8 bg-gradient-to-b from-indigo-50 to-white relative overflow-hidden">
+        {/* QR grid overlay */}
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.03]" />
+        {/* Corner brackets */}
+        <div className="absolute top-28 left-8 w-12 h-12 border-t-2 border-l-2 border-brand-300/40 hidden lg:block" />
+        <div className="absolute top-28 right-8 w-12 h-12 border-t-2 border-r-2 border-brand-300/40 hidden lg:block" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,23 +86,41 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.2 }}
-              className="text-center"
+              className="text-center relative p-4 group"
               aria-label="Contact information"
             >
-              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              {/* Corner brackets on hover */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                CONTACT_01
+              </span>
+              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4 border border-brand-200">
                 <Mail className="w-6 h-6 text-brand-500" />
               </div>
               <h3 className="font-semibold text-navy-900 mb-1">Email Us</h3>
-              <p className="text-cool-600 text-sm">info@brandcodes.io</p>
+              <p className="text-cool-600 text-sm font-mono">info@brandcodes.io</p>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.3 }}
-              className="text-center"
+              className="text-center relative p-4 group"
             >
-              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              {/* Corner brackets on hover */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                CONTACT_02
+              </span>
+              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4 border border-brand-200">
                 <MessageSquare className="w-6 h-6 text-brand-500" />
               </div>
               <h3 className="font-semibold text-navy-900 mb-1">Quick Response</h3>
@@ -108,9 +131,18 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.4 }}
-              className="text-center"
+              className="text-center relative p-4 group"
             >
-              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              {/* Corner brackets on hover */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                CONTACT_03
+              </span>
+              <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mx-auto mb-4 border border-brand-200">
                 <svg className="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -125,8 +157,15 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.5 }}
-            className="bg-cool-50 rounded-2xl p-8 border border-cool-200"
+            className="bg-cool-50 rounded-2xl p-8 border border-cool-200 relative overflow-hidden"
           >
+            {/* Corner brackets */}
+            <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-brand-300/50" />
+            <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-brand-300/50" />
+            <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-brand-300/50" />
+            <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-brand-300/50" />
+            {/* Barcode accent at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-30" />
             {submitted ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -138,10 +177,11 @@ export default function ContactPage() {
                 <p className="text-cool-600">Thank you for reaching out. We'll get back to you soon.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 relative">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-medium text-cool-700 mb-2">
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-cool-700 mb-2 flex items-center">
+                      <span className="font-mono text-[9px] text-cool-400 mr-2">INPUT_01</span>
                       Name
                     </label>
                     <input
@@ -158,7 +198,8 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-cool-700 mb-2">
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-cool-700 mb-2 flex items-center">
+                      <span className="font-mono text-[9px] text-cool-400 mr-2">INPUT_02</span>
                       Email
                     </label>
                     <input
@@ -177,7 +218,8 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-cool-700 mb-2">
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-cool-700 mb-2 flex items-center">
+                    <span className="font-mono text-[9px] text-cool-400 mr-2">INPUT_03</span>
                     Message
                   </label>
                   <textarea

@@ -33,8 +33,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-navy-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <footer className="bg-navy-950 text-white relative overflow-hidden">
+      {/* QR grid overlay */}
+      <div className="absolute inset-0 bg-qr-grid-white opacity-[0.02]" />
+      {/* Barcode accent line at top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-barcode-lines text-brand-400 opacity-30" />
+      {/* Corner bracket decorations */}
+      <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-brand-500/20 hidden lg:block" />
+      <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-brand-500/20 hidden lg:block" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
@@ -81,26 +88,35 @@ export default function Footer() {
           </div>
 
           {/* Link Columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
+          {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
             <div key={category}>
-              <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 flex items-center">
+                <span className="font-mono text-[9px] text-navy-500 mr-2">
+                  COL_{String(categoryIndex + 1).padStart(2, '0')}
+                </span>
                 {category}
               </h3>
               <ul className="space-y-3">
-                {links.map((link) => (
+                {links.map((link, linkIndex) => (
                   <li key={link.name}>
                     {link.isRoute ? (
                       <Link
                         to={link.href}
-                        className="text-navy-300 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
+                        className="text-navy-300 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer flex items-center group"
                       >
+                        <span className="font-mono text-[9px] text-navy-600 group-hover:text-navy-400 mr-2 w-3 transition-colors">
+                          {String(linkIndex + 1).padStart(2, '0')}
+                        </span>
                         {link.name}
                       </Link>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-navy-300 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer"
+                        className="text-navy-300 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-navy-950 rounded cursor-pointer flex items-center group"
                       >
+                        <span className="font-mono text-[9px] text-navy-600 group-hover:text-navy-400 mr-2 w-3 transition-colors">
+                          {String(linkIndex + 1).padStart(2, '0')}
+                        </span>
                         {link.name}
                       </a>
                     )}
