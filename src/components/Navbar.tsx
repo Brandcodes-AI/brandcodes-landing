@@ -89,6 +89,14 @@ export default function Navbar() {
               Preview
             </Link>
 
+            {/* 2D Barcodes Link */}
+            <Link
+              to="/barcodes-explained"
+              className="text-cool-600 hover:text-brand-500 font-medium transition"
+            >
+              2D Barcodes
+            </Link>
+
             {/* Why Us Link */}
             <Link
               to="/why"
@@ -206,6 +214,15 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Preview
+            </Link>
+
+            {/* 2D Barcodes Link - Mobile */}
+            <Link
+              to="/barcodes-explained"
+              className="block text-cool-600 hover:text-brand-500 font-medium py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              2D Barcodes
             </Link>
 
             {/* Why Us Link - Mobile */}

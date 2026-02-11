@@ -11,6 +11,7 @@ import CookiePage from './pages/CookiePage';
 import PricingPage from './pages/PricingPage';
 import WhyBrandCodesPage from './pages/WhyBrandCodesPage';
 import PreviewPage from './pages/PreviewPage';
+import BarcodesExplainedPage from './pages/BarcodesExplainedPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/cookies" element={<CookiePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/preview" element={<PreviewPage />} />
+          <Route path="/barcodes-explained" element={<BarcodesExplainedPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
