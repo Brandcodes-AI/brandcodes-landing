@@ -24,7 +24,6 @@ import {
   Hospital,
   User,
   Scale,
-  Zap,
   FileBarChart,
   Globe,
   Layers,
