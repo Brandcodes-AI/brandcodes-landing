@@ -194,6 +194,58 @@ const realWorldExamples = [
   },
 ];
 
+const flowSteps = [
+  { label: 'GS1 2D Barcode', sub: 'Physical product' },
+  { label: 'Scan', sub: 'Any device' },
+  { label: 'GS1 Identifier', sub: 'GTIN + data' },
+  { label: 'Resolver', sub: 'Routes by context' },
+  { label: 'Destination', sub: 'Right experience' },
+];
+
+const howItWorksSteps = [
+  {
+    number: '01',
+    code: 'STEP_01',
+    title: 'The Barcode Contains Structured Data',
+    description:
+      'A GS1 2D barcode encodes standardized data elements — not webpages, not URLs, but structured identity.',
+    keyLine: 'The barcode does not contain webpages. It contains identity.',
+    fields: [
+      { label: 'GTIN', value: '09506000134352', icon: Package },
+      { label: 'Batch', value: 'LOT-2024-A19', icon: Hash },
+      { label: 'Expiry', value: '2026-02-12', icon: Calendar },
+      { label: 'Serial', value: 'SN-00482910', icon: Hash },
+    ],
+  },
+  {
+    number: '02',
+    code: 'STEP_02',
+    title: 'The Resolver Translates Identity',
+    description:
+      "Like the internet's DNS, a resolver reads the product identity and routes to the correct digital destination based on context.",
+    keyLine: 'Same identifier, different outcomes — depending on who is scanning.',
+    routes: [
+      { scanner: 'Hospital scanner', destination: 'Clinical database', icon: Hospital },
+      { scanner: 'Consumer phone', destination: 'Product information page', icon: User },
+      { scanner: 'Regulator system', destination: 'Compliance records', icon: Scale },
+    ],
+  },
+  {
+    number: '03',
+    code: 'STEP_03',
+    title: 'Dynamic Outcomes from One Code',
+    description:
+      'The same barcode produces different results depending on context. The intelligence lives in the network, not in the barcode.',
+    keyLine: 'The intelligence lives in the network, not in the barcode itself.',
+    outcomes: [
+      { who: 'Warehouse', what: 'Inventory verification', icon: Factory },
+      { who: 'Pharmacy', what: 'Expiry validation', icon: Pill },
+      { who: 'Consumer', what: 'Usage information', icon: User },
+      { who: 'Regulator', what: 'Traceability record', icon: Scale },
+    ],
+  },
+];
+
 const futureCapabilities = [
   { icon: Scan, title: 'Supply chain scanning', description: 'Every checkpoint reads the same code.' },
   { icon: User, title: 'Consumer scanning', description: 'Rich product experiences from any phone.' },
@@ -208,6 +260,7 @@ const futureCapabilities = [
 export default function BarcodesExplainedPage() {
   const [selectedType, setSelectedType] = useState<BarcodeTypeKey>('1D');
   const [hasScanned, setHasScanned] = useState(false);
+
 
   return (
     <motion.div
@@ -899,6 +952,282 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
+          SECTION 5.5 — HOW IT WORKS
+          ═══════════════════════════════════════ */}
+      <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+              SEC_05 — HOW IT WORKS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+              From Barcode to Digital Experience
+            </h2>
+            <p className="text-lg text-cool-600 max-w-3xl mx-auto mb-2">
+              One scan. Multiple destinations.
+            </p>
+            <p className="text-base text-cool-500 max-w-2xl mx-auto">
+              A GS1 2D barcode doesn't store webpages. It contains identity.
+              A resolver translates that identity into the right experience.
+            </p>
+          </motion.div>
+
+          {/* Flow Diagram */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-16 relative"
+          >
+            <div className="absolute -top-4 -left-4 w-10 h-10 border-t-2 border-l-2 border-brand-300/40 hidden lg:block" />
+            <div className="absolute -top-4 -right-4 w-10 h-10 border-t-2 border-r-2 border-brand-300/40 hidden lg:block" />
+            <div className="absolute -bottom-4 -left-4 w-10 h-10 border-b-2 border-l-2 border-brand-300/40 hidden lg:block" />
+            <div className="absolute -bottom-4 -right-4 w-10 h-10 border-b-2 border-r-2 border-brand-300/40 hidden lg:block" />
+
+            <div className="bg-cool-50 rounded-2xl border border-cool-200 p-6 sm:p-8 lg:p-10">
+              {/* Horizontal flow on desktop, vertical on mobile */}
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-0">
+                {flowSteps.map((step, index) => (
+                  <div key={step.label} className="flex flex-col lg:flex-row items-center gap-3 lg:gap-0">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                      className={`relative px-5 py-3 rounded-xl border text-center min-w-[140px] ${
+                        index === 3
+                          ? 'bg-green-50 border-green-300 shadow-md'
+                          : index === 4
+                            ? 'bg-brand-50 border-brand-300'
+                            : 'bg-white border-cool-200'
+                      }`}
+                    >
+                      <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-brand-300/40" />
+                      <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-brand-300/40" />
+                      <p className="text-sm font-semibold text-navy-900">{step.label}</p>
+                      <p className="text-[11px] text-cool-500 font-mono">{step.sub}</p>
+                    </motion.div>
+                    {index < flowSteps.length - 1 && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                        className="lg:px-2"
+                      >
+                        <ArrowRight className="w-5 h-5 text-brand-400 rotate-90 lg:rotate-0" />
+                      </motion.div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 3 Step Cards */}
+          <div className="space-y-8 max-w-5xl mx-auto">
+            {/* Step 1 — Structured Data */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-cool-50 rounded-2xl p-6 sm:p-8 border border-cool-200 relative overflow-hidden group hover:border-brand-300 transition"
+            >
+              <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center border border-brand-200 flex-shrink-0">
+                  <span className="font-mono text-lg font-bold text-brand-600">{howItWorksSteps[0].number}</span>
+                </div>
+                <div>
+                  <span className="font-mono text-[10px] text-cool-400 tracking-wider block mb-1">
+                    {howItWorksSteps[0].code}
+                  </span>
+                  <h3 className="text-xl font-bold text-navy-900">{howItWorksSteps[0].title}</h3>
+                  <p className="text-cool-600 mt-1">{howItWorksSteps[0].description}</p>
+                </div>
+              </div>
+
+              {/* Data fields */}
+              <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                {howItWorksSteps[0].fields!.map((field, idx) => (
+                  <motion.div
+                    key={field.label}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 + idx * 0.08 }}
+                    className="bg-white rounded-lg px-4 py-3 border border-cool-200 flex items-center gap-3"
+                  >
+                    <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center border border-brand-200 flex-shrink-0">
+                      <field.icon className="w-4 h-4 text-brand-500" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-cool-400 block">{field.label}</span>
+                      <span className="text-sm font-mono font-medium text-navy-900">{field.value}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p className="text-base font-semibold text-navy-900 border-l-4 border-brand-400 pl-4 italic">
+                "{howItWorksSteps[0].keyLine}"
+              </p>
+            </motion.div>
+
+            {/* Step 2 — Resolver */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-200 relative overflow-hidden group hover:border-green-400 transition"
+            >
+              <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-green-400/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-green-400/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-green-400/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-green-400/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center border border-green-300 flex-shrink-0">
+                  <span className="font-mono text-lg font-bold text-green-700">{howItWorksSteps[1].number}</span>
+                </div>
+                <div>
+                  <span className="font-mono text-[10px] text-cool-400 tracking-wider block mb-1">
+                    {howItWorksSteps[1].code}
+                  </span>
+                  <h3 className="text-xl font-bold text-navy-900">{howItWorksSteps[1].title}</h3>
+                  <p className="text-cool-600 mt-1">{howItWorksSteps[1].description}</p>
+                </div>
+              </div>
+
+              {/* Resolver visual: GTIN → Resolver → Experience */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6">
+                <div className="bg-white rounded-lg px-4 py-2 border border-green-200 text-center">
+                  <span className="text-[10px] font-mono text-cool-400 block">GTIN</span>
+                  <span className="font-mono text-sm font-medium text-navy-900">09506000134352</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-green-500 rotate-90 sm:rotate-0" />
+                <div className="bg-green-100 rounded-lg px-4 py-2 border border-green-300 text-center">
+                  <span className="text-[10px] font-mono text-green-600 block">RESOLVER</span>
+                  <span className="text-sm font-medium text-green-800">Checks rules & context</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-green-500 rotate-90 sm:rotate-0" />
+                <div className="bg-white rounded-lg px-4 py-2 border border-green-200 text-center">
+                  <span className="text-[10px] font-mono text-cool-400 block">RESULT</span>
+                  <span className="text-sm font-medium text-navy-900">Right experience</span>
+                </div>
+              </div>
+
+              {/* Routing examples */}
+              <div className="space-y-3 mb-6">
+                {howItWorksSteps[1].routes!.map((route, idx) => (
+                  <motion.div
+                    key={route.scanner}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
+                    className="bg-white rounded-lg px-4 py-3 border border-green-200 flex items-center gap-3"
+                  >
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 flex-shrink-0">
+                      <route.icon className="w-4 h-4 text-green-600" />
+                    </div>
+                    <span className="text-sm text-cool-600 flex-1">{route.scanner}</span>
+                    <ArrowRight className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <span className="text-sm font-medium text-navy-900">{route.destination}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p className="text-base font-semibold text-navy-900 border-l-4 border-green-500 pl-4 italic">
+                "{howItWorksSteps[1].keyLine}"
+              </p>
+            </motion.div>
+
+            {/* Step 3 — Dynamic Outcomes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-cool-50 rounded-2xl p-6 sm:p-8 border border-cool-200 relative overflow-hidden group hover:border-brand-300 transition"
+            >
+              <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-brand-300/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center border border-brand-200 flex-shrink-0">
+                  <span className="font-mono text-lg font-bold text-brand-600">{howItWorksSteps[2].number}</span>
+                </div>
+                <div>
+                  <span className="font-mono text-[10px] text-cool-400 tracking-wider block mb-1">
+                    {howItWorksSteps[2].code}
+                  </span>
+                  <h3 className="text-xl font-bold text-navy-900">{howItWorksSteps[2].title}</h3>
+                  <p className="text-cool-600 mt-1">{howItWorksSteps[2].description}</p>
+                </div>
+              </div>
+
+              {/* Outcomes grid */}
+              <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                {howItWorksSteps[2].outcomes!.map((outcome, idx) => (
+                  <motion.div
+                    key={outcome.who}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 + idx * 0.08 }}
+                    className="bg-white rounded-lg px-4 py-3 border border-cool-200 flex items-center gap-3 hover:border-brand-300 transition"
+                  >
+                    <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center border border-brand-200 flex-shrink-0">
+                      <outcome.icon className="w-4 h-4 text-brand-500" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-mono text-cool-400">{outcome.who}</span>
+                      <p className="text-sm font-medium text-navy-900">{outcome.what}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p className="text-base font-semibold text-navy-900 border-l-4 border-brand-400 pl-4 italic">
+                "{howItWorksSteps[2].keyLine}"
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Closing line */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center text-xl font-semibold text-navy-900 mt-16 max-w-3xl mx-auto"
+          >
+            A GS1 2D barcode is not just a code on packaging.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">
+              It is a gateway connecting physical products to digital systems.
+            </span>
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
           SECTION 6 — REAL WORLD IMPACT
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
@@ -912,7 +1241,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-12"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_05 — REAL WORLD
+              SEC_06 — REAL WORLD
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Real World Impact
@@ -973,7 +1302,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-brand-300 tracking-wider mb-2 block">
-              SEC_06 — THE FUTURE
+              SEC_07 — THE FUTURE
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               The Future: One Barcode for Everything
