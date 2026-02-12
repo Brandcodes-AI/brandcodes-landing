@@ -544,7 +544,13 @@ export default function BarcodesExplainedPage() {
                           exit={{ opacity: 0 }}
                           className="flex flex-col items-center justify-center text-cool-400"
                         >
-                          <QrCode className="w-14 h-14 text-green-200 mb-3" />
+                          <div className="relative w-14 h-14 mb-3">
+                            <QrCode className="w-14 h-14 text-green-200" />
+                            <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-green-300 rounded-tl-sm" />
+                            <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-green-300 rounded-tr-sm" />
+                            <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-green-300 rounded-bl-sm" />
+                            <div className="absolute bottom-2 right-2 w-3 h-3 bg-green-300 rounded-sm" />
+                          </div>
                           <span className="text-sm">Waiting for scan...</span>
                         </motion.div>
                       ) : (
