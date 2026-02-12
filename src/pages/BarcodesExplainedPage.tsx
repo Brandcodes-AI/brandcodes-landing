@@ -70,22 +70,22 @@ const barcodeTypes = [
     highlight: false,
   },
   {
-    name: 'GS1 2D Barcode',
-    icon: Globe,
-    purpose: 'QR Code following GS1 standards',
-    use: 'Consumer-facing packaging, digital links',
-    highlight: true,
-  },
-  {
     name: 'GS1 DataMatrix',
     icon: ShieldCheck,
     purpose: 'DataMatrix following GS1 standards',
     use: 'Healthcare, supply chain, serialization',
     highlight: true,
   },
+  {
+    name: 'GS1 2D Barcode',
+    icon: Globe,
+    purpose: 'QR Code following GS1 standards',
+    use: 'Consumer-facing packaging, digital links',
+    highlight: true,
+  },
 ];
 
-type BarcodeTypeKey = '1D' | 'QR Code' | 'GS1 2D';
+type BarcodeTypeKey = '1D' | 'QR Code' | 'GS1 2D' | 'GS1 DataMatrix';
 
 const toggleData: Record<
   BarcodeTypeKey,
@@ -117,17 +117,35 @@ const toggleData: Record<
     bgColor: 'bg-brand-50',
     borderColor: 'border-brand-200',
   },
+  'GS1 DataMatrix': {
+    capacity: '~2,300 characters (structured)',
+    analogy: 'Like a standardized serial plate — compact, globally recognized, and built for regulated supply chains.',
+    canDo: [
+      'GS1 Application Identifiers (AIs) for structured data',
+      'FNC1 start symbol — distinguishes from non-GS1 codes',
+      'ISO/IEC 16022 ECC 200 standard',
+      'Optimized for small items — compact high-density printing',
+      'Healthcare, manufacturing & logistics serialization',
+      'Batch & expiry in standardized format',
+      'Works offline — no internet required',
+      'Machine-readable at any checkpoint or point-of-sale',
+    ],
+    cantDo: [],
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50',
+    borderColor: 'border-purple-200',
+  },
   'GS1 2D': {
     capacity: '~4,000 characters (structured)',
-    analogy: 'Like a digital identity — enables services everywhere.',
+    analogy: 'Like a digital passport — enables services everywhere, for everyone.',
     canDo: [
-      'Product ID (GTIN)',
-      'Batch & expiry dates',
-      'Unique serial number per item',
+      'Everything GS1 DataMatrix can do, plus:',
+      'Digital Link URI — scannable by any smartphone',
+      'Consumer-facing product experiences',
       'Full supply chain traceability',
-      'Digital Link to online content',
       'Country of origin & certifications',
       'Net weight, count, or volume',
+      'Web-connected content & real-time updates',
       'Interoperable across all GS1 systems globally',
     ],
     cantDo: [],
@@ -330,9 +348,9 @@ export default function BarcodesExplainedPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* 1D Scan Result */}
               <div className="relative">
                 <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-orange-300/60" />
@@ -424,54 +442,131 @@ export default function BarcodesExplainedPage() {
                 </div>
               </div>
 
-              {/* GS1 2D Scan Result */}
+              {/* GS1 DataMatrix Scan Result */}
               <div className="relative">
-                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-green-400/60" />
-                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-green-400/60" />
-                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-green-400/60" />
-                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-green-400/60" />
-                <div className="bg-green-50 rounded-xl p-5 border border-green-200 h-[380px] flex flex-col">
+                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-purple-300/60" />
+                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-purple-300/60" />
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-purple-300/60" />
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-purple-300/60" />
+                <div className="bg-purple-50 rounded-xl p-5 border border-purple-200 h-[380px] flex flex-col">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[10px] text-cool-400">SCAN_GS1_2D</span>
-                    <span className="text-xs font-medium text-green-600 bg-green-100 px-2 py-0.5 rounded">GS1 2D</span>
+                    <span className="font-mono text-[10px] text-cool-400">SCAN_GS1_DM</span>
+                    <span className="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-0.5 rounded">GS1 DataMatrix</span>
                   </div>
 
                   <div className="flex-1 flex items-center justify-center">
                     <AnimatePresence mode="wait">
                       {!hasScanned ? (
                         <motion.div
-                          key="placeholder-gs1"
+                          key="placeholder-gs1dm"
                           initial={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           className="flex flex-col items-center justify-center text-cool-400"
                         >
-                          <div className="w-14 h-14 bg-qr-grid opacity-30 rounded mb-3" />
+                          <Grid3x3 className="w-14 h-14 text-purple-200 mb-3" />
                           <span className="text-sm">Waiting for scan...</span>
                         </motion.div>
                       ) : (
                         <motion.div
-                          key="result-gs1"
+                          key="result-gs1dm"
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: 0.1 }}
+                          transition={{ duration: 0.3, delay: 0.15 }}
+                          className="w-full"
+                        >
+                          <div className="bg-white rounded-lg p-3 border border-purple-200 space-y-1.5 text-sm">
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Drug</span>
+                              <span className="text-navy-900 font-medium">Amoxicillin 500mg</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">GTIN</span>
+                              <span className="font-mono text-navy-900 text-xs">05012345678906</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Batch</span>
+                              <span className="font-mono text-navy-900 text-xs">PH-2024-K47</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Serial</span>
+                              <span className="font-mono text-navy-900 text-xs">RX-00291847</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Expiry</span>
+                              <span className="text-navy-900 font-medium">30 Sep 2026</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">NDC</span>
+                              <span className="font-mono text-navy-900 text-xs">0781-2613-01</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Dosage</span>
+                              <span className="text-navy-900 font-medium">500mg / 3x daily</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Status</span>
+                              <span className="text-purple-600 font-medium">Verified ✓</span>
+                            </div>
+                            <div className="pt-1.5 border-t border-purple-100 flex items-center justify-between">
+                              <span className="text-purple-500 font-medium text-xs cursor-pointer hover:text-purple-600 transition flex items-center gap-1">
+                                Clinical data <ArrowRight className="w-3 h-3" />
+                              </span>
+                              <span className="text-purple-500 font-medium text-xs cursor-pointer hover:text-purple-600 transition flex items-center gap-1">
+                                Compliance <ArrowRight className="w-3 h-3" />
+                              </span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </div>
+
+              {/* GS1 2D Scan Result */}
+              <div className="relative">
+                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-green-300/60" />
+                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-green-300/60" />
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-green-300/60" />
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-green-300/60" />
+                <div className="bg-green-50 rounded-xl p-5 border border-green-200 h-[380px] flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[10px] text-cool-400">SCAN_GS1_2D</span>
+                    <span className="text-xs font-medium text-green-600 bg-green-100 px-2 py-0.5 rounded">GS1 2D</span>
+                  </div>
+
+                  <div className="flex-1 flex items-center justify-center overflow-y-auto">
+                    <AnimatePresence mode="wait">
+                      {!hasScanned ? (
+                        <motion.div
+                          key="placeholder-gs1-2d"
+                          initial={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex flex-col items-center justify-center text-cool-400"
+                        >
+                          <QrCode className="w-14 h-14 text-green-200 mb-3" />
+                          <span className="text-sm">Waiting for scan...</span>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="result-gs1-2d"
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: 0.2 }}
                           className="w-full"
                         >
                           <div className="bg-white rounded-lg p-3 border border-green-200 space-y-1.5 text-sm">
                             <div className="flex justify-between">
                               <span className="text-cool-500">Product</span>
-                              <span className="text-navy-900 font-medium">Organic Whole Milk 1L</span>
+                              <span className="text-navy-900 font-medium">Organic Whole Milk</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-cool-500">GTIN</span>
-                              <span className="font-mono text-navy-900 text-xs">09312345678901</span>
+                              <span className="font-mono text-navy-900 text-xs">09506000134352</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-cool-500">Batch</span>
-                              <span className="font-mono text-navy-900 text-xs">A1923-X</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-cool-500">Serial</span>
-                              <span className="font-mono text-navy-900 text-xs">SN-482910-0037</span>
+                              <span className="font-mono text-navy-900 text-xs">LOT-2024-A19</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-cool-500">Expiry</span>
@@ -479,22 +574,37 @@ export default function BarcodesExplainedPage() {
                             </div>
                             <div className="flex justify-between">
                               <span className="text-cool-500">Origin</span>
-                              <span className="text-navy-900 font-medium">Victoria, AU</span>
+                              <span className="text-navy-900 font-medium">New Zealand</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-cool-500">Manufacturer</span>
-                              <span className="text-navy-900 font-medium">Greenfield Dairy</span>
+                              <span className="text-cool-500">Weight</span>
+                              <span className="text-navy-900 font-medium">1L</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-cool-500">Certified</span>
-                              <span className="text-green-600 font-medium">Organic, HACCP</span>
+                              <span className="text-cool-500">Cert</span>
+                              <span className="text-green-600 font-medium">Organic ✓</span>
                             </div>
-                            <div className="pt-1.5 border-t border-green-100 flex items-center justify-between">
-                              <span className="text-brand-500 font-medium text-xs cursor-pointer hover:text-brand-600 transition flex items-center gap-1">
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Nutrition</span>
+                              <span className="text-navy-900 font-medium">150 kcal / 250ml</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Allergens</span>
+                              <span className="text-navy-900 font-medium">Milk, Lactose</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-cool-500">Sustainability</span>
+                              <span className="text-green-600 font-medium">Grade A ✓</span>
+                            </div>
+                            <div className="pt-1.5 border-t border-green-100 flex flex-wrap items-center gap-x-3 gap-y-1">
+                              <span className="text-green-500 font-medium text-xs cursor-pointer hover:text-green-600 transition flex items-center gap-1">
                                 Product page <ArrowRight className="w-3 h-3" />
                               </span>
-                              <span className="text-brand-500 font-medium text-xs cursor-pointer hover:text-brand-600 transition flex items-center gap-1">
-                                Recall check <ArrowRight className="w-3 h-3" />
+                              <span className="text-green-500 font-medium text-xs cursor-pointer hover:text-green-600 transition flex items-center gap-1">
+                                Trace origin <ArrowRight className="w-3 h-3" />
+                              </span>
+                              <span className="text-green-500 font-medium text-xs cursor-pointer hover:text-green-600 transition flex items-center gap-1">
+                                Recipes <ArrowRight className="w-3 h-3" />
                               </span>
                             </div>
                           </div>
@@ -738,7 +848,7 @@ export default function BarcodesExplainedPage() {
               Not All 2D Barcodes Are Equal
             </h2>
             <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-              Three barcodes can look nearly identical — but the standard behind them
+              Four barcodes can look nearly identical — but the standard behind them
               determines what they can do. Explore the difference.
             </p>
           </motion.div>
@@ -752,18 +862,20 @@ export default function BarcodesExplainedPage() {
             className="max-w-2xl mx-auto mb-12"
           >
             <div className="flex justify-center mb-8" role="tablist" aria-label="Barcode type selector">
-              {(['1D', 'QR Code', 'GS1 2D'] as BarcodeTypeKey[]).map((type) => (
+              {(['1D', 'QR Code', 'GS1 DataMatrix', 'GS1 2D'] as BarcodeTypeKey[]).map((type) => (
                 <button
                   key={type}
                   role="tab"
                   aria-selected={selectedType === type}
                   onClick={() => setSelectedType(type)}
-                  className={`px-5 py-2.5 font-medium text-sm transition-all duration-200 cursor-pointer first:rounded-l-lg last:rounded-r-lg border ${selectedType === type
+                  className={`px-4 py-2.5 font-medium text-sm transition-all duration-200 cursor-pointer first:rounded-l-lg last:rounded-r-lg border ${selectedType === type
                       ? type === '1D'
                         ? 'bg-orange-500 text-white border-orange-500'
                         : type === 'QR Code'
                           ? 'bg-brand-500 text-white border-brand-500'
-                          : 'bg-green-600 text-white border-green-600'
+                          : type === 'GS1 DataMatrix'
+                            ? 'bg-purple-600 text-white border-purple-600'
+                            : 'bg-green-600 text-white border-green-600'
                       : 'bg-white text-cool-600 border-cool-200 hover:border-cool-300'
                     }`}
                 >
