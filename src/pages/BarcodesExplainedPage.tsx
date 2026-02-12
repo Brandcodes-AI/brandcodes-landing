@@ -302,205 +302,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 2 — THE PROBLEM WITH 1D
-          ═══════════════════════════════════════ */}
-      <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-                SEC_01 — THE LIMITATION
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-                The Problem with 1D Barcodes
-              </h2>
-              <p className="text-lg text-cool-600 mb-6">
-                The barcode you see on most products today is a 1D barcode — a row of vertical lines
-                encoding a single number. Think of it like a phone number: it identifies someone,
-                but tells you nothing about them.
-              </p>
-              <p className="text-xl font-semibold text-navy-900 border-l-4 border-orange-400 pl-4">
-                A 1D barcode tells you <em>what</em> the product is. Nothing more.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-orange-300/60" />
-              <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-orange-300/60" />
-              <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-orange-300/60" />
-              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-orange-300/60" />
-
-              <div className="bg-cool-50 rounded-2xl p-8 border border-cool-200">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-[10px] text-cool-400 tracking-wider">CAPABILITY_CHECK</span>
-                  <span className="text-sm text-cool-500">1D Barcode</span>
-                </div>
-                <table className="w-full">
-                  <tbody>
-                    {oneDLimitations.map((row, index) => (
-                      <motion.tr
-                        key={row.capability}
-                        initial={{ opacity: 0, x: 10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                        className="border-b border-cool-200 last:border-0"
-                      >
-                        <td className="py-3 text-cool-700">{row.capability}</td>
-                        <td className="py-3 text-right">
-                          {row.supported ? (
-                            <span className="inline-flex items-center justify-center w-7 h-7 bg-green-100 rounded-lg">
-                              <Check className="w-4 h-4 text-green-600" />
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center justify-center w-7 h-7 bg-red-50 rounded-lg">
-                              <X className="w-4 h-4 text-red-400" />
-                            </span>
-                          )}
-                        </td>
-                      </motion.tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          SECTION 3 — EVOLUTION TO 2D
-          ═══════════════════════════════════════ */}
-      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_02 — THE EVOLUTION
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-              The Evolution to 2D Barcodes
-            </h2>
-            <p className="text-lg text-cool-600 max-w-3xl mx-auto mb-6">
-              2D barcodes store information in two directions — horizontal and vertical.
-              The result: more data, smaller space, more resilience.
-            </p>
-            <p className="text-xl font-semibold text-navy-900 max-w-2xl mx-auto">
-              If a 1D barcode is a <span className="text-orange-500">word</span>,
-              a 2D barcode is a <span className="text-brand-500">paragraph</span>.
-            </p>
-          </motion.div>
-
-          {/* 1D → 2D visual transformation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 mb-16"
-          >
-            {/* 1D representation */}
-            <div className="flex flex-col items-center">
-              <div className="w-40 h-24 bg-white rounded-xl border border-cool-200 flex items-center justify-center overflow-hidden relative">
-                <div className="w-28 h-16 bg-barcode-lines text-navy-900 opacity-80" />
-              </div>
-              <span className="mt-3 text-sm font-medium text-cool-500">1D Barcode</span>
-            </div>
-
-            {/* Arrow */}
-            <div className="flex items-center">
-              <ArrowRight className="w-8 h-8 text-brand-400 rotate-90 sm:rotate-0" />
-            </div>
-
-            {/* 2D representation */}
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-white rounded-xl border border-brand-200 flex items-center justify-center overflow-hidden relative">
-                <div className="w-16 h-16 bg-qr-grid opacity-60" />
-                {/* QR finder patterns */}
-                <div className="absolute top-2 left-2 w-4 h-4 border-2 border-navy-900 rounded-sm" />
-                <div className="absolute top-2 right-2 w-4 h-4 border-2 border-navy-900 rounded-sm" />
-                <div className="absolute bottom-2 left-2 w-4 h-4 border-2 border-navy-900 rounded-sm" />
-              </div>
-              <span className="mt-3 text-sm font-medium text-brand-500">2D Barcode</span>
-            </div>
-          </motion.div>
-
-          {/* Common 2D types */}
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {barcodeTypes.map((type, index) => (
-                <motion.div
-                  key={type.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
-                  className={`rounded-xl p-5 border transition relative overflow-hidden group ${type.highlight
-                      ? 'bg-green-50 border-green-200 hover:border-green-400 hover:shadow-md'
-                      : 'bg-white border-cool-200 hover:border-brand-300 hover:shadow-md'
-                    }`}
-                >
-                  <div className={`absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
-                  <div className={`absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
-                  <div className={`absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
-                  <div className={`absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines opacity-0 group-hover:opacity-30 transition-opacity ${type.highlight ? 'text-green-300' : 'text-brand-200'}`} />
-
-                  <div className="flex items-start gap-4">
-                    <div className={`w-11 h-11 rounded-lg flex items-center justify-center border flex-shrink-0 ${type.highlight
-                        ? 'bg-green-100 border-green-200'
-                        : 'bg-brand-100 border-brand-200'
-                      }`}>
-                      <type.icon className={`w-5 h-5 ${type.highlight ? 'text-green-600' : 'text-brand-500'}`} />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-base font-semibold text-navy-900">{type.name}</h3>
-                        {type.highlight && (
-                          <span className="text-[10px] font-medium text-green-700 bg-green-100 px-1.5 py-0.5 rounded">GS1</span>
-                        )}
-                      </div>
-                      <p className="text-cool-600 text-sm mb-1">{type.purpose}</p>
-                      <p className="text-cool-400 text-xs font-mono">{type.use}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-center text-sm text-cool-500 mt-6"
-            >
-              The <span className="text-green-600 font-medium">GS1 variants</span> follow global standards — making them interoperable across supply chains worldwide.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          SECTION 4 — KEY INSIGHT (INTERACTIVE)
+          SECTION 1 — SEE THE DIFFERENCE
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -513,129 +315,23 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-12"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_03 — THE KEY INSIGHT
+              SEC_01 — THE DIFFERENCE
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-              Not All 2D Barcodes Are Equal
+              See the Difference in Action
             </h2>
             <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-              Three barcodes can look nearly identical — but the standard behind them
-              determines what they can do. Explore the difference.
+              What happens when you scan each type?
             </p>
           </motion.div>
 
-          {/* Interactive Toggle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-2xl mx-auto mb-12"
-          >
-            <div className="flex justify-center mb-8" role="tablist" aria-label="Barcode type selector">
-              {(['1D', 'QR Code', 'GS1 2D'] as BarcodeTypeKey[]).map((type) => (
-                <button
-                  key={type}
-                  role="tab"
-                  aria-selected={selectedType === type}
-                  onClick={() => setSelectedType(type)}
-                  className={`px-5 py-2.5 font-medium text-sm transition-all duration-200 cursor-pointer first:rounded-l-lg last:rounded-r-lg border ${selectedType === type
-                      ? type === '1D'
-                        ? 'bg-orange-500 text-white border-orange-500'
-                        : type === 'QR Code'
-                          ? 'bg-brand-500 text-white border-brand-500'
-                          : 'bg-green-600 text-white border-green-600'
-                      : 'bg-white text-cool-600 border-cool-200 hover:border-cool-300'
-                    }`}
-                >
-                  {type}
-                </button>
-              ))}
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedType}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
-                className={`rounded-2xl p-8 border ${toggleData[selectedType].bgColor} ${toggleData[selectedType].borderColor} relative overflow-hidden`}
-              >
-                <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-current opacity-20" />
-                <div className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-current opacity-20" />
-                <div className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-current opacity-20" />
-                <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-current opacity-20" />
-
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-[10px] text-cool-400 tracking-wider">
-                    TYPE_{selectedType.replace(' ', '_')}
-                  </span>
-                  <span className={`text-sm font-medium ${toggleData[selectedType].color}`}>
-                    {toggleData[selectedType].capacity}
-                  </span>
-                </div>
-
-                <p className="text-lg text-navy-900 font-medium mb-6 italic">
-                  "{toggleData[selectedType].analogy}"
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-sm font-semibold text-navy-900 mb-3 flex items-center gap-2">
-                      <Check className="w-4 h-4 text-green-500" /> Can encode
-                    </h4>
-                    <ul className="space-y-2">
-                      {toggleData[selectedType].canDo.map((item) => (
-                        <li key={item} className="text-sm text-cool-700 flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-1.5 flex-shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  {toggleData[selectedType].cantDo.length > 0 && (
-                    <div>
-                      <h4 className="text-sm font-semibold text-navy-900 mb-3 flex items-center gap-2">
-                        <X className="w-4 h-4 text-red-400" /> Cannot encode
-                      </h4>
-                      <ul className="space-y-2">
-                        {toggleData[selectedType].cantDo.map((item) => (
-                          <li key={item} className="text-sm text-cool-500 flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-red-300 mt-1.5 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {toggleData[selectedType].cantDo.length === 0 && (
-                    <div className="flex items-center justify-center">
-                      <div className="text-center">
-                        <ShieldCheck className="w-10 h-10 text-green-500 mx-auto mb-2" />
-                        <p className="text-sm font-medium text-green-700">Full capability</p>
-                        <p className="text-xs text-cool-500">No limitations</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Scan Simulation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="text-center mb-8">
-              <h3 className="text-xl font-semibold text-navy-900 mb-2">See the difference in action</h3>
-              <p className="text-cool-600">What happens when you scan each type?</p>
-            </div>
-
             <div className="grid md:grid-cols-3 gap-6">
               {/* 1D Scan Result */}
               <div className="relative">
@@ -820,21 +516,345 @@ export default function BarcodesExplainedPage() {
                 {hasScanned ? 'Reset' : 'Scan All'}
               </button>
             </div>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Key sentence */}
+      {/* ═══════════════════════════════════════
+          SECTION 2 — THE PROBLEM WITH 1D
+          ═══════════════════════════════════════ */}
+      <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+                SEC_02 — THE LIMITATION
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+                The Problem with 1D Barcodes
+              </h2>
+              <p className="text-lg text-cool-600 mb-6">
+                The barcode you see on most products today is a 1D barcode — a row of vertical lines
+                encoding a single number. Think of it like a phone number: it identifies someone,
+                but tells you nothing about them.
+              </p>
+              <p className="text-xl font-semibold text-navy-900 border-l-4 border-orange-400 pl-4">
+                A 1D barcode tells you <em>what</em> the product is. Nothing more.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-orange-300/60" />
+              <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-orange-300/60" />
+              <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-orange-300/60" />
+              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-orange-300/60" />
+
+              <div className="bg-cool-50 rounded-2xl p-8 border border-cool-200">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-mono text-[10px] text-cool-400 tracking-wider">CAPABILITY_CHECK</span>
+                  <span className="text-sm text-cool-500">1D Barcode</span>
+                </div>
+                <table className="w-full">
+                  <tbody>
+                    {oneDLimitations.map((row, index) => (
+                      <motion.tr
+                        key={row.capability}
+                        initial={{ opacity: 0, x: 10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                        className="border-b border-cool-200 last:border-0"
+                      >
+                        <td className="py-3 text-cool-700">{row.capability}</td>
+                        <td className="py-3 text-right">
+                          {row.supported ? (
+                            <span className="inline-flex items-center justify-center w-7 h-7 bg-green-100 rounded-lg">
+                              <Check className="w-4 h-4 text-green-600" />
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center justify-center w-7 h-7 bg-red-50 rounded-lg">
+                              <X className="w-4 h-4 text-red-400" />
+                            </span>
+                          )}
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          SECTION 3 — EVOLUTION TO 2D
+          ═══════════════════════════════════════ */}
+      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+              SEC_03 — THE EVOLUTION
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+              The Evolution to 2D Barcodes
+            </h2>
+            <p className="text-lg text-cool-600 max-w-3xl mx-auto mb-6">
+              2D barcodes store information in two directions — horizontal and vertical.
+              The result: more data, smaller space, more resilience.
+            </p>
+            <p className="text-xl font-semibold text-navy-900 max-w-2xl mx-auto">
+              If a 1D barcode is a <span className="text-orange-500">word</span>,
+              a 2D barcode is a <span className="text-brand-500">paragraph</span>.
+            </p>
+          </motion.div>
+
+          {/* 1D → 2D visual transformation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 mb-16"
+          >
+            {/* 1D representation */}
+            <div className="flex flex-col items-center">
+              <div className="w-40 h-24 bg-white rounded-xl border border-cool-200 flex items-center justify-center overflow-hidden relative">
+                <div className="w-28 h-16 bg-barcode-lines text-navy-900 opacity-80" />
+              </div>
+              <span className="mt-3 text-sm font-medium text-cool-500">1D Barcode</span>
+            </div>
+
+            {/* Arrow */}
+            <div className="flex items-center">
+              <ArrowRight className="w-8 h-8 text-brand-400 rotate-90 sm:rotate-0" />
+            </div>
+
+            {/* 2D representation */}
+            <div className="flex flex-col items-center">
+              <div className="w-24 h-24 bg-white rounded-xl border border-brand-200 flex items-center justify-center overflow-hidden relative">
+                <div className="w-16 h-16 bg-qr-grid opacity-60" />
+                {/* QR finder patterns */}
+                <div className="absolute top-2 left-2 w-4 h-4 border-2 border-navy-900 rounded-sm" />
+                <div className="absolute top-2 right-2 w-4 h-4 border-2 border-navy-900 rounded-sm" />
+                <div className="absolute bottom-2 left-2 w-4 h-4 border-2 border-navy-900 rounded-sm" />
+              </div>
+              <span className="mt-3 text-sm font-medium text-brand-500">2D Barcode</span>
+            </div>
+          </motion.div>
+
+          {/* Common 2D types */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {barcodeTypes.map((type, index) => (
+                <motion.div
+                  key={type.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
+                  className={`rounded-xl p-5 border transition relative overflow-hidden group ${type.highlight
+                      ? 'bg-green-50 border-green-200 hover:border-green-400 hover:shadow-md'
+                      : 'bg-white border-cool-200 hover:border-brand-300 hover:shadow-md'
+                    }`}
+                >
+                  <div className={`absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
+                  <div className={`absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
+                  <div className={`absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
+                  <div className={`absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity ${type.highlight ? 'border-green-400' : 'border-brand-300'}`} />
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines opacity-0 group-hover:opacity-30 transition-opacity ${type.highlight ? 'text-green-300' : 'text-brand-200'}`} />
+
+                  <div className="flex items-start gap-4">
+                    <div className={`w-11 h-11 rounded-lg flex items-center justify-center border flex-shrink-0 ${type.highlight
+                        ? 'bg-green-100 border-green-200'
+                        : 'bg-brand-100 border-brand-200'
+                      }`}>
+                      <type.icon className={`w-5 h-5 ${type.highlight ? 'text-green-600' : 'text-brand-500'}`} />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="text-base font-semibold text-navy-900">{type.name}</h3>
+                        {type.highlight && (
+                          <span className="text-[10px] font-medium text-green-700 bg-green-100 px-1.5 py-0.5 rounded">GS1</span>
+                        )}
+                      </div>
+                      <p className="text-cool-600 text-sm mb-1">{type.purpose}</p>
+                      <p className="text-cool-400 text-xs font-mono">{type.use}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center text-xl font-semibold text-navy-900 mt-12 max-w-2xl mx-auto"
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-center text-sm text-cool-500 mt-6"
             >
-              The power of a barcode is not its shape.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">
-                It's the standard behind it.
-              </span>
+              The <span className="text-green-600 font-medium">GS1 variants</span> follow global standards — making them interoperable across supply chains worldwide.
             </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          SECTION 4 — KEY INSIGHT (INTERACTIVE)
+          ═══════════════════════════════════════ */}
+      <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+              SEC_04 — THE KEY INSIGHT
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+              Not All 2D Barcodes Are Equal
+            </h2>
+            <p className="text-lg text-cool-600 max-w-3xl mx-auto">
+              Three barcodes can look nearly identical — but the standard behind them
+              determines what they can do. Explore the difference.
+            </p>
           </motion.div>
+
+          {/* Interactive Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-2xl mx-auto mb-12"
+          >
+            <div className="flex justify-center mb-8" role="tablist" aria-label="Barcode type selector">
+              {(['1D', 'QR Code', 'GS1 2D'] as BarcodeTypeKey[]).map((type) => (
+                <button
+                  key={type}
+                  role="tab"
+                  aria-selected={selectedType === type}
+                  onClick={() => setSelectedType(type)}
+                  className={`px-5 py-2.5 font-medium text-sm transition-all duration-200 cursor-pointer first:rounded-l-lg last:rounded-r-lg border ${selectedType === type
+                      ? type === '1D'
+                        ? 'bg-orange-500 text-white border-orange-500'
+                        : type === 'QR Code'
+                          ? 'bg-brand-500 text-white border-brand-500'
+                          : 'bg-green-600 text-white border-green-600'
+                      : 'bg-white text-cool-600 border-cool-200 hover:border-cool-300'
+                    }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedType}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className={`rounded-2xl p-8 border ${toggleData[selectedType].bgColor} ${toggleData[selectedType].borderColor} relative overflow-hidden`}
+              >
+                <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-current opacity-20" />
+                <div className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-current opacity-20" />
+                <div className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-current opacity-20" />
+                <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-current opacity-20" />
+
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-[10px] text-cool-400 tracking-wider">
+                    TYPE_{selectedType.replace(' ', '_')}
+                  </span>
+                  <span className={`text-sm font-medium ${toggleData[selectedType].color}`}>
+                    {toggleData[selectedType].capacity}
+                  </span>
+                </div>
+
+                <p className="text-lg text-navy-900 font-medium mb-6 italic">
+                  "{toggleData[selectedType].analogy}"
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-sm font-semibold text-navy-900 mb-3 flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-500" /> Can encode
+                    </h4>
+                    <ul className="space-y-2">
+                      {toggleData[selectedType].canDo.map((item) => (
+                        <li key={item} className="text-sm text-cool-700 flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-1.5 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {toggleData[selectedType].cantDo.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-semibold text-navy-900 mb-3 flex items-center gap-2">
+                        <X className="w-4 h-4 text-red-400" /> Cannot encode
+                      </h4>
+                      <ul className="space-y-2">
+                        {toggleData[selectedType].cantDo.map((item) => (
+                          <li key={item} className="text-sm text-cool-500 flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-300 mt-1.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {toggleData[selectedType].cantDo.length === 0 && (
+                    <div className="flex items-center justify-center">
+                      <div className="text-center">
+                        <ShieldCheck className="w-10 h-10 text-green-500 mx-auto mb-2" />
+                        <p className="text-sm font-medium text-green-700">Full capability</p>
+                        <p className="text-xs text-cool-500">No limitations</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Key sentence */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center text-xl font-semibold text-navy-900 mt-12 max-w-2xl mx-auto"
+          >
+            The power of a barcode is not its shape.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">
+              It's the standard behind it.
+            </span>
+          </motion.p>
         </div>
       </section>
 
@@ -852,7 +872,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_04 — THE STANDARD
+              SEC_05 — THE STANDARD
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               What Makes GS1 2D Different
@@ -952,7 +972,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 5.5 — HOW IT WORKS
+          SECTION 6 — HOW IT WORKS
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -965,7 +985,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_05 — HOW IT WORKS
+              SEC_06 — HOW IT WORKS
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               From Barcode to Digital Experience
@@ -1241,7 +1261,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-12"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_06 — REAL WORLD
+              SEC_07 — REAL WORLD
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Real World Impact
@@ -1302,7 +1322,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-brand-300 tracking-wider mb-2 block">
-              SEC_07 — THE FUTURE
+              SEC_08 — THE FUTURE
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               The Future: One Barcode for Everything
