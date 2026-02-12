@@ -529,13 +529,13 @@ export default function BarcodesExplainedPage() {
                 <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-green-300/60" />
                 <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-green-300/60" />
                 <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-green-300/60" />
-                <div className="bg-green-50 rounded-xl p-5 border border-green-200 h-[380px] flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
+                <div className="bg-green-50 rounded-xl p-4 border border-green-200 h-[380px] flex flex-col">
+                  <div className="flex items-center justify-between mb-3">
                     <span className="font-mono text-[10px] text-cool-400">SCAN_GS1_2D</span>
                     <span className="text-xs font-medium text-green-600 bg-green-100 px-2 py-0.5 rounded">GS1 2D</span>
                   </div>
 
-                  <div className="flex-1 flex items-center justify-center overflow-y-auto">
+                  <div className="flex-1 flex items-center justify-center">
                     <AnimatePresence mode="wait">
                       {!hasScanned ? (
                         <motion.div
@@ -555,7 +555,7 @@ export default function BarcodesExplainedPage() {
                           transition={{ duration: 0.3, delay: 0.2 }}
                           className="w-full"
                         >
-                          <div className="bg-white rounded-lg p-3 border border-green-200 space-y-1.5 text-sm">
+                          <div className="bg-white rounded-lg p-2.5 border border-green-200 space-y-1 text-[13px]">
                             <div className="flex justify-between">
                               <span className="text-cool-500">Product</span>
                               <span className="text-navy-900 font-medium">Organic Whole Milk</span>
@@ -596,7 +596,7 @@ export default function BarcodesExplainedPage() {
                               <span className="text-cool-500">Sustainability</span>
                               <span className="text-green-600 font-medium">Grade A ✓</span>
                             </div>
-                            <div className="pt-1.5 border-t border-green-100 flex flex-wrap items-center gap-x-3 gap-y-1">
+                            <div className="pt-1 border-t border-green-100 flex flex-wrap items-center gap-x-3 gap-y-0.5">
                               <span className="text-green-500 font-medium text-xs cursor-pointer hover:text-green-600 transition flex items-center gap-1">
                                 Product page <ArrowRight className="w-3 h-3" />
                               </span>
