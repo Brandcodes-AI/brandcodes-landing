@@ -11,7 +11,7 @@ import {
   Bot,
   BarChart3,
   Link,
-  Search,
+  ShieldCheck,
   ExternalLink,
 } from 'lucide-react';
 
@@ -80,9 +80,9 @@ const supplierFeatures = [
     description: 'Cloud-based resolver with dynamic routing and redirection, fully GS1 compliant.',
   },
   {
-    icon: Search,
-    title: 'Web Enrichment',
-    description: 'Auto-extract data from manufacturer websites with data source consensus algorithms.',
+    icon: ShieldCheck,
+    title: 'Product Authenticity',
+    description: 'Unique encrypted tokens per product to verify authenticity and protect brands and consumers from counterfeits.',
   },
 ];
 

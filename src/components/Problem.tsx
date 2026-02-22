@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link2Off, Eye, HeadphonesIcon, Package, HelpCircle, QrCode } from 'lucide-react';
+import { Link2Off, ShieldAlert, HeadphonesIcon, Package, HelpCircle, QrCode } from 'lucide-react';
 
 const problems = [
   {
@@ -13,9 +13,9 @@ const problems = [
     description: "Can't create 1,000+ product pages with translations manually.",
   },
   {
-    icon: Eye,
-    title: 'Poor post-purchase visibility',
-    description: 'Minimal data on what consumers scan, search for, or fail to understand.',
+    icon: ShieldAlert,
+    title: 'Threat of counterfeit products',
+    description: 'No built-in way to verify product authenticity — leaving brands and consumers vulnerable to fakes.',
   },
   {
     icon: HeadphonesIcon,
