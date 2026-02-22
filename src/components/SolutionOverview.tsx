@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link, QrCode, Sparkles, BarChart3 } from 'lucide-react';
+import { Link, QrCode, Sparkles, BarChart3, ShieldCheck } from 'lucide-react';
 
 const pillars = [
   {
@@ -111,6 +111,29 @@ export default function SolutionOverview() {
             <p className="text-cool-600">
               Scan events, languages, questions, and engagement metrics at the individual product level.
               Understand what consumers really scan, search, and struggle with.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Plus Product Authenticity */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative bg-gradient-to-r from-accent-50 to-accent-50 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 border border-accent-100 overflow-hidden mt-6"
+        >
+          {/* QR pattern overlay */}
+          <div className="absolute inset-0 bg-qr-grid opacity-[0.03]" />
+
+          <div className="relative w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center flex-shrink-0 border border-accent-100">
+            <ShieldCheck className="w-8 h-8 text-accent-500" />
+          </div>
+          <div className="relative text-center md:text-left">
+            <h3 className="text-xl font-bold text-navy-900 mb-2">+ Product Authenticity</h3>
+            <p className="text-cool-600">
+              Unique encrypted keys and tokens generated per product to verify authenticity at the point of scan.
+              Protect your brand and consumers from counterfeit products.
             </p>
           </div>
         </motion.div>
