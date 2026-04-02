@@ -1,8 +1,16 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
+
+function RouteLoadingFallback() {
+  return (
+    <div className="min-h-[40vh] flex items-center justify-center px-4 py-16 text-cool-500">
+      Loading...
+    </div>
+  );
+}
 
 export default function Layout() {
   const location = useLocation();
@@ -17,7 +25,9 @@ export default function Layout() {
       <Navbar />
       <main className="pt-20">
         <AnimatePresence mode="wait">
-          <Outlet key={location.pathname} />
+          <Suspense fallback={<RouteLoadingFallback />}>
+            <Outlet key={location.pathname} />
+          </Suspense>
         </AnimatePresence>
       </main>
       <Footer />

@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion';
 import { Link, QrCode, Sparkles, BarChart3, ShieldCheck } from 'lucide-react';
 
-const pillars = [
+type PillarColor = 'brand' | 'accent' | 'fuchsia';
+
+const pillars: Array<{
+  icon: typeof Link;
+  title: string;
+  description: string;
+  color: PillarColor;
+}> = [
   {
     icon: Link,
     title: 'Auto-generated Product URL',
@@ -22,9 +29,24 @@ const pillars = [
   },
 ];
 
+const pillarColorClasses: Record<PillarColor, { container: string; icon: string }> = {
+  brand: {
+    container: 'bg-brand-50 border-brand-100 group-hover:border-brand-300',
+    icon: 'text-brand-500',
+  },
+  accent: {
+    container: 'bg-accent-50 border-accent-100 group-hover:border-accent-300',
+    icon: 'text-accent-500',
+  },
+  fuchsia: {
+    container: 'bg-fuchsia-50 border-fuchsia-100 group-hover:border-fuchsia-300',
+    icon: 'text-fuchsia-500',
+  },
+};
+
 export default function SolutionOverview() {
   return (
-    <section id="solution" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="solution" className="section-auto py-16 lg:py-24 bg-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-qr-grid opacity-[0.02]" />
 
@@ -50,7 +72,10 @@ export default function SolutionOverview() {
 
         {/* Three Pillars with Data Matrix Corner Pattern */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {pillars.map((pillar, index) => (
+          {pillars.map((pillar, index) => {
+            const colorClasses = pillarColorClasses[pillar.color];
+
+            return (
             <motion.div
               key={pillar.title}
               initial={{ opacity: 0, y: 20 }}
@@ -72,8 +97,8 @@ export default function SolutionOverview() {
 
                 {/* Icon container */}
                 <div className="mt-6 mb-6">
-                  <div className={`w-14 h-14 bg-${pillar.color}-50 rounded-lg border-2 border-${pillar.color}-100 flex items-center justify-center group-hover:border-${pillar.color}-300 transition-colors`}>
-                    <pillar.icon className={`w-7 h-7 text-${pillar.color}-500`} />
+                  <div className={`w-14 h-14 rounded-lg border-2 flex items-center justify-center transition-colors ${colorClasses.container}`}>
+                    <pillar.icon className={`w-7 h-7 ${colorClasses.icon}`} />
                   </div>
                 </div>
 
@@ -89,7 +114,8 @@ export default function SolutionOverview() {
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity" />
               </div>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
 
         {/* Plus Analytics */}
@@ -156,7 +182,7 @@ export default function SolutionOverview() {
 
             {/* Scanline on hover */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-brand-400 to-transparent animate-scanline-slow" />
+              <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-brand-400 to-transparent motion-safe:animate-scanline-slow" />
             </div>
 
             <div className="flex items-center gap-2 mb-4">
@@ -169,6 +195,9 @@ export default function SolutionOverview() {
               alt="GS1 2D Barcode example with GTIN encoding"
               className="w-full rounded-lg"
               loading="lazy"
+              decoding="async"
+              width={640}
+              height={640}
             />
 
             {/* GTIN data preview */}
@@ -195,7 +224,7 @@ export default function SolutionOverview() {
 
             {/* Scanline on hover */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-accent-400 to-transparent animate-scanline-slow" />
+              <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-accent-400 to-transparent motion-safe:animate-scanline-slow" />
             </div>
 
             <div className="flex items-center gap-2 mb-4">
@@ -208,6 +237,9 @@ export default function SolutionOverview() {
               alt="AI-generated branded QR codes"
               className="w-full rounded-lg"
               loading="lazy"
+              decoding="async"
+              width={640}
+              height={640}
             />
 
             {/* Style tag */}

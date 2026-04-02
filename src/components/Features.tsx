@@ -93,7 +93,7 @@ export default function Features() {
   const activePrefix = tabs.find((t) => t.id === activeTab)?.prefix || 'CON';
 
   return (
-    <section id="features" className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+    <section id="features" className="section-auto py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
       {/* Subtle QR grid background */}
       <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
 
@@ -133,7 +133,7 @@ export default function Features() {
                   <motion.div
                     layoutId="activeTabIndicator"
                     className="absolute bottom-0 left-2 right-2 h-0.5 bg-white/50 rounded-full"
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
                   />
                 )}
               </button>

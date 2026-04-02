@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -8,6 +8,8 @@ export default function Navbar() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const productMenuRef = useRef<HTMLDivElement>(null);
+  const companyMenuRef = useRef<HTMLDivElement>(null);
 
   const productLinks = [
     { name: 'Problem', href: isHomePage ? '#problem' : '/#problem' },
@@ -25,6 +27,34 @@ export default function Navbar() {
     { name: 'Team', href: '/team' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (productMenuRef.current && !productMenuRef.current.contains(target)) {
+        setIsProductOpen(false);
+      }
+      if (companyMenuRef.current && !companyMenuRef.current.contains(target)) {
+        setIsCompanyOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsProductOpen(false);
+        setIsCompanyOpen(false);
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-cool-200 rounded-2xl shadow-lg max-w-7xl mx-auto">
@@ -47,17 +77,42 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             {/* Product Dropdown */}
             <div
+              ref={productMenuRef}
               className="relative"
-              onMouseEnter={() => setIsProductOpen(true)}
+              onMouseEnter={() => {
+                setIsProductOpen(true);
+                setIsCompanyOpen(false);
+              }}
               onMouseLeave={() => setIsProductOpen(false)}
+              onFocusCapture={() => {
+                setIsProductOpen(true);
+                setIsCompanyOpen(false);
+              }}
+              onBlurCapture={(event) => {
+                const currentTarget = event.currentTarget;
+                requestAnimationFrame(() => {
+                  if (!currentTarget.contains(document.activeElement)) {
+                    setIsProductOpen(false);
+                  }
+                });
+              }}
             >
-              <button className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition py-2">
+              <button
+                className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition py-2"
+                aria-expanded={isProductOpen}
+                aria-controls="nav-product-menu"
+                aria-haspopup="true"
+                onClick={() => {
+                  setIsProductOpen((value) => !value);
+                  setIsCompanyOpen(false);
+                }}
+              >
                 Product
                 <ChevronDown size={16} className="ml-1" />
               </button>
 
               {isProductOpen && (
-                <div className="absolute top-full left-0 pt-2 w-52">
+                <div id="nav-product-menu" className="absolute top-full left-0 pt-2 w-52">
                   <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2 relative overflow-hidden">
                     {/* Corner bracket accents */}
                     <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-400/60" />
@@ -115,21 +170,42 @@ export default function Navbar() {
 
             {/* Company Dropdown */}
             <div
+              ref={companyMenuRef}
               className="relative"
-              onMouseEnter={() => setIsCompanyOpen(true)}
+              onMouseEnter={() => {
+                setIsCompanyOpen(true);
+                setIsProductOpen(false);
+              }}
               onMouseLeave={() => setIsCompanyOpen(false)}
+              onFocusCapture={() => {
+                setIsCompanyOpen(true);
+                setIsProductOpen(false);
+              }}
+              onBlurCapture={(event) => {
+                const currentTarget = event.currentTarget;
+                requestAnimationFrame(() => {
+                  if (!currentTarget.contains(document.activeElement)) {
+                    setIsCompanyOpen(false);
+                  }
+                });
+              }}
             >
               <button
                 className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition-colors duration-200 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded cursor-pointer"
                 aria-expanded={isCompanyOpen}
+                aria-controls="nav-company-menu"
                 aria-haspopup="true"
+                onClick={() => {
+                  setIsCompanyOpen((value) => !value);
+                  setIsProductOpen(false);
+                }}
               >
                 Company
                 <ChevronDown size={16} className="ml-1" />
               </button>
 
               {isCompanyOpen && (
-                <div className="absolute top-full left-0 pt-2 w-52">
+                <div id="nav-company-menu" className="absolute top-full left-0 pt-2 w-52">
                   <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2 relative overflow-hidden">
                     {/* Corner bracket accents */}
                     <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-400/60" />

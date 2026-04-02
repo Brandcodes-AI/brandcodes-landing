@@ -1,0 +1,169 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e7]:
+      - link "BrandCodes" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "BrandCodes" [ref=e9]
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - button "Product" [expanded] [ref=e12] [cursor=pointer]:
+            - text: Product
+            - img [ref=e13]
+          - generic [ref=e16]:
+            - link "01 Problem" [ref=e21] [cursor=pointer]:
+              - /url: "#problem"
+              - generic [ref=e22]: "01"
+              - text: Problem
+            - link "02 Market Opportunity" [ref=e23] [cursor=pointer]:
+              - /url: "#market-opportunity"
+              - generic [ref=e24]: "02"
+              - text: Market Opportunity
+            - link "03 Solution" [ref=e25] [cursor=pointer]:
+              - /url: "#solution"
+              - generic [ref=e26]: "03"
+              - text: Solution
+            - link "04 Features" [ref=e27] [cursor=pointer]:
+              - /url: "#features"
+              - generic [ref=e28]: "04"
+              - text: Features
+            - link "05 How It Works" [ref=e29] [cursor=pointer]:
+              - /url: "#how-it-works"
+              - generic [ref=e30]: "05"
+              - text: How It Works
+            - link "06 Use Cases" [ref=e31] [cursor=pointer]:
+              - /url: "#use-cases"
+              - generic [ref=e32]: "06"
+              - text: Use Cases
+            - link "07 Integrations" [ref=e33] [cursor=pointer]:
+              - /url: "#integrations"
+              - generic [ref=e34]: "07"
+              - text: Integrations
+            - link "08 Analytics" [ref=e35] [cursor=pointer]:
+              - /url: "#analytics"
+              - generic [ref=e36]: "08"
+              - text: Analytics
+        - link "Preview" [ref=e37] [cursor=pointer]:
+          - /url: /preview
+        - link "2D Barcodes" [ref=e38] [cursor=pointer]:
+          - /url: /barcodes-explained
+        - link "Why Us?" [ref=e39] [cursor=pointer]:
+          - /url: /why
+        - link "Pricing" [ref=e40] [cursor=pointer]:
+          - /url: /pricing
+        - button "Company" [ref=e42] [cursor=pointer]:
+          - text: Company
+          - img [ref=e43]
+      - link "Book Demo" [ref=e46] [cursor=pointer]:
+        - /url: "#contact"
+  - main [ref=e47]:
+    - generic [ref=e48]: Loading...
+  - contentinfo [ref=e49]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - link "BrandCodes" [ref=e57] [cursor=pointer]:
+            - /url: /
+            - img "BrandCodes" [ref=e58]
+          - paragraph [ref=e59]: Turn every product into an intelligent digital experience with one scan.
+          - generic [ref=e60]:
+            - link "BrandCodes on GitHub" [ref=e61] [cursor=pointer]:
+              - /url: https://github.com/Brandcodes-web
+              - img [ref=e62]
+            - link "BrandCodes on LinkedIn" [ref=e65] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/110915539
+              - img [ref=e66]
+            - link "BrandCodes on X (Twitter)" [ref=e70] [cursor=pointer]:
+              - /url: https://x.com/brandcodes_io
+              - img [ref=e71]
+        - generic [ref=e73]:
+          - heading "COL_01 Product" [level=3] [ref=e74]:
+            - generic [ref=e75]: COL_01
+            - text: Product
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "01 Features" [ref=e78] [cursor=pointer]:
+                - /url: "#features"
+                - generic [ref=e79]: "01"
+                - text: Features
+            - listitem [ref=e80]:
+              - link "02 How It Works" [ref=e81] [cursor=pointer]:
+                - /url: "#how-it-works"
+                - generic [ref=e82]: "02"
+                - text: How It Works
+            - listitem [ref=e83]:
+              - link "03 Use Cases" [ref=e84] [cursor=pointer]:
+                - /url: "#use-cases"
+                - generic [ref=e85]: "03"
+                - text: Use Cases
+            - listitem [ref=e86]:
+              - link "04 Preview" [ref=e87] [cursor=pointer]:
+                - /url: /preview
+                - generic [ref=e88]: "04"
+                - text: Preview
+            - listitem [ref=e89]:
+              - link "05 Pricing" [ref=e90] [cursor=pointer]:
+                - /url: /pricing
+                - generic [ref=e91]: "05"
+                - text: Pricing
+        - generic [ref=e92]:
+          - heading "COL_02 Company" [level=3] [ref=e93]:
+            - generic [ref=e94]: COL_02
+            - text: Company
+          - list [ref=e95]:
+            - listitem [ref=e96]:
+              - link "01 About" [ref=e97] [cursor=pointer]:
+                - /url: /about
+                - generic [ref=e98]: "01"
+                - text: About
+            - listitem [ref=e99]:
+              - link "02 Team" [ref=e100] [cursor=pointer]:
+                - /url: /team
+                - generic [ref=e101]: "02"
+                - text: Team
+            - listitem [ref=e102]:
+              - link "03 Contact" [ref=e103] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e104]: "03"
+                - text: Contact
+        - generic [ref=e105]:
+          - heading "COL_03 Resources" [level=3] [ref=e106]:
+            - generic [ref=e107]: COL_03
+            - text: Resources
+          - list [ref=e108]:
+            - listitem [ref=e109]:
+              - link "01 FAQ" [ref=e110] [cursor=pointer]:
+                - /url: /faq
+                - generic [ref=e111]: "01"
+                - text: FAQ
+            - listitem [ref=e112]:
+              - link "02 Support" [ref=e113] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e114]: "02"
+                - text: Support
+        - generic [ref=e115]:
+          - heading "COL_04 Legal" [level=3] [ref=e116]:
+            - generic [ref=e117]: COL_04
+            - text: Legal
+          - list [ref=e118]:
+            - listitem [ref=e119]:
+              - link "01 Privacy Policy" [ref=e120] [cursor=pointer]:
+                - /url: /privacy
+                - generic [ref=e121]: "01"
+                - text: Privacy Policy
+            - listitem [ref=e122]:
+              - link "02 Terms of Service" [ref=e123] [cursor=pointer]:
+                - /url: /terms
+                - generic [ref=e124]: "02"
+                - text: Terms of Service
+            - listitem [ref=e125]:
+              - link "03 Cookie Policy" [ref=e126] [cursor=pointer]:
+                - /url: /cookies
+                - generic [ref=e127]: "03"
+                - text: Cookie Policy
+      - generic [ref=e129]:
+        - paragraph [ref=e130]: © 2026 BrandCodes. All rights reserved.
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img [ref=e133]
+            - generic [ref=e136]: Singapore
+          - paragraph [ref=e137]: GS1 Digital Link Compliant

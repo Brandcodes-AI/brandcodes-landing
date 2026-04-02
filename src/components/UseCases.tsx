@@ -107,7 +107,7 @@ export default function UseCases() {
   const activeIndex = useCases.findIndex((uc) => uc.id === activeCase);
 
   return (
-    <section id="use-cases" className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
+    <section id="use-cases" className="section-auto py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
 

@@ -1,17 +1,19 @@
+import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import TeamPage from './pages/TeamPage';
-import ContactPage from './pages/ContactPage';
-import FAQPage from './pages/FAQPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
-import CookiePage from './pages/CookiePage';
-import PricingPage from './pages/PricingPage';
-import WhyBrandCodesPage from './pages/WhyBrandCodesPage';
-import PreviewPage from './pages/PreviewPage';
-import BarcodesExplainedPage from './pages/BarcodesExplainedPage';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const TeamPage = lazy(() => import('./pages/TeamPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const CookiePage = lazy(() => import('./pages/CookiePage'));
+const PricingPage = lazy(() => import('./pages/PricingPage'));
+const WhyBrandCodesPage = lazy(() => import('./pages/WhyBrandCodesPage'));
+const PreviewPage = lazy(() => import('./pages/PreviewPage'));
+const BarcodesExplainedPage = lazy(() => import('./pages/BarcodesExplainedPage'));
 
 function App() {
   return (

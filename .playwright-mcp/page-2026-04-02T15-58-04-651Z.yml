@@ -1,0 +1,609 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e7]:
+      - link "BrandCodes" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "BrandCodes" [ref=e9]
+      - generic [ref=e10]:
+        - button "Product" [active] [ref=e12] [cursor=pointer]:
+          - text: Product
+          - img [ref=e13]
+        - link "Preview" [ref=e15] [cursor=pointer]:
+          - /url: /preview
+        - link "2D Barcodes" [ref=e16] [cursor=pointer]:
+          - /url: /barcodes-explained
+        - link "Why Us?" [ref=e17] [cursor=pointer]:
+          - /url: /why
+        - link "Pricing" [ref=e18] [cursor=pointer]:
+          - /url: /pricing
+        - button "Company" [ref=e20] [cursor=pointer]:
+          - text: Company
+          - img [ref=e21]
+      - link "Book Demo" [ref=e24] [cursor=pointer]:
+        - /url: "#contact"
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: GS1 Sunrise 2027 Ready
+          - heading "Your packaging is becoming your digital product. BrandCodes makes it automatic." [level=1] [ref=e40]
+          - paragraph [ref=e41]: Generate product-specific URLs, GS1 2D / QR codes, and AI-powered product pages — all automatically from your product data.
+          - link "Book a Demo" [ref=e43] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e44]
+            - text: Book a Demo
+          - generic [ref=e46]:
+            - paragraph [ref=e47]: Compliance Status
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - img [ref=e50]
+                - generic [ref=e52]: GS1 Compliant
+              - generic [ref=e53]:
+                - img [ref=e54]
+                - generic [ref=e56]: SOC 2
+              - generic [ref=e57]:
+                - img [ref=e58]
+                - generic [ref=e60]: GDPR Ready
+        - generic [ref=e61]:
+          - img "BrandCodes - Product package with QR code scanning to mobile phone showing AI product page" [ref=e69]
+          - generic [ref=e71]:
+            - img [ref=e73]
+            - generic [ref=e79]:
+              - paragraph [ref=e80]: GTIN DETECTED
+              - paragraph [ref=e81]: Auto-generated
+              - paragraph [ref=e82]: product-specific pages
+          - generic [ref=e85]:
+            - img [ref=e87]
+            - generic [ref=e90]:
+              - paragraph [ref=e91]: AI ASSISTANT
+              - paragraph [ref=e92]: Per Product
+              - paragraph [ref=e93]: Multilingual support
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - heading "Brands are being pushed into a 2D barcode world — but lack the infrastructure to keep up." [level=2] [ref=e100]
+          - paragraph [ref=e101]: "Product packaging is becoming the entry point to mandatory digital information, but most brands struggle with these challenges:"
+        - generic [ref=e102]:
+          - generic [ref=e103] [cursor=pointer]:
+            - generic [ref=e105]:
+              - img [ref=e107]
+              - generic [ref=e111]: ERR_001
+            - heading "QR codes point to generic homepages" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Not product-level URLs aligned with GS1 and retailer expectations.
+          - generic [ref=e115] [cursor=pointer]:
+            - generic [ref=e117]:
+              - img [ref=e119]
+              - generic [ref=e123]: ERR_002
+            - heading "No scalable way to create product pages" [level=3] [ref=e124]
+            - paragraph [ref=e125]: Can't create 1,000+ product pages with translations manually.
+          - generic [ref=e127] [cursor=pointer]:
+            - generic [ref=e129]:
+              - img [ref=e131]
+              - generic [ref=e133]: ERR_003
+            - heading "Threat of counterfeit products" [level=3] [ref=e134]
+            - paragraph [ref=e135]: No built-in way to verify product authenticity — leaving brands and consumers vulnerable to fakes.
+          - generic [ref=e137] [cursor=pointer]:
+            - generic [ref=e139]:
+              - img [ref=e141]
+              - generic [ref=e143]: ERR_004
+            - heading "High support costs" [level=3] [ref=e144]
+            - paragraph [ref=e145]: Repetitive "how do I..." questions that could be automated.
+          - generic [ref=e147] [cursor=pointer]:
+            - generic [ref=e149]:
+              - img [ref=e151]
+              - generic [ref=e154]: ERR_005
+            - heading "Overloaded packaging" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Limited physical space competing with growing regulatory requirements.
+          - generic [ref=e161]:
+            - img [ref=e163]
+            - heading "BrandCodes solves all of this" [level=3] [ref=e169]
+            - paragraph [ref=e170]: Automating compliant, product-specific URLs and QR/GS1 2D barcodes with AI and analytics on top.
+            - generic [ref=e171]: SOLUTION_READY
+      - generic [ref=e175]:
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - img [ref=e178]
+            - text: Time-Sensitive Opportunity
+          - heading "The industry is shifting — permanently — to product-specific 2D codes." [level=2] [ref=e180]
+          - paragraph [ref=e181]: This creates a massive, time-bound opportunity. Brands must adopt product-specific URLs and digital product passports fast.
+        - generic [ref=e182]:
+          - generic [ref=e183]:
+            - generic [ref=e186]:
+              - img [ref=e187]
+              - generic [ref=e191]: STAT_01
+            - generic [ref=e192]: 92%
+            - paragraph [ref=e193]: of CPG brands print QR codes on packaging (2025)
+          - generic [ref=e195]:
+            - generic [ref=e198]:
+              - img [ref=e199]
+              - generic [ref=e202]: STAT_02
+            - generic [ref=e203]: 44%
+            - paragraph [ref=e204]: YoY growth in QR scanning on packaging
+          - generic [ref=e206]:
+            - generic [ref=e209]:
+              - img [ref=e210]
+              - generic [ref=e213]: STAT_03
+            - generic [ref=e214]: 85%
+            - paragraph [ref=e215]: of retail POS will be 2D-ready by 2027
+          - generic [ref=e217]:
+            - generic [ref=e220]:
+              - img [ref=e221]
+              - generic [ref=e223]: STAT_04
+            - generic [ref=e224]: $30-40B
+            - paragraph [ref=e225]: Smart packaging market size today
+        - generic [ref=e227]:
+          - heading "GS1 Sunrise 2027 Timeline" [level=3] [ref=e230]
+          - generic [ref=e234]:
+            - generic [ref=e235]:
+              - generic [ref=e238]: "24"
+              - generic [ref=e239]: "2024"
+              - paragraph [ref=e240]: GS1 2D pilots in 45+ countries
+              - generic [ref=e241]: ACTIVE
+            - generic [ref=e242]:
+              - generic [ref=e245]: "25"
+              - generic [ref=e246]: "2025"
+              - paragraph [ref=e247]: Early adopter brands migrate
+              - generic [ref=e248]: ACTIVE
+            - generic [ref=e249]:
+              - generic [ref=e252]: "26"
+              - generic [ref=e253]: "2026"
+              - paragraph [ref=e254]: Retailer mandates accelerate
+              - generic [ref=e255]: ACTIVE
+            - generic [ref=e256]:
+              - generic [ref=e258]: "27"
+              - generic [ref=e259]: "2027"
+              - paragraph [ref=e260]: GS1 Sunrise deadline
+              - generic [ref=e261]: PENDING
+          - paragraph [ref=e263]: Major retailers like Walmart, Target, Kroger are signaling 2D requirements by end of 2027.
+      - generic [ref=e267]:
+        - generic [ref=e268]:
+          - heading "BrandCodes is the automated \"product URL + 2D barcode + AI layer\" for brands." [level=2] [ref=e269]
+          - paragraph [ref=e270]: Turn every SKU into a live digital product experience — without building infrastructure.
+        - generic [ref=e271]:
+          - generic [ref=e273] [cursor=pointer]:
+            - generic [ref=e278]: "1"
+            - img [ref=e281]
+            - heading "Auto-generated Product URL" [level=3] [ref=e284]
+            - paragraph [ref=e285]: Canonical, GS1-compliant URLs for every SKU, generated from your existing product data.
+            - generic [ref=e287]: PILLAR_01
+          - generic [ref=e290] [cursor=pointer]:
+            - generic [ref=e295]: "2"
+            - img [ref=e298]
+            - heading "GS1 Digital Link QR / 2D Barcode" [level=3] [ref=e304]
+            - paragraph [ref=e305]: Print-ready QR and GS1 2D symbols that encode product-specific URLs using compliant structure.
+            - generic [ref=e307]: PILLAR_02
+          - generic [ref=e310] [cursor=pointer]:
+            - generic [ref=e315]: "3"
+            - img [ref=e318]
+            - heading "AI-Native Product Page + Assistant" [level=3] [ref=e321]
+            - paragraph [ref=e322]: Auto-generated multilingual pages with product-specific AI assistants for every product.
+            - generic [ref=e324]: PILLAR_03
+        - generic [ref=e326]:
+          - img [ref=e329]
+          - generic [ref=e331]:
+            - heading "+ Analytics Feed" [level=3] [ref=e332]
+            - paragraph [ref=e333]: Scan events, languages, questions, and engagement metrics at the individual product level. Understand what consumers really scan, search, and struggle with.
+        - generic [ref=e334]:
+          - img [ref=e337]
+          - generic [ref=e340]:
+            - heading "+ Product Authenticity" [level=3] [ref=e341]
+            - paragraph [ref=e342]: Unique encrypted keys and tokens generated per product to verify authenticity at the point of scan. Protect your brand and consumers from counterfeit products.
+        - generic [ref=e343]:
+          - generic [ref=e344]:
+            - generic [ref=e349]:
+              - img [ref=e350]
+              - heading "GS1 2D Barcodes" [level=4] [ref=e356]
+            - img "GS1 2D Barcode example with GTIN encoding" [ref=e357]
+            - paragraph [ref=e359]: (01)00012345678905(10)BATCH123(17)261231
+            - paragraph [ref=e360]: GS1 Digital Link compliant barcodes encoding GTIN, batch, expiry, and serial data.
+          - generic [ref=e361]:
+            - generic [ref=e366]:
+              - img [ref=e367]
+              - heading "Branded QR Codes" [level=4] [ref=e370]
+            - img "AI-generated branded QR codes" [ref=e371]
+            - paragraph [ref=e373]: "STYLE: AI-assistedSCAN_RATE: 99.8%FORMAT: SVG"
+            - paragraph [ref=e374]: AI-assisted aesthetic QR codes balancing scannability with on-brand visual design.
+      - generic [ref=e377]:
+        - generic [ref=e378]:
+          - heading "Powerful Features for Both Sides" [level=2] [ref=e379]
+          - paragraph [ref=e380]: BrandCodes delivers value to consumers scanning your products and suppliers managing them.
+        - generic [ref=e382]:
+          - button "Consumer Features" [pressed] [ref=e383] [cursor=pointer]: Consumer Features
+          - button "Supplier Features" [ref=e385] [cursor=pointer]
+        - generic [ref=e386]:
+          - generic [ref=e387] [cursor=pointer]:
+            - generic [ref=e390]:
+              - img [ref=e392]
+              - generic [ref=e394]: CON_01
+            - heading "AI-Powered Product Assistant" [level=3] [ref=e395]
+            - paragraph [ref=e396]: RAG-based AI trained on product manuals, specs, and FAQs with real-time streaming chat responses.
+          - generic [ref=e398] [cursor=pointer]:
+            - generic [ref=e401]:
+              - img [ref=e403]
+              - generic [ref=e406]: CON_02
+            - heading "Voice AI Capabilities" [level=3] [ref=e407]
+            - paragraph [ref=e408]: Text-to-speech with 10 voice options and speech-to-text for voice queries with multilingual support.
+          - generic [ref=e410] [cursor=pointer]:
+            - generic [ref=e413]:
+              - img [ref=e415]
+              - generic [ref=e418]: CON_03
+            - heading "Multilingual Support" [level=3] [ref=e419]
+            - paragraph [ref=e420]: 7 languages with automatic locale detection, AI-powered real-time translation, and regional content.
+          - generic [ref=e422] [cursor=pointer]:
+            - generic [ref=e425]:
+              - img [ref=e427]
+              - generic [ref=e430]: CON_04
+            - heading "Smart Product Landing Pages" [level=3] [ref=e431]
+            - paragraph [ref=e432]: Auto-generated from GTIN/SKU with specs, compliance data, documents, and all 37 GS1 link types.
+          - generic [ref=e434] [cursor=pointer]:
+            - generic [ref=e437]:
+              - img [ref=e439]
+              - generic [ref=e446]: CON_05
+            - heading "Offline-Ready PWA" [level=3] [ref=e447]
+            - paragraph [ref=e448]: Translation caching and offline viewing capability for low-connectivity environments.
+          - generic [ref=e450] [cursor=pointer]:
+            - generic [ref=e453]:
+              - img [ref=e455]
+              - generic [ref=e459]: CON_06
+            - heading "Multiple Links in One Scan" [level=3] [ref=e460]
+            - paragraph [ref=e461]: Access brand website, warranty registration, setup videos, manuals, and more from a single QR code.
+      - generic [ref=e465]:
+        - generic [ref=e466]:
+          - heading "How It Works" [level=2] [ref=e467]
+          - paragraph [ref=e468]: Get started in minutes with a simple 3-step process. No complex setup required.
+        - generic [ref=e472]:
+          - generic [ref=e473]:
+            - img [ref=e476]
+            - generic [ref=e478] [cursor=pointer]:
+              - generic [ref=e480]:
+                - img [ref=e482]
+                - generic [ref=e485]:
+                  - generic [ref=e486]: STEP
+                  - text: "01"
+              - heading "Import Products" [level=3] [ref=e487]
+              - paragraph [ref=e488]: Upload via CSV, connect API, sync with PIM/ERP, or import GTINs and e-commerce feeds.
+              - list [ref=e489]:
+                - listitem [ref=e490]:
+                  - generic [ref=e491]: "01"
+                  - text: CSV / Excel upload
+                - listitem [ref=e492]:
+                  - generic [ref=e493]: "02"
+                  - text: REST API / Webhooks
+                - listitem [ref=e494]:
+                  - generic [ref=e495]: "03"
+                  - text: Shopify, BigCommerce integration
+                - listitem [ref=e496]:
+                  - generic [ref=e497]: "04"
+                  - text: GTIN batch import
+          - generic [ref=e499]:
+            - img [ref=e502]
+            - generic [ref=e504] [cursor=pointer]:
+              - generic [ref=e506]:
+                - img [ref=e508]
+                - generic [ref=e511]:
+                  - generic [ref=e512]: STEP
+                  - text: "02"
+              - heading "BrandCodes Auto-Creates Everything" [level=3] [ref=e513]
+              - paragraph [ref=e514]: For each product, we automatically generate all the digital assets you need.
+              - list [ref=e515]:
+                - listitem [ref=e516]:
+                  - generic [ref=e517]: "01"
+                  - text: Product-specific URLs
+                - listitem [ref=e518]:
+                  - generic [ref=e519]: "02"
+                  - text: AI-native landing pages
+                - listitem [ref=e520]:
+                  - generic [ref=e521]: "03"
+                  - text: Product AI assistants
+                - listitem [ref=e522]:
+                  - generic [ref=e523]: "04"
+                  - text: GS1/QR barcodes
+          - generic [ref=e526] [cursor=pointer]:
+            - generic [ref=e528]:
+              - img [ref=e530]
+              - generic [ref=e534]:
+                - generic [ref=e535]: STEP
+                - text: "03"
+            - heading "Print the Codes" [level=3] [ref=e536]
+            - paragraph [ref=e537]: Plug into your existing label and packaging workflows. Each label gets the right code.
+            - list [ref=e538]:
+              - listitem [ref=e539]:
+                - generic [ref=e540]: "01"
+                - text: SVG/PNG/PDF exports
+              - listitem [ref=e541]:
+                - generic [ref=e542]: "02"
+                - text: Adobe Illustrator plugin
+              - listitem [ref=e543]:
+                - generic [ref=e544]: "03"
+                - text: Label printer support
+              - listitem [ref=e545]:
+                - generic [ref=e546]: "04"
+                - text: VDP workflow ready
+      - generic [ref=e550]:
+        - generic [ref=e551]:
+          - heading "Built for Every Stakeholder" [level=2] [ref=e552]
+          - paragraph [ref=e553]: BrandCodes delivers value across your entire ecosystem — from product managers to consumers.
+        - generic [ref=e554]:
+          - generic [ref=e556]:
+            - button "Product Manager Brand / Manufacturer 01" [pressed] [ref=e557] [cursor=pointer]:
+              - img [ref=e559]
+              - generic [ref=e563]:
+                - generic [ref=e564]: Product Manager
+                - generic [ref=e565]: Brand / Manufacturer
+              - generic [ref=e566]: "01"
+            - button "Marketing Manager Brand / Manufacturer 02" [ref=e567] [cursor=pointer]:
+              - img [ref=e569]
+              - generic [ref=e572]:
+                - generic [ref=e573]: Marketing Manager
+                - generic [ref=e574]: Brand / Manufacturer
+              - generic [ref=e575]: "02"
+            - button "Customer Support Lead Brand / Manufacturer 03" [ref=e576] [cursor=pointer]:
+              - img [ref=e578]
+              - generic [ref=e580]:
+                - generic [ref=e581]: Customer Support Lead
+                - generic [ref=e582]: Brand / Manufacturer
+              - generic [ref=e583]: "03"
+            - button "Packaging Converter Channel Partner 04" [ref=e584] [cursor=pointer]:
+              - img [ref=e586]
+              - generic [ref=e590]:
+                - generic [ref=e591]: Packaging Converter
+                - generic [ref=e592]: Channel Partner
+              - generic [ref=e593]: "04"
+            - button "GS1 Solution Provider Channel Partner 05" [ref=e594] [cursor=pointer]:
+              - img [ref=e596]
+              - generic [ref=e600]:
+                - generic [ref=e601]: GS1 Solution Provider
+                - generic [ref=e602]: Channel Partner
+              - generic [ref=e603]: "05"
+            - button "Retailer Marketplace 06" [ref=e604] [cursor=pointer]:
+              - img [ref=e606]
+              - generic [ref=e610]:
+                - generic [ref=e611]: Retailer
+                - generic [ref=e612]: Marketplace
+              - generic [ref=e613]: "06"
+            - button "Consumer End User 07" [ref=e614] [cursor=pointer]:
+              - img [ref=e616]
+              - generic [ref=e619]:
+                - generic [ref=e620]: Consumer
+                - generic [ref=e621]: End User
+              - generic [ref=e622]: "07"
+          - generic [ref=e624]:
+            - generic [ref=e626]:
+              - img [ref=e628]
+              - generic [ref=e632]:
+                - heading "Product Manager" [level=3] [ref=e633]
+                - paragraph [ref=e634]: Brand / Manufacturer
+              - generic [ref=e635]: ROLE_01
+            - generic [ref=e636]:
+              - generic [ref=e637]:
+                - generic [ref=e639]: "01"
+                - paragraph [ref=e640]: Automatically generate product-specific URLs and pages for all SKUs
+              - generic [ref=e641]:
+                - generic [ref=e643]: "02"
+                - paragraph [ref=e644]: Meet GS1 2D and retailer requirements without building custom infrastructure
+              - generic [ref=e645]:
+                - generic [ref=e647]: "03"
+                - paragraph [ref=e648]: All packaging QR/2D codes resolve to the correct product page
+              - generic [ref=e649]:
+                - generic [ref=e651]: "04"
+                - paragraph [ref=e652]: Encrypted tokens per product protect against counterfeits at the point of scan
+              - generic [ref=e653]:
+                - generic [ref=e655]: "05"
+                - paragraph [ref=e656]: Consumers always see accurate, up-to-date information
+      - generic [ref=e660]:
+        - generic [ref=e661]:
+          - heading "Fits Into Your Existing Workflow" [level=2] [ref=e662]
+          - paragraph [ref=e663]: BrandCodes integrates with your design tools, e-commerce platforms, PIM systems, and packaging workflows.
+        - generic [ref=e664]:
+          - heading "Packaging Workflow Integration" [level=3] [ref=e666]
+          - generic [ref=e667]:
+            - generic [ref=e668]:
+              - generic [ref=e669]:
+                - generic [ref=e671]: "1"
+                - img [ref=e673]
+                - generic [ref=e677]: Data Ingestion
+                - generic [ref=e678]: CSV/Excel, API, PIM feeds
+                - generic [ref=e680]: STEP_01
+              - img [ref=e684]
+            - generic [ref=e687]:
+              - generic [ref=e688]:
+                - generic [ref=e690]: "2"
+                - img [ref=e692]
+                - generic [ref=e698]: URL + Page Generation
+                - generic [ref=e699]: Auto-create for each SKU
+                - generic [ref=e701]: STEP_02
+              - img [ref=e705]
+            - generic [ref=e709]:
+              - generic [ref=e711]: "3"
+              - img [ref=e713]
+              - generic [ref=e714]: Code Export
+              - generic [ref=e715]: QR & GS1 2D for printing
+              - generic [ref=e717]: STEP_03
+      - generic [ref=e722]:
+        - generic [ref=e723]:
+          - heading "Understand What Consumers Really Scan, Search, and Struggle With" [level=2] [ref=e724]
+          - paragraph [ref=e725]: BrandCodes gives you product-level and portfolio-level insights into how your codes and pages are used. Turn scan data into actionable product improvements.
+          - generic [ref=e726]:
+            - generic [ref=e727]:
+              - generic [ref=e730]:
+                - img [ref=e731]
+                - generic [ref=e733]: +12%
+              - generic [ref=e734]: 24.5K
+              - generic [ref=e735]: Scan Volume
+              - generic [ref=e736]: By region, time, device type, packaging variant
+            - generic [ref=e738]:
+              - generic [ref=e741]:
+                - img [ref=e742]
+                - generic [ref=e744]: This month
+              - generic [ref=e745]: 1,234
+              - generic [ref=e746]: Top Questions
+              - generic [ref=e747]: Grouped by setup, defects, confusion, comparisons
+            - generic [ref=e749]:
+              - generic [ref=e752]:
+                - img [ref=e753]
+                - generic [ref=e756]: Languages
+              - generic [ref=e757]: "18"
+              - generic [ref=e758]: Language Breakdown
+              - generic [ref=e759]: Auto-detected locale distribution
+            - generic [ref=e761]:
+              - generic [ref=e764]:
+                - img [ref=e765]
+                - generic [ref=e768]: +8%
+              - generic [ref=e769]: 67%
+              - generic [ref=e770]: Support Deflection
+              - generic [ref=e771]: Questions resolved by AI assistant
+        - generic [ref=e774]:
+          - img "BrandCodes Analytics Dashboard showing product performance metrics and insights" [ref=e781]
+          - generic [ref=e783]:
+            - img [ref=e785]
+            - generic [ref=e788]:
+              - paragraph [ref=e789]: METRIC_UPDATE
+              - paragraph [ref=e790]: Support Tickets
+              - paragraph [ref=e791]: "-35% this month"
+      - generic [ref=e801]:
+        - generic [ref=e802]:
+          - heading "Start Generating GS1-Ready Product URLs and QR/2D Codes" [level=2] [ref=e803]
+          - paragraph [ref=e804]: Join brands already using BrandCodes to turn packaging into intelligent digital experiences. Request a personalized demo to learn more.
+          - generic [ref=e805]:
+            - generic [ref=e806]:
+              - generic [ref=e808]: "01"
+              - generic [ref=e809]: GS1 Digital Link compliant
+            - generic [ref=e810]:
+              - generic [ref=e812]: "02"
+              - generic [ref=e813]: AI-powered product pages
+            - generic [ref=e814]:
+              - generic [ref=e816]: "03"
+              - generic [ref=e817]: Real-time analytics
+        - generic [ref=e819]:
+          - heading "Request a Demo" [level=3] [ref=e822]
+          - paragraph [ref=e823]: Fill out the form and we'll get back to you within 24 hours.
+          - generic [ref=e824]:
+            - generic [ref=e825]:
+              - generic [ref=e826]:
+                - generic [ref=e827]: 01Name
+                - textbox "01Name" [ref=e828]:
+                  - /placeholder: John Doe
+              - generic [ref=e829]:
+                - generic [ref=e830]: 02Email
+                - textbox "02Email" [ref=e831]:
+                  - /placeholder: john@company.com
+            - generic [ref=e832]:
+              - generic [ref=e833]: 03Company
+              - textbox "03Company" [ref=e834]:
+                - /placeholder: Acme Inc.
+            - generic [ref=e835]:
+              - generic [ref=e836]: 04How can we help?
+              - textbox "04How can we help?" [ref=e837]:
+                - /placeholder: Tell us about your use case...
+            - button "Request Demo" [ref=e838] [cursor=pointer]:
+              - img [ref=e839]
+              - text: Request Demo
+  - contentinfo [ref=e843]:
+    - generic [ref=e848]:
+      - generic [ref=e849]:
+        - generic [ref=e850]:
+          - link "BrandCodes" [ref=e851] [cursor=pointer]:
+            - /url: /
+            - img "BrandCodes" [ref=e852]
+          - paragraph [ref=e853]: Turn every product into an intelligent digital experience with one scan.
+          - generic [ref=e854]:
+            - link "BrandCodes on GitHub" [ref=e855] [cursor=pointer]:
+              - /url: https://github.com/Brandcodes-web
+              - img [ref=e856]
+            - link "BrandCodes on LinkedIn" [ref=e859] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/110915539
+              - img [ref=e860]
+            - link "BrandCodes on X (Twitter)" [ref=e864] [cursor=pointer]:
+              - /url: https://x.com/brandcodes_io
+              - img [ref=e865]
+        - generic [ref=e867]:
+          - heading "COL_01 Product" [level=3] [ref=e868]:
+            - generic [ref=e869]: COL_01
+            - text: Product
+          - list [ref=e870]:
+            - listitem [ref=e871]:
+              - link "01 Features" [ref=e872] [cursor=pointer]:
+                - /url: "#features"
+                - generic [ref=e873]: "01"
+                - text: Features
+            - listitem [ref=e874]:
+              - link "02 How It Works" [ref=e875] [cursor=pointer]:
+                - /url: "#how-it-works"
+                - generic [ref=e876]: "02"
+                - text: How It Works
+            - listitem [ref=e877]:
+              - link "03 Use Cases" [ref=e878] [cursor=pointer]:
+                - /url: "#use-cases"
+                - generic [ref=e879]: "03"
+                - text: Use Cases
+            - listitem [ref=e880]:
+              - link "04 Preview" [ref=e881] [cursor=pointer]:
+                - /url: /preview
+                - generic [ref=e882]: "04"
+                - text: Preview
+            - listitem [ref=e883]:
+              - link "05 Pricing" [ref=e884] [cursor=pointer]:
+                - /url: /pricing
+                - generic [ref=e885]: "05"
+                - text: Pricing
+        - generic [ref=e886]:
+          - heading "COL_02 Company" [level=3] [ref=e887]:
+            - generic [ref=e888]: COL_02
+            - text: Company
+          - list [ref=e889]:
+            - listitem [ref=e890]:
+              - link "01 About" [ref=e891] [cursor=pointer]:
+                - /url: /about
+                - generic [ref=e892]: "01"
+                - text: About
+            - listitem [ref=e893]:
+              - link "02 Team" [ref=e894] [cursor=pointer]:
+                - /url: /team
+                - generic [ref=e895]: "02"
+                - text: Team
+            - listitem [ref=e896]:
+              - link "03 Contact" [ref=e897] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e898]: "03"
+                - text: Contact
+        - generic [ref=e899]:
+          - heading "COL_03 Resources" [level=3] [ref=e900]:
+            - generic [ref=e901]: COL_03
+            - text: Resources
+          - list [ref=e902]:
+            - listitem [ref=e903]:
+              - link "01 FAQ" [ref=e904] [cursor=pointer]:
+                - /url: /faq
+                - generic [ref=e905]: "01"
+                - text: FAQ
+            - listitem [ref=e906]:
+              - link "02 Support" [ref=e907] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e908]: "02"
+                - text: Support
+        - generic [ref=e909]:
+          - heading "COL_04 Legal" [level=3] [ref=e910]:
+            - generic [ref=e911]: COL_04
+            - text: Legal
+          - list [ref=e912]:
+            - listitem [ref=e913]:
+              - link "01 Privacy Policy" [ref=e914] [cursor=pointer]:
+                - /url: /privacy
+                - generic [ref=e915]: "01"
+                - text: Privacy Policy
+            - listitem [ref=e916]:
+              - link "02 Terms of Service" [ref=e917] [cursor=pointer]:
+                - /url: /terms
+                - generic [ref=e918]: "02"
+                - text: Terms of Service
+            - listitem [ref=e919]:
+              - link "03 Cookie Policy" [ref=e920] [cursor=pointer]:
+                - /url: /cookies
+                - generic [ref=e921]: "03"
+                - text: Cookie Policy
+      - generic [ref=e923]:
+        - paragraph [ref=e924]: © 2026 BrandCodes. All rights reserved.
+        - generic [ref=e925]:
+          - generic [ref=e926]:
+            - img [ref=e927]
+            - generic [ref=e930]: Singapore
+          - paragraph [ref=e931]: GS1 Digital Link Compliant

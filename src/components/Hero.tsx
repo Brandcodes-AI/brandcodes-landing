@@ -30,7 +30,7 @@ export default function Hero() {
           >
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-medium mb-6 border border-brand-200">
-              <span className="w-2 h-2 bg-brand-500 rounded-full mr-2 animate-pulse" />
+              <span className="w-2 h-2 bg-brand-500 rounded-full mr-2 motion-safe:animate-pulse" />
               GS1 Sunrise 2027 Ready
             </div>
 
@@ -103,12 +103,15 @@ export default function Hero() {
                 alt="BrandCodes - Product package with QR code scanning to mobile phone showing AI product page"
                 className="relative rounded-2xl shadow-2xl w-full"
                 loading="eager"
+                decoding="async"
+                width={768}
+                height={960}
                 fetchPriority="high"
               />
 
               {/* Animated scanline overlay */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
-                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-accent-400 to-transparent animate-scanline-slow opacity-60" />
+                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-accent-400 to-transparent motion-safe:animate-scanline-slow opacity-60" />
               </div>
             </div>
 
@@ -130,7 +133,7 @@ export default function Hero() {
                 </div>
               </div>
               {/* Scanline accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-400 to-transparent animate-pulse" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-400 to-transparent motion-safe:animate-pulse" />
             </motion.div>
 
             {/* Floating badge - AI Status Card (Right) */}
@@ -152,7 +155,7 @@ export default function Hero() {
               </div>
               {/* Live indicator */}
               <div className="absolute top-3 right-3 w-2 h-2 bg-green-400 rounded-full">
-                <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75" />
+                <div className="absolute inset-0 bg-green-400 rounded-full motion-safe:animate-ping opacity-75" />
               </div>
             </motion.div>
           </motion.div>

@@ -35,7 +35,7 @@ export default function MarketOpportunity() {
   const activeSteps = timeline.filter((t) => t.active).length;
 
   return (
-    <section id="market-opportunity" className="py-16 lg:py-24 bg-navy-950 text-white relative overflow-hidden">
+    <section id="market-opportunity" className="section-auto py-16 lg:py-24 bg-navy-950 text-white relative overflow-hidden">
       {/* QR grid overlay */}
       <div className="absolute inset-0 bg-qr-grid-white opacity-[0.02]" />
 
@@ -74,7 +74,7 @@ export default function MarketOpportunity() {
             >
               {/* Live pulse indicator */}
               <div className="absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full">
-                <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75" />
+                    <div className="absolute inset-0 bg-green-400 rounded-full motion-safe:animate-ping opacity-75" />
               </div>
 
               {/* Header with icon and identifier */}
@@ -138,7 +138,7 @@ export default function MarketOpportunity() {
                     }`}
                   >
                     {item.active && (
-                      <div className="absolute inset-0 rounded bg-brand-400 animate-ping opacity-20" />
+                      <div className="absolute inset-0 rounded bg-brand-400 motion-safe:animate-ping opacity-20" />
                     )}
                     <span className="font-mono text-sm font-bold relative">{item.year.slice(-2)}</span>
                   </div>

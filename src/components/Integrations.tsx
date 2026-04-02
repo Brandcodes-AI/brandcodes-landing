@@ -21,7 +21,7 @@ const workflowSteps = [
 
 export default function Integrations() {
   return (
-    <section id="integrations" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="integrations" className="section-auto py-16 lg:py-24 bg-white relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
 

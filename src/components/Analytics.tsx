@@ -38,7 +38,7 @@ const metrics = [
 
 export default function Analytics() {
   return (
-    <section id="analytics" className="py-16 lg:py-24 bg-navy-950 text-white relative overflow-hidden">
+    <section id="analytics" className="section-auto py-16 lg:py-24 bg-navy-950 text-white relative overflow-hidden">
       {/* QR grid overlay */}
       <div className="absolute inset-0 bg-qr-grid-white opacity-[0.02]" />
 
@@ -73,7 +73,7 @@ export default function Analytics() {
                 >
                   {/* Live pulse indicator */}
                   <div className="absolute top-3 right-3 w-2 h-2 bg-green-400 rounded-full">
-                    <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75" />
+                    <div className="absolute inset-0 bg-green-400 rounded-full motion-safe:animate-ping opacity-75" />
                   </div>
 
                   <div className="flex items-center justify-between mb-3">
@@ -124,11 +124,14 @@ export default function Analytics() {
                 alt="BrandCodes Analytics Dashboard showing product performance metrics and insights"
                 className="relative rounded-xl border border-slate-700 w-full"
                 loading="lazy"
+                decoding="async"
+                width={1280}
+                height={800}
               />
 
               {/* Animated scanline */}
               <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
-                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-accent-400 to-transparent animate-scanline-slow opacity-50" />
+                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-accent-400 to-transparent motion-safe:animate-scanline-slow opacity-50" />
               </div>
 
               {/* Overlay badge with data styling */}
