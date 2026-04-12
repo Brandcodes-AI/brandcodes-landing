@@ -85,7 +85,7 @@ export default function TeamPage() {
                 </span>
 
                 {/* Profile Photo with corner bracket targeting frame */}
-                <div className="relative w-40 h-40 mx-auto mb-6">
+                <div className="relative w-40 h-40 mx-auto mb-6 mt-2">
                   {/* Corner bracket frame instead of blur */}
                   <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-brand-400 opacity-60" />
                   <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-brand-400 opacity-60" />
@@ -94,7 +94,7 @@ export default function TeamPage() {
                   <img
                     src={member.image}
                     alt={`${member.name}, ${member.role}`}
-                    className="relative w-40 h-40 rounded-xl object-cover border-4 border-white shadow-lg"
+                    className="relative w-40 h-40 rounded-xl object-cover object-top border-4 border-white shadow-lg"
                     loading="lazy"
                   />
                 </div>
