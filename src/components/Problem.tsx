@@ -1,6 +1,24 @@
 import { motion } from 'framer-motion';
 import { Link2Off, ShieldAlert, HeadphonesIcon, Package, HelpCircle, QrCode } from 'lucide-react';
 
+const officialPartners = [
+  {
+    title: 'National University of Singapore',
+    logoSrc: '/partner logos/nus-logo-orange-b-stack.png',
+    logoAlt: 'National University of Singapore logo',
+  },
+  {
+    title: 'GS1 Singapore',
+    logoSrc: '/partner logos/Logo_GS1.svg.png',
+    logoAlt: 'GS1 logo',
+  },
+  {
+    title: 'iGroup Korea',
+    logoSrc: '/partner logos/igroup_asia_pacific_ltd_logo.jpeg',
+    logoAlt: 'iGroup logo',
+  },
+];
+
 const problems = [
   {
     icon: Link2Off,
@@ -31,11 +49,38 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section id="problem" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="problem" className="pt-0 pb-12 lg:pt-0 lg:pb-18 bg-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="text-center max-w-4xl mx-auto mb-8"
+        >
+          <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-4 block">
+            OFFICIAL_PARTNERS
+          </span>
+          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            {officialPartners.map((partner) => (
+              <div
+                key={partner.title}
+                className="bg-white rounded-xl border border-cool-200 px-5 py-4 shadow-sm flex items-center justify-center h-24"
+              >
+                <img
+                  src={partner.logoSrc}
+                  alt={partner.logoAlt}
+                  className="max-h-12 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
