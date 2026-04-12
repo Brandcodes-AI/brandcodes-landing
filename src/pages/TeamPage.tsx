@@ -23,15 +23,6 @@ const team = [
       github: 'https://github.com/lhurr',
     },
   },
-  {
-    name: 'Tien Cheng',
-    role: 'COO',
-    bio: "2x national scholar, ex-DSTA engineer. Previously 2x executive founder (Flora Softworks, Conform Labs).",
-    image: '/team/tien-cheng.jpg',
-    links: {
-      linkedin: 'https://www.linkedin.com/in/ohtiencheng/',
-    },
-  },
 ];
 
 export default function TeamPage() {
@@ -72,7 +63,7 @@ export default function TeamPage() {
       {/* Team Members */}
       <section className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 justify-center">
+          <div className="grid md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -152,35 +143,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Join Us Section */}
-      <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
-        {/* QR grid overlay */}
-        <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
-        {/* Corner brackets */}
-        <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-brand-300/30 hidden lg:block" />
-        <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-brand-300/30 hidden lg:block" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto"
-          >
-            <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              ORG_ORIGIN
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-              The BrandCodes Advantage
-            </h2>
-            <p className="text-lg text-cool-600">
-              Validated by GS1 Singapore and leading academic partners, we operate where regulation meets
-              cutting-edge tech. This gives BrandCodes a clear path to real-world adoption in the digital
-              supply chain transformation.
-            </p>
-          </motion.div>
-        </div>
-      </section>
     </motion.div>
   );
 }
