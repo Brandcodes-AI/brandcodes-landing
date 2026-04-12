@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Brain, Zap, Shield, Users, Wrench, Globe2, ShieldCheck } from 'lucide-react';
+import { Brain, Zap, Shield, Users, Wrench, Globe2, ShieldCheck, FlaskConical, TrendingUp, Handshake, CheckCircle2, type LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const differentiators = [
@@ -22,6 +22,51 @@ const differentiators = [
     icon: Users,
     title: 'Consumer Experience',
     description: 'Post-purchase support, multilingual AI, voice capabilities, and offline-ready PWA.',
+  },
+];
+
+type AdvantageCard = {
+  icon: LucideIcon;
+  eyebrow: string;
+  title: string;
+  description: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoClass?: string;
+};
+
+const advantageCards: AdvantageCard[] = [
+  {
+    icon: FlaskConical,
+    eyebrow: 'ACADEMIC_VALIDATION',
+    title: 'National University of Singapore',
+    description: "10+ NUS Professors have reviewed and validated BrandCodes' technical approach and market strategy.",
+    logoSrc: '/partner logos/nus-logo-orange-b-stack.png',
+    logoAlt: 'National University of Singapore logo',
+  },
+  {
+    icon: TrendingUp,
+    eyebrow: 'ACCELERATOR',
+    title: 'Y Combinator 2026',
+    description: 'Ranked in the top 10% of the 2026 cohort, one of the world\'s most competitive startup programs.',
+    logoSrc: '/partner logos/Y_Combinator_logo.svg',
+    logoAlt: 'Y Combinator logo',
+  },
+  {
+    icon: Handshake,
+    eyebrow: 'PARTNERSHIP',
+    title: 'GS1 Singapore',
+    description: 'Product and partnership confirmed, with joint pilots scheduled Q2-Q3 2026 alongside the global barcode standards authority.',
+    logoSrc: '/partner logos/Logo_GS1.svg.png',
+    logoAlt: 'GS1 logo',
+  },
+  {
+    icon: CheckCircle2,
+    eyebrow: 'PILOT_CONFIRMED',
+    title: 'iGroup Korea',
+    description: 'Pilot confirmed for Q2 2026 for the Whiskey Shu Yamamoto Edition, with pricing model and project scope actively in discussion.',
+    logoSrc: '/partner logos/igroup_asia_pacific_ltd_logo.jpeg',
+    logoAlt: 'iGroup logo',
   },
 ];
 
@@ -237,6 +282,65 @@ export default function WhyBrandCodesPage() {
                 </div>
                 <h3 className="text-lg font-semibold text-navy-900 mb-2">{item.title}</h3>
                 <p className="text-cool-600 text-sm">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-center max-w-3xl mx-auto mt-16 mb-10"
+          >
+            <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
+              ADVANTAGE
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-navy-900 mb-4">
+              The BrandCodes Advantage
+            </h3>
+            <p className="text-lg text-cool-600">
+              Validated by leading academics, global standards bodies, and top accelerators, BrandCodes operates where regulation meets cutting-edge tech.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {advantageCards.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.05 + index * 0.1 }}
+                className="bg-cool-50 rounded-2xl p-7 border border-cool-200 hover:border-brand-300 hover:shadow-lg transition relative overflow-hidden group"
+              >
+                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-0 group-hover:opacity-30 transition-opacity" />
+
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-14 h-14 bg-white rounded-xl border border-brand-100 flex items-center justify-center shadow-sm overflow-hidden p-1">
+                    {item.logoSrc ? (
+                      <img
+                        src={item.logoSrc}
+                        alt={item.logoAlt ?? `${item.title} logo`}
+                        className={item.logoClass ?? 'w-full h-full object-contain'}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <item.icon className="w-6 h-6 text-brand-500" />
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-mono text-[10px] text-cool-400 tracking-wider">{item.eyebrow}</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-navy-900 mb-1">{item.title}</h4>
+                    <p className="text-cool-600 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
