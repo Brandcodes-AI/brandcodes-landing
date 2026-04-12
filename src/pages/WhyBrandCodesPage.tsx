@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Brain, Zap, Shield, Users } from 'lucide-react';
+import { Brain, Zap, Shield, Users, Wrench, Globe2, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const differentiators = [
@@ -112,17 +112,23 @@ const useCases = [
   {
     title: 'Complex Durable Goods',
     description: 'Electronics, appliances, tools, and medical devices requiring deep technical troubleshooting and setup assistance.',
-    icon: '🔧',
+    icon: Wrench,
+    iconColor: 'text-brand-500',
+    iconBg: 'bg-brand-100',
   },
   {
     title: 'Global CPG Brands',
     description: 'Consumer packaged goods needing multilingual product information and compliance across multiple markets.',
-    icon: '🌍',
+    icon: Globe2,
+    iconColor: 'text-accent-500',
+    iconBg: 'bg-accent-100',
   },
   {
     title: 'Compliance + Engagement',
     description: 'Brands seeking to combine GS1 Sunrise 2027 compliance with superior post-purchase customer experiences.',
-    icon: '✅',
+    icon: ShieldCheck,
+    iconColor: 'text-green-600',
+    iconBg: 'bg-green-50',
   },
 ];
 
@@ -469,7 +475,9 @@ export default function WhyBrandCodesPage() {
                 <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
                   USE_{String(index + 1).padStart(2, '0')}
                 </span>
-                <div className="text-5xl mb-4">{useCase.icon}</div>
+                <div className={`w-14 h-14 ${useCase.iconBg} rounded-xl flex items-center justify-center mb-4 mx-auto border border-cool-200`}>
+                  <useCase.icon className={`w-7 h-7 ${useCase.iconColor}`} />
+                </div>
                 <h3 className="text-xl font-semibold text-navy-900 mb-3">{useCase.title}</h3>
                 <p className="text-cool-600">{useCase.description}</p>
               </motion.div>
