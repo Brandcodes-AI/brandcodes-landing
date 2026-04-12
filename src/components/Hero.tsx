@@ -1,6 +1,24 @@
 import { Play, QrCode, Cpu, Check } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
+const officialPartners = [
+  {
+    title: 'National University of Singapore',
+    logoSrc: '/partner logos/nus-logo-orange-b-stack.png',
+    logoAlt: 'National University of Singapore logo',
+  },
+  {
+    title: 'GS1 Singapore',
+    logoSrc: '/partner logos/Logo_GS1.svg.png',
+    logoAlt: 'GS1 logo',
+  },
+  {
+    title: 'iGroup Korea',
+    logoSrc: '/partner logos/igroup_asia_pacific_ltd_logo.jpeg',
+    logoAlt: 'iGroup logo',
+  },
+];
+
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   return (
@@ -157,6 +175,32 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.35, ease: 'easeOut' }}
+          className="mt-10 lg:mt-12 text-center"
+        >
+          <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-4 block">
+            OFFICIAL_PARTNERS
+          </span>
+          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            {officialPartners.map((partner) => (
+              <div
+                key={partner.title}
+                className="bg-white rounded-xl border border-cool-200 px-5 py-4 shadow-sm flex items-center justify-center h-24"
+              >
+                <img
+                  src={partner.logoSrc}
+                  alt={partner.logoAlt}
+                  className="max-h-12 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
