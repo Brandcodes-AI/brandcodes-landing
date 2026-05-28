@@ -8,7 +8,7 @@ import FAQPage from './pages/FAQPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import CookiePage from './pages/CookiePage';
-import PricingPage from './pages/PricingPage';
+// import PricingPage from './pages/PricingPage';
 import WhyBrandCodesPage from './pages/WhyBrandCodesPage';
 import PreviewPage from './pages/PreviewPage';
 import BarcodesExplainedPage from './pages/BarcodesExplainedPage';

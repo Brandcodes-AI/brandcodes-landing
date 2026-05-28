@@ -4,7 +4,6 @@ import {
   Sparkles,
   MessageCircle,
   Globe,
-  Mic,
   WifiOff,
   QrCode,
   Bot,
