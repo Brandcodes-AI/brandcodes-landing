@@ -27,7 +27,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/cookies" element={<CookiePage />} />
-          <Route path="/pricing" element={<PricingPage />} />
+          {/* <Route path="/pricing" element={<PricingPage />} /> */}
           <Route path="/preview" element={<PreviewPage />} />
           <Route path="/barcodes-explained" element={<BarcodesExplainedPage />} />
         </Route>

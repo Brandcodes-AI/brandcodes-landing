@@ -6,7 +6,6 @@ import {
   Globe,
   Mic,
   WifiOff,
-  Database,
   QrCode,
   Bot,
   BarChart3,
@@ -14,7 +13,6 @@ import {
   ShieldCheck,
   ExternalLink,
   Route,
-  BookOpen,
   Factory,
 } from 'lucide-react';
 
@@ -26,13 +24,8 @@ const tabs = [
 const consumerFeatures = [
   {
     icon: MessageCircle,
-    title: 'AI-Powered Product Assistant',
-    description: 'RAG-based AI trained on product manuals, specs, and FAQs with real-time streaming chat responses.',
-  },
-  {
-    icon: Mic,
-    title: 'Voice AI Capabilities',
-    description: 'Text-to-speech with 10 voice options and speech-to-text for voice queries with multilingual support.',
+    title: 'AI-Powered Product Assistant + Voice AI',
+    description: 'RAG-based AI trained on product manuals, specs, and FAQs with real-time streaming chat, plus text-to-speech with 10 voice options and speech-to-text for voice queries with multilingual support.',
   },
   {
     icon: Globe,
@@ -64,11 +57,6 @@ const consumerFeatures = [
 
 const supplierFeatures = [
   {
-    icon: Database,
-    title: 'Product Data Management',
-    description: 'Multi-step wizard, bulk CSV/API import, variants with batch/serial/expiry management.',
-  },
-  {
     icon: Factory,
     title: 'ERP Integrations',
     description:
@@ -94,12 +82,6 @@ const supplierFeatures = [
     title: 'GS1 Digital Link Resolver',
     description:
       'Comprehensive resolver infrastructure/API: GTIN + serial number or GTIN + batch/lot \u2192 GS1-compliant URL.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Open Documentation & Integrations',
-    description:
-      'Open-source docs, API examples, and GS1 integrations so developers can build on top of your barcodes and create network effects.',
   },
   {
     icon: ShieldCheck,

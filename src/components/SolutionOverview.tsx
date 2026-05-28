@@ -63,7 +63,7 @@ export default function SolutionOverview() {
               transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
               className="relative group"
             >
-              <div className="bg-white rounded-2xl p-8 border border-cool-200 h-full hover:border-brand-300 hover:shadow-xl transition-all duration-200 ease-out cursor-pointer relative overflow-hidden">
+              <div className="bg-white rounded-2xl p-8 border border-cool-200 h-full hover:border-brand-300 hover:shadow-xl transition-all duration-200 ease-out cursor-pointer relative overflow-hidden flex flex-col">
                 {/* Data Matrix Finder Pattern (L-shape corner) */}
                 <div className="absolute top-0 left-0 w-5 h-5 bg-brand-500" />
                 <div className="absolute top-0 left-5 w-5 h-1 bg-brand-500" />
@@ -85,7 +85,7 @@ export default function SolutionOverview() {
                 <p className="text-cool-600">{pillar.description}</p>
 
                 {/* Bottom data identifier */}
-                <div className="mt-6 pt-4 border-t border-cool-100">
+                <div className="mt-auto pt-4 border-t border-cool-100">
                   <span className="font-mono text-xs text-cool-400">PILLAR_{String(index + 1).padStart(2, '0')}</span>
                 </div>
 
