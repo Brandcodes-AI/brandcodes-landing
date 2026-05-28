@@ -56,15 +56,14 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 tracking-tight leading-tight mb-6">
               Your packaging is becoming your{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">
-                digital product
+                GS1 2D gateway
               </span>
-              . BrandCodes makes it automatic.
+              . BrandCodes makes it infrastructure.
             </h1>
 
             {/* Subtext */}
             <p className="text-lg sm:text-xl text-cool-600 mb-8 max-w-xl mx-auto lg:mx-0">
-              Generate product-specific URLs, GS1 2D / QR codes, and AI-powered product pages —
-              all automatically from your product data.
+              A resolver infrastructure layer for companies transitioning to GS1 2D barcodes.
             </p>
 
             {/* CTAs */}

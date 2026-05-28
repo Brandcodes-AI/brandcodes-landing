@@ -5,25 +5,33 @@ const steps = [
   {
     number: '01',
     icon: Upload,
-    title: 'Import Products',
-    description: 'Upload via CSV, connect API, sync with PIM/ERP, or import GTINs and e-commerce feeds.',
-    details: ['CSV / Excel upload', 'REST API / Webhooks', 'Shopify, BigCommerce integration', 'GTIN batch import'],
+    title: 'Connect Product Data',
+    description:
+      'Bring GTINs + serial/batch data into BrandCodes via CSV, API, or direct ERP/PIM integrations.',
+    details: ['CSV / Excel upload', 'REST API / Webhooks', 'ERP/PIM sync', 'GTIN + serial/batch ingestion'],
     progress: 33,
   },
   {
     number: '02',
     icon: Wand2,
-    title: 'BrandCodes Auto-Creates Everything',
-    description: 'For each product, we automatically generate all the digital assets you need.',
-    details: ['Product-specific URLs', 'AI-native landing pages', 'Product AI assistants', 'GS1/QR barcodes'],
+    title: 'Configure Resolver Routing',
+    description:
+      'Turn scan inputs into the right GS1-compliant destination — with context-aware routing and analytics.',
+    details: [
+      'GTIN + serial/batch \u2192 GS1-compliant URL',
+      'Route by app, location, language, time',
+      'Two routes: redirect or hosted pages',
+      'Analytics + insights per resolver outcome',
+    ],
     progress: 66,
   },
   {
     number: '03',
     icon: Printer,
-    title: 'Print the Codes',
-    description: 'Plug into your existing label and packaging workflows. Each label gets the right code.',
-    details: ['SVG/PNG/PDF exports', 'Adobe Illustrator plugin', 'Label printer support', 'VDP workflow ready'],
+    title: 'Deploy GS1 2D Barcodes',
+    description:
+      'Export GS1 2D symbols for packaging, then continuously update routing, pages, promos, and recalls without reprinting.',
+    details: ['GS1 2D / Digital Link export', 'Packaging workflow ready', 'Live routing updates', 'Regional promos & recall events'],
     progress: 100,
   },
 ];
@@ -46,7 +54,7 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-            Get started in minutes with a simple 3-step process. No complex setup required.
+            Stand up GS1 2D resolver infrastructure quickly — then iterate on routing and experiences over time.
           </p>
         </motion.div>
 

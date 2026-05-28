@@ -4,15 +4,15 @@ import {
   Sparkles,
   MessageCircle,
   Globe,
-  Mic,
   WifiOff,
-  Database,
   QrCode,
   Bot,
   BarChart3,
   Link,
   ShieldCheck,
   ExternalLink,
+  Route,
+  Factory,
 } from 'lucide-react';
 
 const tabs = [
@@ -23,13 +23,8 @@ const tabs = [
 const consumerFeatures = [
   {
     icon: MessageCircle,
-    title: 'AI-Powered Product Assistant',
-    description: 'RAG-based AI trained on product manuals, specs, and FAQs with real-time streaming chat responses.',
-  },
-  {
-    icon: Mic,
-    title: 'Voice AI Capabilities',
-    description: 'Text-to-speech with 10 voice options and speech-to-text for voice queries with multilingual support.',
+    title: 'AI-Powered Product Assistant + Voice AI',
+    description: 'RAG-based AI trained on product manuals, specs, and FAQs with real-time streaming chat, plus text-to-speech with 10 voice options and speech-to-text for voice queries with multilingual support.',
   },
   {
     icon: Globe,
@@ -40,6 +35,12 @@ const consumerFeatures = [
     icon: Sparkles,
     title: 'Smart Product Landing Pages',
     description: 'Auto-generated from GTIN/SKU with specs, compliance data, documents, and all 37 GS1 link types.',
+  },
+  {
+    icon: Route,
+    title: 'Context-Aware Experiences',
+    description:
+      'Dynamic pages and redirects based on app used, location, language, and time — including promotions or recalls by region.',
   },
   {
     icon: WifiOff,
@@ -55,9 +56,10 @@ const consumerFeatures = [
 
 const supplierFeatures = [
   {
-    icon: Database,
-    title: 'Product Data Management',
-    description: 'Multi-step wizard, bulk CSV/API import, variants with batch/serial/expiry management.',
+    icon: Factory,
+    title: 'ERP Integrations',
+    description:
+      'Automatically pull product data from enterprise software to keep resolver content and routing up-to-date.',
   },
   {
     icon: QrCode,
@@ -77,7 +79,8 @@ const supplierFeatures = [
   {
     icon: Link,
     title: 'GS1 Digital Link Resolver',
-    description: 'Cloud-based resolver with dynamic routing and redirection, fully GS1 compliant.',
+    description:
+      'Comprehensive resolver infrastructure/API: GTIN + serial number or GTIN + batch/lot \u2192 GS1-compliant URL.',
   },
   {
     icon: ShieldCheck,

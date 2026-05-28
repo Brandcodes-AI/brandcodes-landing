@@ -106,12 +106,12 @@ export default function Navbar() {
             </Link>
 
             {/* Pricing Link */}
-            <Link
+            {/* <Link
               to="/pricing"
               className="text-cool-600 hover:text-brand-500 font-medium transition"
             >
               Pricing
-            </Link>
+            </Link> */}
 
             {/* Company Dropdown */}
             <div
@@ -235,13 +235,13 @@ export default function Navbar() {
             </Link>
 
             {/* Pricing Link - Mobile */}
-            <Link
+            {/* <Link
               to="/pricing"
               className="block text-cool-600 hover:text-brand-500 font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
-            </Link>
+            </Link> */}
 
             {/* Company Section - Mobile */}
             <div className="border-t border-cool-200 pt-3">
