@@ -13,6 +13,9 @@ import {
   Link,
   ShieldCheck,
   ExternalLink,
+  Route,
+  BookOpen,
+  Factory,
 } from 'lucide-react';
 
 const tabs = [
@@ -42,6 +45,12 @@ const consumerFeatures = [
     description: 'Auto-generated from GTIN/SKU with specs, compliance data, documents, and all 37 GS1 link types.',
   },
   {
+    icon: Route,
+    title: 'Context-Aware Experiences',
+    description:
+      'Dynamic pages and redirects based on app used, location, language, and time — including promotions or recalls by region.',
+  },
+  {
     icon: WifiOff,
     title: 'Offline-Ready PWA',
     description: 'Translation caching and offline viewing capability for low-connectivity environments.',
@@ -58,6 +67,12 @@ const supplierFeatures = [
     icon: Database,
     title: 'Product Data Management',
     description: 'Multi-step wizard, bulk CSV/API import, variants with batch/serial/expiry management.',
+  },
+  {
+    icon: Factory,
+    title: 'ERP Integrations',
+    description:
+      'Automatically pull product data from enterprise software to keep resolver content and routing up-to-date.',
   },
   {
     icon: QrCode,
@@ -77,7 +92,14 @@ const supplierFeatures = [
   {
     icon: Link,
     title: 'GS1 Digital Link Resolver',
-    description: 'Cloud-based resolver with dynamic routing and redirection, fully GS1 compliant.',
+    description:
+      'Comprehensive resolver infrastructure/API: GTIN + serial number or GTIN + batch/lot \u2192 GS1-compliant URL.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Open Documentation & Integrations',
+    description:
+      'Open-source docs, API examples, and GS1 integrations so developers can build on top of your barcodes and create network effects.',
   },
   {
     icon: ShieldCheck,

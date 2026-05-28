@@ -4,12 +4,12 @@ import { Database, Barcode, Palette, ChevronRight } from 'lucide-react';
 const workflowSteps = [
   {
     title: 'Data Ingestion',
-    description: 'CSV/Excel, API, PIM feeds',
+    description: 'CSV/Excel, API, ERP/PIM feeds',
     icon: Database,
   },
   {
-    title: 'URL + Page Generation',
-    description: 'Auto-create for each SKU',
+    title: 'Resolver + Routing',
+    description: 'Context-aware destinations',
     icon: Palette,
   },
   {
@@ -37,8 +37,8 @@ export default function Integrations() {
             Fits Into Your Existing Workflow
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-            BrandCodes integrates with your design tools, e-commerce platforms, PIM systems, and
-            packaging workflows.
+            BrandCodes integrates with ERP/PIM systems, e-commerce catalogs, packaging workflows,
+            and developer stacks to power GS1 2D barcode resolution at scale.
           </p>
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function Integrations() {
           <div className="absolute inset-0 bg-qr-grid opacity-[0.02]" />
 
           <h3 className="relative text-lg font-semibold text-navy-900 mb-8 text-center">
-            Packaging Workflow Integration
+            Resolver Infrastructure in Your Workflow
           </h3>
 
           <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">

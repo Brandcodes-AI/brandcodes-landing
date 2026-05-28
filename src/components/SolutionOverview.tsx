@@ -1,23 +1,26 @@
 import { motion } from 'framer-motion';
-import { Link, QrCode, Sparkles, BarChart3, ShieldCheck } from 'lucide-react';
+import { Link, QrCode, Route, BarChart3, ShieldCheck, Sparkles } from 'lucide-react';
 
 const pillars = [
   {
-    icon: Link,
-    title: 'Auto-generated Product URL',
-    description: 'Canonical, GS1-compliant URLs for every SKU, generated from your existing product data.',
+    icon: Route,
+    title: 'GS1-Compliant Resolver Infrastructure',
+    description:
+      'Resolve GTIN + serial number or GTIN + batch/lot into a GS1-compliant URL with dynamic routing.',
     color: 'brand',
   },
   {
     icon: QrCode,
-    title: 'GS1 Digital Link QR / 2D Barcode',
-    description: 'Print-ready QR and GS1 2D symbols that encode product-specific URLs using compliant structure.',
+    title: 'GS1 2D / Digital Link Encoding',
+    description:
+      'Generate and manage print-ready GS1 2D symbols and Digital Link QR codes that resolve reliably at scale.',
     color: 'accent',
   },
   {
-    icon: Sparkles,
-    title: 'AI-Native Product Page + Assistant',
-    description: 'Auto-generated multilingual pages with product-specific AI assistants for every product.',
+    icon: Link,
+    title: 'Two Routes: Redirect or Hosted Pages',
+    description:
+      'Link scans to your own product pages, or let BrandCodes host product pages with content management and frontend hosting.',
     color: 'fuchsia',
   },
 ];
@@ -37,14 +40,15 @@ export default function SolutionOverview() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-            BrandCodes is the automated{' '}
+            BrandCodes is the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-accent-500 to-fuchsia-600">
-              "product URL + 2D barcode + AI layer"
+              GS1 resolver + API layer
             </span>{' '}
-            for brands.
+            for the transition to GS1 2D barcodes.
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-            Turn every SKU into a live digital product experience — without building infrastructure.
+            A comprehensive GS1-compliant resolver infrastructure/API and analytics feed — built to
+            route each scan to the right experience.
           </p>
         </motion.div>
 
@@ -109,8 +113,8 @@ export default function SolutionOverview() {
           <div className="relative text-center md:text-left">
             <h3 className="text-xl font-bold text-navy-900 mb-2">+ Analytics Feed</h3>
             <p className="text-cool-600">
-              Scan events, languages, questions, and engagement metrics at the individual product level.
-              Understand what consumers really scan, search, and struggle with.
+              Scan events, locations, apps, languages, and engagement — tied to resolver outcomes.
+              Understand where traffic goes and what content performs.
             </p>
           </div>
         </motion.div>

@@ -105,6 +105,11 @@ const faqs = [
     answer: 'Yes. All paid plans include unlimited scans.',
   },
   {
+    question: 'Do you support FMCG and retailers for free?',
+    answer:
+      'Yes. For general FMCG and retailers, BrandCodes can be offered for free. As traffic grows, monetization can be introduced during the redirect stage via advertising and premium capabilities.',
+  },
+  {
     question: 'Can I upgrade or downgrade anytime?',
     answer: 'Yes. Plans scale with your SKU count and team size.',
   },
@@ -116,6 +121,15 @@ const faqs = [
     question: 'Do you offer custom contracts?',
     answer: 'Yes. Enterprise plans support custom terms and SLAs.',
   },
+];
+
+const monetizationCapabilities = [
+  'Product authentication & anti-counterfeiting',
+  'AI-powered product page generation',
+  'Analytics & consumer insights',
+  'Supply chain integrations',
+  'Serialization support',
+  'Enterprise workflow automation',
 ];
 
 const whyDifferent = [
@@ -413,6 +427,76 @@ export default function PricingPage() {
               </tbody>
             </table>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Monetization Strategy */}
+      <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">Monetization</h2>
+            <p className="text-lg text-cool-600 max-w-3xl mx-auto">
+              The resolver and redirects create distribution. Monetization comes from premium
+              capabilities on top.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-cool-50 rounded-2xl p-8 border border-cool-200 relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-barcode-lines text-brand-200 opacity-30" />
+              <h3 className="text-xl font-bold text-navy-900 mb-3">Capabilities (paid)</h3>
+              <p className="text-cool-600 mb-6">Advanced modules for enterprise-grade needs.</p>
+              <ul className="space-y-3">
+                {monetizationCapabilities.map((item, index) => (
+                  <li key={item} className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 bg-brand-50 rounded flex items-center justify-center mr-2 mt-0.5 border border-brand-100">
+                      <span className="font-mono text-[9px] text-brand-600">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <span className="text-cool-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white rounded-2xl p-8 border border-cool-200 relative overflow-hidden"
+            >
+              <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-300/60" />
+              <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-300/60" />
+              <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-300/60" />
+              <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-300/60" />
+              <h3 className="text-xl font-bold text-navy-900 mb-3">Free for FMCG & retailers</h3>
+              <p className="text-cool-600 mb-6">
+                For general FMCG and retail use cases, we can offer the core experience for free
+                to build traffic and adoption.
+              </p>
+              <div className="rounded-xl bg-brand-50 border border-brand-100 p-5">
+                <p className="text-sm text-cool-700">
+                  Once there is enough traction, advertising can be introduced during the redirect
+                  stage, alongside premium capabilities for brands.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
