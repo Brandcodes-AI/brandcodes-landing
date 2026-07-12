@@ -6,6 +6,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductOpen, setIsProductOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -24,6 +25,12 @@ export default function Navbar() {
     { name: 'About', href: '/about' },
     { name: 'Team', href: '/team' },
     { name: 'Contact', href: '/contact' },
+  ];
+
+  const resourceLinks = [
+    { name: '2D Barcodes Explained', href: '/barcodes-explained' },
+    { name: 'GS1 URI Formats', href: '/gs1-uri-formats' },
+    { name: 'FAQ', href: '/faq' },
   ];
 
   return (
@@ -89,13 +96,25 @@ export default function Navbar() {
               Preview
             </Link>
 
-            {/* 2D Barcodes Link */}
-            <Link
-              to="/barcodes-explained"
-              className="text-cool-600 hover:text-brand-500 font-medium transition"
-            >
-              2D Barcodes
-            </Link>
+            {/* Resources Dropdown */}
+            <div className="relative" onMouseEnter={() => setIsResourcesOpen(true)} onMouseLeave={() => setIsResourcesOpen(false)}>
+              <button className="flex items-center text-cool-600 hover:text-brand-500 font-medium transition py-2" aria-expanded={isResourcesOpen} aria-haspopup="true">
+                Resources <ChevronDown size={16} className="ml-1" />
+              </button>
+              {isResourcesOpen && (
+                <div className="absolute top-full left-0 pt-2 w-60">
+                  <div className="bg-white rounded-lg shadow-lg border border-cool-200 py-2 relative overflow-hidden">
+                    <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-400/60" />
+                    <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-400/60" />
+                    {resourceLinks.map((link, index) => (
+                      <Link key={link.name} to={link.href} className="flex items-center px-4 py-2 text-cool-600 hover:text-brand-500 hover:bg-cool-50 transition">
+                        <span className="font-mono text-[9px] text-cool-300 mr-2 w-4">{String(index + 1).padStart(2, '0')}</span>{link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Why Us Link */}
             <Link
@@ -216,14 +235,15 @@ export default function Navbar() {
               Preview
             </Link>
 
-            {/* 2D Barcodes Link - Mobile */}
-            <Link
-              to="/barcodes-explained"
-              className="block text-cool-600 hover:text-brand-500 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              2D Barcodes
-            </Link>
+            {/* Resources Section - Mobile */}
+            <div className="border-b border-cool-200 pb-3">
+              <div className="text-sm font-semibold text-cool-400 mb-2 px-2 flex items-center"><span className="font-mono text-[9px] text-cool-300 mr-2">SEC_02</span>Resources</div>
+              {resourceLinks.map((link, index) => (
+                <Link key={link.name} to={link.href} className="flex items-center text-cool-600 hover:text-brand-500 font-medium py-2 pl-4" onClick={() => setIsMenuOpen(false)}>
+                  <span className="font-mono text-[9px] text-cool-300 mr-2 w-4">{String(index + 1).padStart(2, '0')}</span>{link.name}
+                </Link>
+              ))}
+            </div>
 
             {/* Why Us Link - Mobile */}
             <Link
@@ -246,7 +266,7 @@ export default function Navbar() {
             {/* Company Section - Mobile */}
             <div className="border-t border-cool-200 pt-3">
               <div className="text-sm font-semibold text-cool-600 mb-2 px-2 flex items-center">
-                <span className="font-mono text-[9px] text-cool-300 mr-2">SEC_02</span>
+                <span className="font-mono text-[9px] text-cool-300 mr-2">SEC_03</span>
                 Company
               </div>
               {companyLinks.map((link, index) => (

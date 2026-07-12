@@ -19,6 +19,8 @@ export default function Footer() {
       { name: 'Contact', href: '/contact', isRoute: true },
     ],
     Resources: [
+      { name: '2D Barcodes Explained', href: '/barcodes-explained', isRoute: true },
+      { name: 'GS1 URI Formats', href: '/gs1-uri-formats', isRoute: true },
       { name: 'FAQ', href: '/faq', isRoute: true },
       { name: 'Support', href: '/contact', isRoute: true },
       // { name: 'Documentation', href: '#', isRoute: false },

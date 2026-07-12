@@ -12,6 +12,7 @@ import CookiePage from './pages/CookiePage';
 import WhyBrandCodesPage from './pages/WhyBrandCodesPage';
 import PreviewPage from './pages/PreviewPage';
 import BarcodesExplainedPage from './pages/BarcodesExplainedPage';
+import GS1URIFormatsPage from './pages/GS1URIFormatsPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           {/* <Route path="/pricing" element={<PricingPage />} /> */}
           <Route path="/preview" element={<PreviewPage />} />
           <Route path="/barcodes-explained" element={<BarcodesExplainedPage />} />
+          <Route path="/gs1-uri-formats" element={<GS1URIFormatsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
