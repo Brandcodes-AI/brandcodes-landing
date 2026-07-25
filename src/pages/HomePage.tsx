@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import Hero from '../components/Hero';
+import PassportHero from '../components/PassportHero';
 import Problem from '../components/Problem';
 import MarketOpportunity from '../components/MarketOpportunity';
 import SolutionOverview from '../components/SolutionOverview';
@@ -19,7 +19,7 @@ export default function HomePage() {
       exit={{ opacity: 0 }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
     >
-      <Hero />
+      <PassportHero />
       <Problem />
       <MarketOpportunity />
       <SolutionOverview />
