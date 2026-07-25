@@ -789,17 +789,10 @@
 }
 
 .passport-phone__brandmark {
-  display: grid;
-  width: 1.28rem;
-  height: 1.28rem;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  padding: 2px;
-  border: 1px solid var(--passport-charcoal);
-}
-
-.passport-phone__brandmark i {
-  background: var(--passport-charcoal);
+  height: 1.05rem;
+  width: auto;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .passport-phone__ready {

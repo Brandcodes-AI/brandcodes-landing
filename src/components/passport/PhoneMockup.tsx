@@ -55,13 +55,13 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
             aria-hidden={!showsIdle}
           >
             <div className="passport-phone__brandline">
-              <span className="passport-phone__brandmark" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-                <i />
-              </span>
-              <span>brandcodes passport</span>
+              <img
+                className="passport-phone__brandmark"
+                src="/logo/bc-mock-logo-background-removed.png"
+                alt="BrandCodes"
+                loading="lazy"
+              />
+              <span>digital passport</span>
             </div>
             <div className="passport-phone__ready">
               <span className="passport-phone__ready-ring" aria-hidden="true">
