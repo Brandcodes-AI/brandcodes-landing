@@ -85,8 +85,8 @@ export interface ProductPassport {
 }
 
 export const productPassport: ProductPassport = {
-  brand: 'Field & Form',
-  name: 'Organic Cotton Overshirt',
+  brand: 'Northbound',
+  name: 'Everyday Overshirt',
   category: 'Apparel / Overshirts',
   passportId: 'PP-2026-01842',
   manufactured: '14 February 2026',
@@ -345,6 +345,6 @@ export const productPassport: ProductPassport = {
   ],
 };
 
-export const organicCottonOvershirtPassport = productPassport;
+export const everydayOvershirtPassport = productPassport;
 
 export default productPassport;

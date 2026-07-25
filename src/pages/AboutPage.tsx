@@ -78,7 +78,7 @@ export default function AboutPage() {
               </p>
               <p className="text-lg text-cool-600 mb-6">
                 BrandCodes was built to make this transition seamless. We automate the creation of
-                GS1-compliant URLs, QR codes, and AI-powered product pages — turning what would take
+                GS1-compliant URLs, QR codes, and AI-powered product pages, turning what would take
                 months of development into minutes of setup.
               </p>
               <p className="text-lg text-cool-600">

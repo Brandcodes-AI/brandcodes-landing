@@ -15,7 +15,6 @@ interface ScanSceneProps {
   activePage: number;
   activeTraceStep: number;
   onActivePageChange: (index: number) => void;
-  onExplore: () => void;
 }
 
 export const ProductPackagingIllustration: React.FC = () => (
@@ -65,15 +64,6 @@ export const ProductPackagingIllustration: React.FC = () => (
       <path d="M388 258h38" />
       <path d="M388 270h47" />
     </g>
-    <g
-      className="passport-packaging-art__cotton"
-      transform="translate(65 323)"
-    >
-      <path d="M0 27c27-2 44-12 57-32" />
-      <path d="M27 18C17 2 2 4 5 17c3 11 13 13 22 1Z" />
-      <path d="M38 9C34-10 49-15 57-4c7 10-2 20-19 13Z" />
-      <path d="M48 3c7-17 23-14 24-1 1 12-11 17-24 1Z" />
-    </g>
   </svg>
 );
 
@@ -87,9 +77,19 @@ export const PassportGarmentTag: React.FC<PassportGarmentTagProps> = ({
   state,
 }) => (
   <article className="passport-garment-tag" data-garment-tag>
-    <div className="passport-garment-tag__thread" aria-hidden="true">
-      <span />
-    </div>
+    <svg
+      className="passport-garment-tag__thread"
+      viewBox="0 0 64 96"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {/* hanging strand, knot, and a string loop threaded through the eyelet */}
+      <path d="M60 0C52 16 46 28 41 39" />
+      <path d="M41 39c-16 5-19 21-9 33" />
+      <path d="M41 39c5 12 1 24-9 33" />
+      <ellipse cx="41" cy="39" rx="3.4" ry="2.6" />
+      <circle className="passport-garment-tag__eyelet" cx="32" cy="72" r="4.6" />
+    </svg>
     <div className="passport-garment-tag__header">
       <span>{passport.brand}</span>
       <small>Organic cotton</small>
@@ -103,7 +103,7 @@ export const PassportGarmentTag: React.FC<PassportGarmentTagProps> = ({
     <div className="passport-garment-tag__footer">
       <span>Scan for origin, care and circularity</span>
       <span className="passport-garment-tag__mark" aria-hidden="true">
-        FF
+        NB
       </span>
     </div>
   </article>
@@ -116,7 +116,6 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
   activePage,
   activeTraceStep,
   onActivePageChange,
-  onExplore,
 }) => {
   const page = passport.pages[activePage] ?? passport.pages[0];
   const showInitial = state === 'idle';
@@ -127,6 +126,13 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
 
   return (
     <div className="passport-scan-scene" data-scan-scene>
+      <div className="passport-scene__frame" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+
       <div className="passport-scene__copy">
         <section
           className="passport-scene__copy-layer passport-scene__copy-layer--idle"
@@ -139,25 +145,15 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
           </p>
           <h1>Every product has a story.</h1>
           <p className="passport-story__lead">
-            BrandCodes turns the GS1 2D barcode on your pack into a verified
-            digital product passport - one scan for shoppers, retailers and
-            regulators.
+            A resolver infrastructure layer for companies transitioning to GS1
+            2D barcodes.
           </p>
-          <div className="passport-story__actions">
-            <button
-              type="button"
-              className="passport-story__primary-action"
-              onClick={onExplore}
-            >
-              Explore the passport
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14m-5-5 5 5-5 5" />
-              </svg>
-            </button>
-            <a className="passport-story__secondary-action" href="#contact">
-              Book a demo
-            </a>
-          </div>
+          <a className="passport-story__primary-action" href="#contact">
+            Book a demo
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-5-5 5 5-5 5" />
+            </svg>
+          </a>
         </section>
 
         <section
@@ -239,6 +235,12 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
             activeStep={activeTraceStep}
             compact
           />
+          <a className="passport-story__primary-action" href="#contact">
+            Book a demo
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-5-5 5 5-5 5" />
+            </svg>
+          </a>
         </section>
       </div>
 

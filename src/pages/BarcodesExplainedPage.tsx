@@ -101,7 +101,7 @@ const toggleData: Record<
 > = {
   '1D': {
     capacity: '~20 characters',
-    analogy: 'Like a phone number — identifies someone, nothing more.',
+    analogy: 'Like a phone number: it identifies someone, nothing more.',
     canDo: ['Product ID (UPC/EAN)'],
     cantDo: ['Batch / expiry', 'Serialization', 'URLs or links', 'Any dynamic data'],
     color: 'text-orange-600',
@@ -110,7 +110,7 @@ const toggleData: Record<
   },
   'QR Code': {
     capacity: '~4,000 characters',
-    analogy: 'Like a website link — leads to information.',
+    analogy: 'Like a website link: it leads to information.',
     canDo: ['URLs and text', 'Larger data payloads', 'Error correction', 'Custom branding & colors'],
     cantDo: ['Structured global standards', 'Supply chain interoperability', 'Serialization per item', 'Batch or expiry tracking'],
     color: 'text-brand-600',
@@ -119,15 +119,15 @@ const toggleData: Record<
   },
   'GS1 DataMatrix': {
     capacity: '~2,300 characters (structured)',
-    analogy: 'Like a standardized serial plate — compact, globally recognized, and built for regulated supply chains.',
+    analogy: 'Like a standardized serial plate: compact, globally recognized, and built for regulated supply chains.',
     canDo: [
       'GS1 Application Identifiers (AIs) for structured data',
-      'FNC1 start symbol — distinguishes from non-GS1 codes',
+      'FNC1 start symbol, distinguishes from non-GS1 codes',
       'ISO/IEC 16022 ECC 200 standard',
-      'Optimized for small items — compact high-density printing',
+      'Optimized for small items with compact high-density printing',
       'Healthcare, manufacturing & logistics serialization',
       'Batch & expiry in standardized format',
-      'Works offline — no internet required',
+      'Works offline, no internet required',
       'Machine-readable at any checkpoint or point-of-sale',
     ],
     cantDo: [],
@@ -137,10 +137,10 @@ const toggleData: Record<
   },
   'GS1 2D': {
     capacity: '~4,000 characters (structured)',
-    analogy: 'Like a digital passport — enables services everywhere, for everyone.',
+    analogy: 'Like a digital passport: it enables services everywhere, for everyone.',
     canDo: [
       'Everything GS1 DataMatrix can do, plus:',
-      'Digital Link URI — scannable by any smartphone',
+      'Digital Link URI, scannable by any smartphone',
       'Consumer-facing product experiences',
       'Full supply chain traceability',
       'Country of origin & certifications',
@@ -169,7 +169,7 @@ const gs1Capabilities = [
   {
     icon: Hash,
     title: 'Serialization',
-    description: 'Unique identifier for each individual item — no two are the same.',
+    description: 'Unique identifier for each individual item, so no two are the same.',
   },
   {
     icon: MapPin,
@@ -226,7 +226,7 @@ const howItWorksSteps = [
     code: 'STEP_01',
     title: 'The Barcode Contains Structured Data',
     description:
-      'A GS1 2D barcode encodes standardized data elements — not webpages, not URLs, but structured identity.',
+      'A GS1 2D barcode encodes standardized data elements, not webpages and not URLs, but structured identity.',
     keyLine: 'The barcode does not contain webpages. It contains identity.',
     fields: [
       { label: 'GTIN', value: '09506000134352', icon: Package },
@@ -241,7 +241,7 @@ const howItWorksSteps = [
     title: 'The Resolver Translates Identity',
     description:
       "Like the internet's DNS, a resolver reads the product identity and routes to the correct digital destination based on context.",
-    keyLine: 'Same identifier, different outcomes — depending on who is scanning.',
+    keyLine: 'Same identifier, different outcomes, depending on who is scanning.',
     routes: [
       { scanner: 'Hospital scanner', destination: 'Clinical database', icon: Hospital },
       { scanner: 'Consumer phone', destination: 'Product information page', icon: User },
@@ -288,7 +288,7 @@ export default function BarcodesExplainedPage() {
       transition={{ duration: 0.3 }}
     >
       {/* ═══════════════════════════════════════
-          SECTION 1 — HOOK
+          SECTION 1: HOOK
           ═══════════════════════════════════════ */}
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-brand-50 to-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid-light opacity-[0.03]" />
@@ -320,7 +320,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 1 — SEE THE DIFFERENCE
+          SECTION 1: SEE THE DIFFERENCE
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -333,7 +333,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-12"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_01 — THE DIFFERENCE
+              SEC_01: THE DIFFERENCE
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               See the Difference in Action
@@ -637,7 +637,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 2 — THE PROBLEM WITH 1D
+          SECTION 2: THE PROBLEM WITH 1D
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -650,13 +650,13 @@ export default function BarcodesExplainedPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-                SEC_02 — THE LIMITATION
+                SEC_02: THE LIMITATION
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
                 The Problem with 1D Barcodes
               </h2>
               <p className="text-lg text-cool-600 mb-6">
-                The barcode you see on most products today is a 1D barcode — a row of vertical lines
+                The barcode you see on most products today is a 1D barcode, a row of vertical lines
                 encoding a single number. Think of it like a phone number: it identifies someone,
                 but tells you nothing about them.
               </p>
@@ -716,7 +716,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 3 — EVOLUTION TO 2D
+          SECTION 3: EVOLUTION TO 2D
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
@@ -729,13 +729,13 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_03 — THE EVOLUTION
+              SEC_03: THE EVOLUTION
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               The Evolution to 2D Barcodes
             </h2>
             <p className="text-lg text-cool-600 max-w-3xl mx-auto mb-6">
-              2D barcodes store information in two directions — horizontal and vertical.
+              2D barcodes store information in two directions, horizontal and vertical.
               The result: more data, smaller space, more resilience.
             </p>
             <p className="text-xl font-semibold text-navy-900 max-w-2xl mx-auto">
@@ -828,14 +828,14 @@ export default function BarcodesExplainedPage() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="text-center text-sm text-cool-500 mt-6"
             >
-              The <span className="text-green-600 font-medium">GS1 variants</span> follow global standards — making them interoperable across supply chains worldwide.
+              The <span className="text-green-600 font-medium">GS1 variants</span> follow global standards, making them interoperable across supply chains worldwide.
             </motion.p>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 4 — KEY INSIGHT (INTERACTIVE)
+          SECTION 4: KEY INSIGHT (INTERACTIVE)
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -848,13 +848,13 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-12"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_04 — THE KEY INSIGHT
+              SEC_04: THE KEY INSIGHT
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Not All 2D Barcodes Are Equal
             </h2>
             <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-              Four barcodes can look nearly identical — but the standard behind them
+              Four barcodes can look nearly identical, but the standard behind them
               determines what they can do. Explore the difference.
             </p>
           </motion.div>
@@ -977,7 +977,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 5 — GS1 2D DIFFERENT
+          SECTION 5: GS1 2D DIFFERENT
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-cool-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid-light opacity-[0.02]" />
@@ -990,7 +990,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_05 — THE STANDARD
+              SEC_05: THE STANDARD
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               What Makes GS1 2D Different
@@ -1090,7 +1090,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 6 — HOW IT WORKS
+          SECTION 6: HOW IT WORKS
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -1103,7 +1103,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_06 — HOW IT WORKS
+              SEC_06: HOW IT WORKS
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               From Barcode to Digital Experience
@@ -1172,7 +1172,7 @@ export default function BarcodesExplainedPage() {
 
           {/* 3 Step Cards */}
           <div className="space-y-8 max-w-5xl mx-auto">
-            {/* Step 1 — Structured Data */}
+            {/* Step 1: Structured Data */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1225,7 +1225,7 @@ export default function BarcodesExplainedPage() {
               </p>
             </motion.div>
 
-            {/* Step 2 — Resolver */}
+            {/* Step 2: Resolver */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1295,7 +1295,7 @@ export default function BarcodesExplainedPage() {
               </p>
             </motion.div>
 
-            {/* Step 3 — Dynamic Outcomes */}
+            {/* Step 3: Dynamic Outcomes */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1366,7 +1366,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 6 — REAL WORLD IMPACT
+          SECTION 6: REAL WORLD IMPACT
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid opacity-[0.015]" />
@@ -1379,7 +1379,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-12"
           >
             <span className="font-mono text-[10px] text-cool-400 tracking-wider mb-2 block">
-              SEC_07 — REAL WORLD
+              SEC_07: REAL WORLD
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
               Real World Impact
@@ -1422,7 +1422,7 @@ export default function BarcodesExplainedPage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SECTION 7 — THE FUTURE
+          SECTION 7: THE FUTURE
           ═══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-gradient-to-br from-navy-900 via-navy-950 to-brand-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-qr-grid-white opacity-[0.04]" />
@@ -1440,7 +1440,7 @@ export default function BarcodesExplainedPage() {
             className="text-center mb-16"
           >
             <span className="font-mono text-[10px] text-brand-300 tracking-wider mb-2 block">
-              SEC_08 — THE FUTURE
+              SEC_08: THE FUTURE
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               The Future: One Barcode for Everything
@@ -1510,7 +1510,7 @@ export default function BarcodesExplainedPage() {
             </h2>
             <p className="text-xl text-brand-100 mb-8 max-w-2xl mx-auto">
               BrandCodes generates GS1-compliant 2D barcodes, AI-powered product pages,
-              and intelligent experiences — automatically.
+              and intelligent experiences, automatically.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

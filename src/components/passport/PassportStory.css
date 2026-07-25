@@ -421,7 +421,8 @@
   width: 100%;
   min-width: 0;
   border: 1px solid var(--passport-charcoal);
-  padding: clamp(0.75rem, 1cqw, 1rem);
+  padding: clamp(2rem, 2.4cqw, 2.4rem) clamp(0.75rem, 1cqw, 1rem)
+    clamp(0.75rem, 1cqw, 1rem);
   background: var(--passport-paper);
   box-shadow: 0 16px 32px var(--passport-shadow);
   color: var(--passport-charcoal);
@@ -439,34 +440,20 @@
 
 .passport-garment-tag__thread {
   position: absolute;
-  top: -4.2rem;
+  bottom: calc(100% - 1.35rem); /* eyelet punched inside the card */
   left: 50%;
-  width: 1.25rem;
-  height: 4.35rem;
+  width: 3.2rem;
+  height: 4.8rem;
+  fill: none;
+  stroke: var(--passport-charcoal-soft);
+  stroke-width: 1.4;
+  stroke-linecap: round;
   transform: translateX(-50%);
 }
 
-.passport-garment-tag__thread::before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 3.3rem;
-  background: var(--passport-charcoal-soft);
-  content: "";
-  transform: rotate(7deg);
-  transform-origin: bottom;
-}
-
-.passport-garment-tag__thread span {
-  position: absolute;
-  right: 0.05rem;
-  bottom: 0;
-  width: 0.72rem;
-  height: 0.72rem;
-  border: 1px solid var(--passport-charcoal);
-  border-radius: 50%;
-  background: var(--passport-paper);
+.passport-garment-tag__eyelet {
+  fill: var(--passport-paper);
+  stroke: var(--passport-charcoal);
 }
 
 .passport-garment-tag__header {
@@ -2032,10 +2019,36 @@
 .passport-story--landing .passport-scene__copy-layer--verified,
 .passport-story--landing .passport-scene__copy-layer--passport {
   top: clamp(8.5rem, 20vh, 13rem);
+  width: min(29cqw, 26rem);
+}
+
+.passport-story--landing .passport-scene__copy-layer--scan > p,
+.passport-story--landing .passport-scene__copy-layer--verified > p,
+.passport-story--landing .passport-scene__copy-layer--passport > p {
+  max-width: 26rem;
 }
 
 .passport-story--landing .passport-scene__copy-layer--trace {
   top: clamp(5.5rem, 9vh, 8rem);
+}
+
+/* Reserve a real gutter for the journey rail so the phone never sits under it,
+   and start the visual below the floating navbar. */
+.passport-story--landing .passport-scene__visual {
+  top: 5rem;
+  right: clamp(11rem, 13.5cqw, 15rem);
+  padding-right: clamp(0.5rem, 1cqw, 1.5rem);
+}
+
+/* Height-driven cap: the phone is centred in the space under the navbar, so it
+   has to stay short enough that half of it clears the navbar. */
+.passport-story--landing.passport-story--desktop .passport-phone {
+  max-width: min(100%, calc(38dvh - 2rem));
+}
+
+/* Journey rail sits inside the stage rules rather than over them. */
+.passport-story--landing .passport-story__state-rail {
+  right: clamp(1.5rem, 4cqw, 4.5rem);
 }
 
 .passport-story--landing.passport-story--mobile
@@ -2043,36 +2056,97 @@
   padding-top: clamp(8rem, 16vw, 11rem);
 }
 
-.passport-story__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.passport-story__secondary-action {
-  display: inline-flex;
-  min-height: 3.25rem;
-  align-items: center;
-  margin-top: 2rem;
-  border: 1px solid var(--passport-line-strong);
-  padding: 0.8rem 1.4rem;
-  background: var(--passport-paper);
-  color: var(--passport-charcoal);
-  font-size: 0.82rem;
-  font-weight: 710;
-  letter-spacing: 0.015em;
+/* The CTA is an anchor here, not the app's button. */
+.passport-story__primary-action {
   text-decoration: none;
-  transition:
-    border-color 180ms cubic-bezier(0.25, 1, 0.5, 1),
-    background-color 180ms cubic-bezier(0.25, 1, 0.5, 1),
-    transform 180ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-@media (hover: hover) {
-  .passport-story__secondary-action:hover {
-    border-color: var(--passport-charcoal);
-    background: var(--passport-paper);
-    transform: translateY(-2px);
-  }
+/* Scanner framing: four corner brackets aligned to the stage rules, a barcode
+   rule along the bottom edge, and a faint 2D module grid behind the scene. */
+.passport-scene__frame {
+  position: absolute;
+  z-index: 1;
+  inset: clamp(1.25rem, 4cqw, 4.5rem);
+  top: calc(5rem + clamp(0.75rem, 2cqw, 1.75rem)); /* clears the floating navbar */
+  pointer-events: none;
+}
+
+.passport-scene__frame span {
+  position: absolute;
+  width: clamp(1.6rem, 3cqw, 2.6rem);
+  height: clamp(1.6rem, 3cqw, 2.6rem);
+  border: 0 solid var(--passport-forest-strong);
+  opacity: 0.55;
+}
+
+.passport-scene__frame span:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.passport-scene__frame span:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.passport-scene__frame span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.passport-scene__frame span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.passport-story--landing .passport-story__stage {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--passport-line-strong) 0 1px,
+    transparent 1px 4px,
+    var(--passport-line-strong) 4px 6px,
+    transparent 6px 11px,
+    var(--passport-line-strong) 11px 12px,
+    transparent 12px 17px
+  );
+  background-repeat: repeat-x;
+  background-position: bottom left;
+  background-size: 17px 0.4rem;
+}
+
+/* Desktop idle copy runs the full stage height so the CTA sits bottom left,
+   clear of the packaging illustration. */
+.passport-story--landing.passport-story--desktop
+  .passport-scene__copy-layer--idle {
+  bottom: clamp(1.5rem, 4vh, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.passport-story--landing.passport-story--desktop
+  .passport-scene__copy-layer--idle
+  .passport-story__primary-action {
+  margin-top: auto;
+}
+
+/* The journey ends on traceability, so the CTA repeats at the foot of it. */
+.passport-story--landing .passport-scene__copy-layer--trace {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.passport-story--landing
+  .passport-scene__copy-layer--trace
+  .passport-story__primary-action {
+  margin-top: auto;
 }

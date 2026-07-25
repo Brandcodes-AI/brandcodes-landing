@@ -19,7 +19,7 @@ import {
 import { TraceabilityTimeline } from './TraceabilityTimeline';
 import {
   PASSPORT_JOURNEY_STATES,
-  organicCottonOvershirtPassport,
+  everydayOvershirtPassport,
   type PassportJourneyState,
   type ProductPassport,
 } from './passportData';
@@ -251,14 +251,17 @@ const DesktopPassportStory: React.FC<DesktopPassportStoryProps> = ({
               (originRect.top + originRect.height / 2),
           };
         };
+        // The scanned tag lands between the copy column and the phone, so it
+        // never covers either one.
         const offsetToStageCentre = () => {
           const originRect = tagOrigin.getBoundingClientRect();
           const stageRect = stage.getBoundingClientRect();
+          const copyRect = scanCopy.getBoundingClientRect();
+          const phoneRect = phone.getBoundingClientRect();
+          const focusX =
+            (Math.max(copyRect.right, stageRect.left) + phoneRect.left) / 2;
           return {
-            x:
-              stageRect.left +
-              stageRect.width * 0.51 -
-              (originRect.left + originRect.width / 2),
+            x: focusX - (originRect.left + originRect.width / 2),
             y:
               stageRect.top +
               stageRect.height * 0.5 -
@@ -547,13 +550,6 @@ const DesktopPassportStory: React.FC<DesktopPassportStoryProps> = ({
     [reducedMotion],
   );
 
-  const explorePassport = useCallback(() => {
-    scrollToProgress(STATE_SCROLL_PROGRESS.scanning);
-    rootRef.current
-      ?.querySelector<HTMLButtonElement>('[data-state-control="scanning"]')
-      ?.focus({ preventScroll: true });
-  }, [scrollToProgress]);
-
   return (
     <div
       ref={rootRef}
@@ -574,7 +570,6 @@ const DesktopPassportStory: React.FC<DesktopPassportStoryProps> = ({
           activePage={visiblePage}
           activeTraceStep={activeTraceStep}
           onActivePageChange={setActivePage}
-          onExplore={explorePassport}
         />
 
         <ol
@@ -675,25 +670,15 @@ const MobilePassportStory: React.FC<MobilePassportStoryProps> = ({
             </p>
             <h1>Every product has a story.</h1>
             <p>
-              BrandCodes turns the GS1 2D barcode on your pack into a verified
-              digital product passport - one scan for shoppers, retailers and
-              regulators.
+              A resolver infrastructure layer for companies transitioning to GS1
+              2D barcodes.
             </p>
-            <div className="passport-story__actions">
-              <button
-                type="button"
-                className="passport-story__primary-action"
-                onClick={runScan}
-              >
-                Explore the passport
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14m-5-5 5 5-5 5" />
-                </svg>
-              </button>
-              <a className="passport-story__secondary-action" href="#contact">
-                Book a demo
-              </a>
-            </div>
+            <a className="passport-story__primary-action" href="#contact">
+              Book a demo
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14m-5-5 5 5-5 5" />
+              </svg>
+            </a>
           </div>
           <div className="passport-mobile__still-life">
             <ProductPackagingIllustration />
@@ -791,6 +776,12 @@ const MobilePassportStory: React.FC<MobilePassportStoryProps> = ({
 
         <section className="passport-mobile__section passport-mobile__trace">
           <TraceabilityTimeline passport={passport} />
+          <a className="passport-story__primary-action" href="#contact">
+            Book a demo
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-5-5 5 5-5 5" />
+            </svg>
+          </a>
         </section>
       </section>
     </div>
@@ -798,7 +789,7 @@ const MobilePassportStory: React.FC<MobilePassportStoryProps> = ({
 };
 
 export const PassportStory: React.FC<PassportStoryProps> = ({
-  passport = organicCottonOvershirtPassport,
+  passport = everydayOvershirtPassport,
 }) => {
   const layoutProbeRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion() ?? false;

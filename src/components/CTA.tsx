@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Cal, { getCalApi } from '@calcom/embed-react';
 
-// Cal.com booking config — swap CAL_LINK / CAL_NAMESPACE if the event changes.
+// Cal.com booking config. Swap CAL_LINK / CAL_NAMESPACE if the event changes.
 const CAL_LINK = 'brandcodes/15min';
 const CAL_NAMESPACE = '15min';
 

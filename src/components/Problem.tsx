@@ -15,7 +15,7 @@ const problems = [
   {
     icon: ShieldAlert,
     title: 'Threat of counterfeit products',
-    description: 'No built-in way to verify product authenticity — leaving brands and consumers vulnerable to fakes.',
+    description: 'No built-in way to verify product authenticity, leaving brands and consumers vulnerable to fakes.',
   },
   {
     icon: HeadphonesIcon,
@@ -44,8 +44,8 @@ export default function Problem() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-            Brands are being pushed into a 2D barcode world —{' '}
-            <span className="text-brand-500">but lack the infrastructure</span> to keep up.
+            Brands are being pushed into a 2D barcode world, but they{' '}
+            <span className="text-brand-500">lack the infrastructure</span> to keep up.
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
             Product packaging is becoming the entry point to mandatory digital information,

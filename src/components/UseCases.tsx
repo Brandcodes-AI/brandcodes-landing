@@ -123,7 +123,7 @@ export default function UseCases() {
             Built for Every Stakeholder
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-            BrandCodes delivers value across your entire ecosystem — from product managers to consumers.
+            BrandCodes delivers value across your entire ecosystem, from product managers to consumers.
           </p>
         </motion.div>
 

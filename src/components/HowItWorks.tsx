@@ -16,7 +16,7 @@ const steps = [
     icon: Wand2,
     title: 'Configure Resolver Routing',
     description:
-      'Turn scan inputs into the right GS1-compliant destination — with context-aware routing and analytics.',
+      'Turn scan inputs into the right GS1-compliant destination, with context-aware routing and analytics.',
     details: [
       'GTIN + serial/batch \u2192 GS1-compliant URL',
       'Route by app, location, language, time',
@@ -54,7 +54,7 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-            Stand up GS1 2D resolver infrastructure quickly — then iterate on routing and experiences over time.
+            Stand up GS1 2D resolver infrastructure quickly, then iterate on routing and experiences over time.
           </p>
         </motion.div>
 
