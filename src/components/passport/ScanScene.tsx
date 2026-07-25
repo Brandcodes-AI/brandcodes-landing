@@ -213,9 +213,7 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
           </p>
           <h2>Someone picks it up and scans.</h2>
           <p>
-            A shopper in the aisle points a phone at the tag. There is no app to
-            download and no camera to allow here, so watch it play out the way
-            it would in their hands.
+            A shopper in the aisle points a phone at the tag.
           </p>
         </section>
 
