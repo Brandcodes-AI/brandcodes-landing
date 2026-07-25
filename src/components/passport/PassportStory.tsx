@@ -694,14 +694,15 @@ const MobilePassportStory: React.FC<MobilePassportStoryProps> = ({
           <div className="passport-mobile__copy">
             <p className="passport-story__eyebrow">
               <span>02</span>
-              QR scan
+              The scan
             </p>
             <h2 id="passport-mobile-scan-title" tabIndex={-1}>
-              See a safe, simulated scan.
+              Someone picks it up and scans.
             </h2>
             <p>
-              No camera permission is requested. The demo resolves the same
-              product link a customer would scan from the garment tag.
+              A shopper in the aisle points a phone at the tag. Nothing here
+              asks for your camera, so watch it play out the way it would in
+              their hands.
             </p>
           </div>
           <div className="passport-mobile__scanner">
@@ -735,10 +736,10 @@ const MobilePassportStory: React.FC<MobilePassportStoryProps> = ({
           <div className="passport-mobile__copy">
             <p className="passport-story__eyebrow">
               <span>03</span>
-              Product verified
+              The answer
             </p>
             <h2 id="passport-mobile-verified-title">
-              The code becomes a trusted product record.
+              The code answers back.
             </h2>
           </div>
           <PhoneMockup
@@ -759,10 +760,10 @@ const MobilePassportStory: React.FC<MobilePassportStoryProps> = ({
           <div className="passport-mobile__copy">
             <p className="passport-story__eyebrow">
               <span>04</span>
-              Digital passport
+              The passport
             </p>
             <h2 id="passport-mobile-pages-title" tabIndex={-1}>
-              Six useful views, built for touch.
+              Everything the product can tell you.
             </h2>
             <p>{passport.pages[activePage]?.detail}</p>
           </div>

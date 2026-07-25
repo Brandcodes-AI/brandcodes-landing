@@ -22,11 +22,40 @@ export const ProductPackagingIllustration: React.FC = () => (
     className="passport-packaging-art"
     viewBox="0 0 560 420"
     role="img"
-    aria-label="Recycled paper product packaging with an organic cotton overshirt"
+    aria-label="An open shipping box with a folded overshirt inside"
     data-packaging-art
   >
-    <title>Sustainable packaging and an organic cotton overshirt</title>
+    <title>An open shipping box with a folded overshirt inside</title>
     <path className="passport-packaging-art__shadow" d="M62 352h407l44 26H24Z" />
+
+    {/* flaps folded back and left, drawn behind the box body */}
+    <path
+      className="passport-packaging-art__flap"
+      d="M204 59 479 91 495 50 220 18Z"
+    />
+    <path
+      className="passport-packaging-art__flap"
+      d="M82 116 204 59 172 33 50 90Z"
+    />
+
+    {/* open mouth of the box, with the folded garment resting inside */}
+    <path
+      className="passport-packaging-art__interior"
+      d="M82 116 204 59l275 32-123 56Z"
+    />
+    <path
+      className="passport-packaging-art__contents-edge"
+      d="m129 108 225 26v8l-225-27Z"
+    />
+    <path
+      className="passport-packaging-art__contents"
+      d="m129 108 77-36 225 27-77 35Z"
+    />
+    <path
+      className="passport-packaging-art__contents-fold"
+      d="m155 96 225 26M181 84l224 26"
+    />
+
     <path
       className="passport-packaging-art__box-side"
       d="m82 116 274 31v196L82 309Z"
@@ -35,21 +64,38 @@ export const ProductPackagingIllustration: React.FC = () => (
       className="passport-packaging-art__box-front"
       d="m356 147 123-56v191l-123 61Z"
     />
+
+    {/* the garment printed on the front panel, tucked under the open flap */}
+    <g className="passport-packaging-art__garment">
+      <path
+        className="passport-packaging-art__shirt"
+        d="M174 208 149 224l14 37 21-9v50h76v-50l21 9 14-37-25-16-22-6q-24 15-48 0Z"
+      />
+      <path
+        className="passport-packaging-art__shirt-detail"
+        d="m196 202 25 22-24 3-14-15Zm50 0-25 22 24 3 14-15Z"
+      />
+      <path
+        className="passport-packaging-art__shirt-detail"
+        d="M221 226v76M163 253l21-9m94 9-21-9"
+      />
+      <path
+        className="passport-packaging-art__shirt-detail"
+        d="M193 244h20v17h-20zm35 0h20v17h-20z"
+      />
+      <circle className="passport-packaging-art__button" cx="221" cy="244" r="2.6" />
+      <circle className="passport-packaging-art__button" cx="221" cy="266" r="2.6" />
+      <circle className="passport-packaging-art__button" cx="221" cy="288" r="2.6" />
+    </g>
+
+    {/* front and right flaps, folded outward over the box body */}
     <path
-      className="passport-packaging-art__box-top"
-      d="M82 116 204 59l275 32-123 56Z"
+      className="passport-packaging-art__flap"
+      d="M82 116 356 147 338 185 64 154Z"
     />
     <path
-      className="passport-packaging-art__tape"
-      d="m184 69 44-20 276 31-47 21Z"
-    />
-    <path
-      className="passport-packaging-art__shirt"
-      d="m124 166 51-30 47 24 46-14 50 32-26 48v79H148v-79Z"
-    />
-    <path
-      className="passport-packaging-art__shirt-detail"
-      d="m175 136 47 24 46-14-17 48h-57Zm47 24v145m-36-87h72M159 286h126"
+      className="passport-packaging-art__flap"
+      d="M356 147 479 91l40 29-123 56Z"
     />
     <path
       className="passport-packaging-art__leaf"
@@ -103,7 +149,7 @@ export const PassportGarmentTag: React.FC<PassportGarmentTagProps> = ({
     <div className="passport-garment-tag__footer">
       <span>Scan for origin, care and circularity</span>
       <span className="passport-garment-tag__mark" aria-hidden="true">
-        NB
+        NS
       </span>
     </div>
   </article>
@@ -163,12 +209,13 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
         >
           <p className="passport-story__eyebrow">
             <span>02</span>
-            Secure scan
+            The scan
           </p>
-          <h2>One code. One trusted identity.</h2>
+          <h2>Someone picks it up and scans.</h2>
           <p>
-            This is a simulated scan. The product link is resolved and checked
-            without requesting access to your camera.
+            A shopper in the aisle points a phone at the tag. There is no app to
+            download and no camera to allow here, so watch it play out the way
+            it would in their hands.
           </p>
         </section>
 
@@ -179,11 +226,12 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
         >
           <p className="passport-story__eyebrow">
             <span>03</span>
-            Identity resolved
+            The answer
           </p>
-          <h2>The code becomes a verified product record.</h2>
+          <h2>The code answers back.</h2>
           <p>
-            Brand, product and production data are joined under one persistent
+            In a second the resolver knows exactly which product this is, and
+            brand, batch and production records arrive together under one
             passport ID.
           </p>
         </section>
@@ -208,7 +256,7 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
             ))}
           </div>
           <p className="passport-scene__interaction-hint">
-            Drag the phone or use its arrow keys to explore all six pages.
+            Swipe the phone to keep reading. Six pages, one product.
           </p>
         </section>
 
@@ -221,13 +269,14 @@ export const ScanScene: React.FC<ScanSceneProps> = ({
             <div>
               <p className="passport-story__eyebrow">
                 <span>05</span>
-                Traceability
+                The journey
               </p>
-              <h2>A chain of verified handovers.</h2>
+              <h2>And behind it, everywhere it has been.</h2>
             </div>
             <p>
-              Every stage adds evidence to the same product history, from
-              fibre to first delivery.
+              Each hand that touched this product left a record behind, from the
+              field it grew in to the doorstep it arrived at. This is the trail
+              a single scan opens up.
             </p>
           </div>
           <TraceabilityTimeline

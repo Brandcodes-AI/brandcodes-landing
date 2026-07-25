@@ -85,7 +85,7 @@ export interface ProductPassport {
 }
 
 export const productPassport: ProductPassport = {
-  brand: 'Northbound',
+  brand: 'NorthStar',
   name: 'Everyday Overshirt',
   category: 'Apparel / Overshirts',
   passportId: 'PP-2026-01842',
