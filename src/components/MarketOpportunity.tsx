@@ -52,7 +52,7 @@ export default function MarketOpportunity() {
             Time-Sensitive Opportunity
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            The industry is shifting — permanently — to{' '}
+            The industry is shifting permanently to{' '}
             <span className="text-brand-400">product-specific 2D codes</span>.
           </h2>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto">

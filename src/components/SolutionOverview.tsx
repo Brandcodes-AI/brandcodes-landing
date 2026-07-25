@@ -47,7 +47,7 @@ export default function SolutionOverview() {
             for the transition to GS1 2D barcodes.
           </h2>
           <p className="text-lg text-cool-600 max-w-3xl mx-auto">
-            A comprehensive GS1-compliant resolver infrastructure/API and analytics feed — built to
+            A comprehensive GS1-compliant resolver infrastructure/API and analytics feed, built to
             route each scan to the right experience.
           </p>
         </motion.div>
@@ -113,7 +113,7 @@ export default function SolutionOverview() {
           <div className="relative text-center md:text-left">
             <h3 className="text-xl font-bold text-navy-900 mb-2">+ Analytics Feed</h3>
             <p className="text-cool-600">
-              Scan events, locations, apps, languages, and engagement — tied to resolver outcomes.
+              Scan events, locations, apps, languages, and engagement, all tied to resolver outcomes.
               Understand where traffic goes and what content performs.
             </p>
           </div>

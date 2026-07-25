@@ -32,7 +32,7 @@ const plans = [
       'Smart Pages with brand logo',
       'Basic analytics',
       '1 custom domain',
-      '1–2 users',
+      '1-2 users',
       'Email support',
       'Unlimited scans',
     ],
@@ -89,7 +89,7 @@ const plans = [
 const featureComparison = [
   { feature: 'GS1 Digital Links', free: true, starter: true, growth: true, enterprise: true },
   { feature: 'Unlimited scans', free: false, starter: true, growth: true, enterprise: true },
-  { feature: 'Custom domains', free: '—', starter: '1', growth: '3', enterprise: 'Unlimited' },
+  { feature: 'Custom domains', free: false, starter: '1', growth: '3', enterprise: 'Unlimited' },
   { feature: 'Advanced analytics', free: false, starter: false, growth: true, enterprise: true },
   { feature: 'API access', free: false, starter: false, growth: true, enterprise: true },
   { feature: 'Bulk SKU management', free: false, starter: false, growth: true, enterprise: true },
@@ -188,11 +188,11 @@ export default function PricingPage() {
               GS1 Digital Link infrastructure that scales with your products
             </p>
             <p className="text-lg text-cool-500">
-              Priced by SKUs (GTINs) — not scans. Unlimited scans on all paid plans.
+              Priced by SKUs (GTINs), not scans. Unlimited scans on all paid plans.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-cool-500">
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full">
-                Save 15–20% with annual billing
+                Save 15-20% with annual billing
               </span>
               <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
                 NGO & education discounts available
@@ -297,7 +297,7 @@ export default function PricingPage() {
             <h2 className="text-2xl lg:text-3xl font-bold mb-4">
               One-Time GS1 Enablement & Onboarding
             </h2>
-            <p className="text-brand-100 mb-6 text-lg">$500 – $3,000 (scope-based)</p>
+            <p className="text-brand-100 mb-6 text-lg">$500 - $3,000 (scope-based)</p>
             <p className="text-brand-100 mb-6">
               Designed to accelerate GS1 Digital Link adoption:
             </p>

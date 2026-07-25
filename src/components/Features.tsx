@@ -40,7 +40,7 @@ const consumerFeatures = [
     icon: Route,
     title: 'Context-Aware Experiences',
     description:
-      'Dynamic pages and redirects based on app used, location, language, and time — including promotions or recalls by region.',
+      'Dynamic pages and redirects based on app used, location, language, and time, including promotions or recalls by region.',
   },
   {
     icon: WifiOff,
