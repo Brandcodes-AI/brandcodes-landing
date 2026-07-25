@@ -176,6 +176,12 @@ export default function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center space-x-4">
             <a
+              href="https://app.brandcodes.io"
+              className="px-4 py-2 border border-brand-500 text-brand-500 font-medium rounded-lg hover:bg-brand-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
+            >
+              Try It Out
+            </a>
+            <a
               href={isHomePage ? '#contact' : '/#contact'}
               className="px-4 py-2 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
             >
@@ -285,6 +291,13 @@ export default function Navbar() {
             </div>
 
             <div className="pt-4 space-y-3 border-t border-cool-200">
+              <a
+                href="https://app.brandcodes.io"
+                className="block px-4 py-2 text-center border border-brand-500 text-brand-500 font-medium rounded-lg hover:bg-brand-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Try It Out
+              </a>
               <a
                 href={isHomePage ? '#contact' : '/#contact'}
                 className="block px-4 py-2 text-center bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 cursor-pointer"
