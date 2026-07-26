@@ -118,15 +118,28 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
               data-phone-passport
               aria-hidden={!showsPassport}
             >
-              <div className="passport-phone__passport-header">
-                <span>{passport.brand}</span>
-                <span className="passport-phone__verified-chip">
-                  <svg viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="m5 10 3 3 7-7" />
-                  </svg>
-                  Verified
-                </span>
-              </div>
+              <header className="passport-phone__product-overview">
+                <div className="passport-phone__product-kicker">
+                  <span>Digital product passport</span>
+                  <span className="passport-phone__verified-chip">
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="m5 10 3 3 7-7" />
+                    </svg>
+                    Verified
+                  </span>
+                </div>
+                <h2>{passport.name}</h2>
+                <p>
+                  {passport.brand} <span aria-hidden="true">·</span>{' '}
+                  {passport.category}
+                </p>
+                <dl>
+                  <div>
+                    <dt>Passport ID</dt>
+                    <dd>{passport.passportId}</dd>
+                  </div>
+                </dl>
+              </header>
               <PassportCarousel
                 passport={passport}
                 activeIndex={activePage}
