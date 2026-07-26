@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import type { Swiper as SwiperInstance } from 'swiper';
-import { A11y, Keyboard, Pagination } from 'swiper/modules';
+import { A11y, Keyboard } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import type {
@@ -99,18 +99,6 @@ export const PassportCarousel: React.FC<PassportCarouselProps> = ({
     swiper.slideTo(activeIndex, 320);
   }, [activeIndex]);
 
-  useEffect(() => {
-    const swiper = swiperRef.current;
-    if (!swiper || swiper.destroyed) return;
-
-    swiper.el
-      .querySelectorAll<HTMLButtonElement>('.swiper-pagination-bullet')
-      .forEach((button) => {
-        button.disabled = !interactive;
-        button.tabIndex = interactive ? 0 : -1;
-      });
-  }, [interactive]);
-
   const goToPreviousPage = () => {
     swiperRef.current?.slidePrev();
   };
@@ -121,12 +109,12 @@ export const PassportCarousel: React.FC<PassportCarouselProps> = ({
 
   return (
     <div
-      className={`passport-carousel ${className}`.trim()}
+      className={`relative min-h-0 flex-1 px-[0.2rem] pb-[0.45rem] ${className}`.trim()}
       data-passport-carousel
     >
       <Swiper
-        modules={[A11y, Keyboard, Pagination]}
-        className="passport-carousel__swiper"
+        modules={[A11y, Keyboard]}
+        className="h-[calc(100%-3.15rem)]"
         slidesPerView={1}
         speed={360}
         threshold={5}
@@ -139,18 +127,11 @@ export const PassportCarousel: React.FC<PassportCarouselProps> = ({
           onlyInViewport: true,
           pageUpDown: false,
         }}
-        pagination={{
-          clickable: interactive,
-          bulletElement: 'button',
-          renderBullet: (index, className) =>
-            `<button type="button" class="${className}" aria-label="Open passport page ${index + 1}"></button>`,
-        }}
         a11y={{
           enabled: true,
           containerRole: 'region',
           containerRoleDescriptionMessage: 'Product passport pages',
           itemRoleDescriptionMessage: 'Product passport page',
-          paginationBulletMessage: 'Open passport page {{index}}',
           slideLabelMessage: '{{index}} of {{slidesLength}}',
         }}
         onSwiper={(swiper) => {
@@ -168,26 +149,42 @@ export const PassportCarousel: React.FC<PassportCarouselProps> = ({
         {passport.pages.map((page, index) => (
           <SwiperSlide key={page.id}>
             <article
-              className="passport-carousel__page"
+              className="h-full overflow-hidden px-[0.95rem] pt-[0.8rem] pb-[2.1rem]"
               aria-labelledby={`passport-page-${page.id}`}
               data-passport-page={page.id}
             >
-              <div className="passport-carousel__page-heading">
-                <span className="passport-carousel__glyph">
+              <div className="relative flex min-h-[5.7rem] items-center justify-center overflow-hidden border border-[var(--passport-line)] bg-[linear-gradient(135deg,color-mix(in_srgb,var(--passport-paper)_82%,var(--passport-forest-soft))_0%,var(--passport-paper)_100%)]">
+                <span className="grid size-[4.15rem] place-items-center text-[var(--passport-forest-strong)] [&_svg]:w-[3.2rem] [&_svg]:fill-none [&_svg]:stroke-current [&_svg]:stroke-[1.35] [&_svg]:[stroke-linecap:round] [&_svg]:[stroke-linejoin:round]">
                   <PassportPageGlyph pageId={page.id} />
                 </span>
-                <span className="passport-carousel__counter">
+                <span className="absolute top-[0.48rem] right-2 text-[0.56rem] font-bold tracking-[0.08em] text-[var(--passport-charcoal-soft)]">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
-              <p className="passport-carousel__eyebrow">{page.eyebrow}</p>
-              <h3 id={`passport-page-${page.id}`}>{page.title}</h3>
-              <p className="passport-carousel__summary">{page.summary}</p>
-              <dl className="passport-carousel__facts">
+              <p className="mt-[0.68rem] mb-[0.24rem] text-[0.5rem] font-[750] tracking-[0.12em] text-[var(--passport-forest-strong)] uppercase">
+                {page.eyebrow}
+              </p>
+              <h3
+                className="m-0! font-['Newsreader',serif]! text-[clamp(1.18rem,1.8vw,1.55rem)] leading-none! font-[470]! tracking-[-0.035em]!"
+                id={`passport-page-${page.id}`}
+              >
+                {page.title}
+              </h3>
+              <p className="mt-[0.42rem] mb-0 text-[clamp(0.58rem,0.72vw,0.68rem)] leading-[1.42] text-[var(--passport-charcoal-soft)]">
+                {page.summary}
+              </p>
+              <dl className="mt-[0.62rem] mb-0 border-t border-[var(--passport-line)]">
                 {page.stats.map((fact) => (
-                  <div key={fact.label}>
-                    <dt>{fact.label}</dt>
-                    <dd>{fact.value}</dd>
+                  <div
+                    className="grid grid-cols-[0.8fr_1.2fr] gap-[0.55rem] border-b border-[var(--passport-line)] py-[0.38rem]"
+                    key={fact.label}
+                  >
+                    <dt className="text-[0.5rem] tracking-[0.05em] text-[var(--passport-charcoal-soft)] uppercase">
+                      {fact.label}
+                    </dt>
+                    <dd className="m-0 text-right text-[0.57rem] leading-[1.35] font-[680]">
+                      {fact.value}
+                    </dd>
                   </div>
                 ))}
               </dl>
@@ -196,19 +193,22 @@ export const PassportCarousel: React.FC<PassportCarouselProps> = ({
         ))}
       </Swiper>
 
-      <div className="passport-carousel__controls">
+      <div className="absolute right-[0.45rem] bottom-0 left-[0.45rem] z-[5] grid min-h-11 grid-cols-[2.8rem_1fr_2.8rem] items-center border-t border-[var(--passport-line)] bg-[var(--passport-paper)]">
         <button
           type="button"
           onClick={goToPreviousPage}
           disabled={!interactive || activeIndex === 0}
           aria-label="Previous passport page"
-          className="passport-carousel__arrow"
+          className="grid size-11 place-items-center border-0 bg-transparent text-[var(--passport-charcoal)] disabled:cursor-default disabled:text-[var(--passport-line-strong)] [&_svg]:w-[1.15rem] [&_svg]:fill-none [&_svg]:stroke-current [&_svg]:stroke-[1.55] [&_svg]:[stroke-linecap:round] [&_svg]:[stroke-linejoin:round]"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m15 6-6 6 6 6" />
           </svg>
         </button>
-        <span aria-live="polite" className="passport-carousel__page-name">
+        <span
+          aria-live="polite"
+          className="overflow-hidden text-center text-[0.51rem] font-[680] tracking-[0.04em] text-ellipsis whitespace-nowrap text-[var(--passport-charcoal-soft)] uppercase"
+        >
           {passport.pages[activeIndex]?.label}
         </span>
         <button
@@ -218,7 +218,7 @@ export const PassportCarousel: React.FC<PassportCarouselProps> = ({
             !interactive || activeIndex === passport.pages.length - 1
           }
           aria-label="Next passport page"
-          className="passport-carousel__arrow"
+          className="grid size-11 place-items-center border-0 bg-transparent text-[var(--passport-charcoal)] disabled:cursor-default disabled:text-[var(--passport-line-strong)] [&_svg]:w-[1.15rem] [&_svg]:fill-none [&_svg]:stroke-current [&_svg]:stroke-[1.55] [&_svg]:[stroke-linecap:round] [&_svg]:[stroke-linejoin:round]"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m9 6 6 6-6 6" />
